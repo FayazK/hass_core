@@ -1,0 +1,7 @@
+get_addons:
+  fields:
+    include_repositories:
+      required: false
+      default: false
+      selector:
+        boolean:
