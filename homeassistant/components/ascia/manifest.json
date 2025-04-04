@@ -3,7 +3,7 @@
   "name": "ASCIA Integration",
   "codeowners": ["@fayazk"],
   "config_flow": true,
-  "dependencies": [],
+  "dependencies": ["hassio"],
   "documentation": "https://www.home-assistant.io/integrations/ascia",
   "integration_type": "hub",
   "iot_class": "local_polling",
