@@ -225,7 +225,7 @@ aiodiscover==2.6.1
 aiodns==3.2.0
 
 # homeassistant.components.duke_energy
-aiodukeenergy==0.3.0
+aiodukeenergy==0.2.2
 
 # homeassistant.components.eafm
 aioeafm==0.1.2
@@ -267,6 +267,7 @@ aiohasupervisor==0.3.0
 aiohomeconnect==0.16.3
 
 # homeassistant.components.homekit_controller
+aiohomekit==3.2.13
 aiohomekit==3.2.13
 
 # homeassistant.components.mcp_server

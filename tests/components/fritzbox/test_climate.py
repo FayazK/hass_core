@@ -36,8 +36,26 @@ from homeassistant.components.fritzbox.const import (
     ATTR_STATE_SUMMER_MODE,
     DOMAIN as FB_DOMAIN,
 )
+<<<<<<< HEAD
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.const import ATTR_ENTITY_ID, ATTR_TEMPERATURE, CONF_DEVICES, Platform
+=======
+from homeassistant.components.sensor import (
+    ATTR_STATE_CLASS,
+    DOMAIN as SENSOR_DOMAIN,
+    SensorStateClass,
+)
+from homeassistant.const import (
+    ATTR_BATTERY_LEVEL,
+    ATTR_ENTITY_ID,
+    ATTR_FRIENDLY_NAME,
+    ATTR_TEMPERATURE,
+    ATTR_UNIT_OF_MEASUREMENT,
+    CONF_DEVICES,
+    PERCENTAGE,
+    UnitOfTemperature,
+)
+>>>>>>> 2025.4.0
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import entity_registry as er
@@ -69,7 +87,113 @@ async def test_setup(
             hass, MOCK_CONFIG[FB_DOMAIN][CONF_DEVICES][0], ENTITY_ID, device, fritz
         )
 
+<<<<<<< HEAD
     await snapshot_platform(hass, entity_registry, snapshot, entry.entry_id)
+=======
+    state = hass.states.get(ENTITY_ID)
+    assert state
+    assert state.attributes[ATTR_BATTERY_LEVEL] == 23
+    assert state.attributes[ATTR_CURRENT_TEMPERATURE] == 18
+    assert state.attributes[ATTR_FRIENDLY_NAME] == CONF_FAKE_NAME
+    assert state.attributes[ATTR_HVAC_MODES] == [HVACMode.HEAT, HVACMode.OFF]
+    assert state.attributes[ATTR_MAX_TEMP] == 28
+    assert state.attributes[ATTR_MIN_TEMP] == 8
+    assert state.attributes[ATTR_PRESET_MODE] is None
+    assert state.attributes[ATTR_PRESET_MODES] == [
+        PRESET_ECO,
+        PRESET_COMFORT,
+        PRESET_BOOST,
+    ]
+    assert state.attributes[ATTR_STATE_BATTERY_LOW] is True
+    assert state.attributes[ATTR_STATE_HOLIDAY_MODE] is False
+    assert state.attributes[ATTR_STATE_SUMMER_MODE] is False
+    assert state.attributes[ATTR_STATE_WINDOW_OPEN] == "fake_window"
+    assert state.attributes[ATTR_TEMPERATURE] == 19.5
+    assert ATTR_STATE_CLASS not in state.attributes
+    assert state.state == HVACMode.HEAT
+
+    state = hass.states.get(f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_battery")
+    assert state
+    assert state.state == "23"
+    assert state.attributes[ATTR_FRIENDLY_NAME] == f"{CONF_FAKE_NAME} Battery"
+    assert state.attributes[ATTR_UNIT_OF_MEASUREMENT] == PERCENTAGE
+    assert state.attributes[ATTR_STATE_CLASS] is SensorStateClass.MEASUREMENT
+
+    state = hass.states.get(f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_comfort_temperature")
+    assert state
+    assert state.state == "22.0"
+    assert (
+        state.attributes[ATTR_FRIENDLY_NAME] == f"{CONF_FAKE_NAME} Comfort temperature"
+    )
+    assert state.attributes[ATTR_UNIT_OF_MEASUREMENT] == UnitOfTemperature.CELSIUS
+    assert ATTR_STATE_CLASS not in state.attributes
+
+    state = hass.states.get(f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_eco_temperature")
+    assert state
+    assert state.state == "16.0"
+    assert state.attributes[ATTR_FRIENDLY_NAME] == f"{CONF_FAKE_NAME} Eco temperature"
+    assert state.attributes[ATTR_UNIT_OF_MEASUREMENT] == UnitOfTemperature.CELSIUS
+    assert ATTR_STATE_CLASS not in state.attributes
+
+    state = hass.states.get(
+        f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_next_scheduled_temperature"
+    )
+    assert state
+    assert state.state == "22.0"
+    assert (
+        state.attributes[ATTR_FRIENDLY_NAME]
+        == f"{CONF_FAKE_NAME} Next scheduled temperature"
+    )
+    assert state.attributes[ATTR_UNIT_OF_MEASUREMENT] == UnitOfTemperature.CELSIUS
+    assert ATTR_STATE_CLASS not in state.attributes
+
+    state = hass.states.get(
+        f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_next_scheduled_change_time"
+    )
+    assert state
+    assert state.state == "2024-09-20T18:00:00+00:00"
+    assert (
+        state.attributes[ATTR_FRIENDLY_NAME]
+        == f"{CONF_FAKE_NAME} Next scheduled change time"
+    )
+    assert ATTR_STATE_CLASS not in state.attributes
+
+    state = hass.states.get(f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_next_scheduled_preset")
+    assert state
+    assert state.state == PRESET_COMFORT
+    assert (
+        state.attributes[ATTR_FRIENDLY_NAME]
+        == f"{CONF_FAKE_NAME} Next scheduled preset"
+    )
+    assert ATTR_STATE_CLASS not in state.attributes
+
+    state = hass.states.get(
+        f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_current_scheduled_preset"
+    )
+    assert state
+    assert state.state == PRESET_ECO
+    assert (
+        state.attributes[ATTR_FRIENDLY_NAME]
+        == f"{CONF_FAKE_NAME} Current scheduled preset"
+    )
+    assert ATTR_STATE_CLASS not in state.attributes
+
+    device.nextchange_temperature = 16
+
+    next_update = dt_util.utcnow() + timedelta(seconds=200)
+    async_fire_time_changed(hass, next_update)
+    await hass.async_block_till_done(wait_background_tasks=True)
+
+    state = hass.states.get(f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_next_scheduled_preset")
+    assert state
+    assert state.state == PRESET_ECO
+
+    state = hass.states.get(
+        f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_current_scheduled_preset"
+    )
+    assert state
+    assert state.state == PRESET_COMFORT
+>>>>>>> 2025.4.0
 
 
 async def test_hkr_wo_temperature_sensor(hass: HomeAssistant, fritz: Mock) -> None:
@@ -341,7 +465,11 @@ async def test_set_preset_mode_boost(
 ) -> None:
     """Test setting preset mode."""
     device = FritzDeviceClimateMock()
+<<<<<<< HEAD
     await setup_config_entry(
+=======
+    assert await setup_config_entry(
+>>>>>>> 2025.4.0
         hass, MOCK_CONFIG[FB_DOMAIN][CONF_DEVICES][0], ENTITY_ID, device, fritz
     )
 
@@ -360,7 +488,11 @@ async def test_preset_mode_update(hass: HomeAssistant, fritz: Mock) -> None:
     device = FritzDeviceClimateMock()
     device.comfort_temperature = 23
     device.eco_temperature = 20
+<<<<<<< HEAD
     await setup_config_entry(
+=======
+    assert await setup_config_entry(
+>>>>>>> 2025.4.0
         hass, MOCK_CONFIG[FB_DOMAIN][CONF_DEVICES][0], ENTITY_ID, device, fritz
     )
 
