@@ -2,7 +2,7 @@
   "domain": "asciahomesense",
   "name": "AsciaHomeSense",
   "version": "1.0.0",
-  "config_flow": true,
   "documentation": "URL_TO_YOUR_DOCS",
-  "iot_class": "local_push"
+  "iot_class": "local_polling",
+  "codeowners": ["@fayazk"]
 }
