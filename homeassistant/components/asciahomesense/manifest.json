@@ -4,5 +4,6 @@
   "version": "1.0.0",
   "documentation": "URL_TO_YOUR_DOCS",
   "iot_class": "local_polling",
-  "codeowners": ["@fayazk"]
+  "codeowners": ["@fayazk"],
+  "dependencies": ["hassio"]
 }

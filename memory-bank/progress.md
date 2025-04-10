@@ -8,6 +8,7 @@ YYYY-MM-DD HH:MM:SS - Log of updates made.
 ## Completed Tasks
 
 *   
+*   [2025-04-10 17:16:00] - Fixed thread-safety issue in asciahomesense addon installation scheduling (core_samba).\n
 
 ## Current Tasks
 

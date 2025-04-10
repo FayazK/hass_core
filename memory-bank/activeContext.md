@@ -16,6 +16,7 @@ YYYY-MM-DD HH:MM:SS - Log of updates made.
 ## Recent Changes
 
 *   
+*   [2025-04-10 17:16:00] - Refactored addon installation scheduling in asciahomesense/__init__.py to use hass.async_create_task for thread safety, targeting core_samba.\n
 
 ## Open Questions/Issues
 
