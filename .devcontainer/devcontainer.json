@@ -5,9 +5,7 @@
   "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && script/setup",
   "postStartCommand": "script/bootstrap",
   "containerEnv": {
-    "PYTHONASYNCIODEBUG": "1",
-    "SUPERVISOR": "${localEnv:SUPERVISOR}",
-    "SUPERVISOR_TOKEN": "${localEnv:SUPERVISOR_TOKEN}"
+    "PYTHONASYNCIODEBUG": "1"
   },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
