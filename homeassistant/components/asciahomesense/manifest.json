@@ -1,0 +1,10 @@
+{
+  "domain": "asciahomesense",
+  "name": "AsciaHomeSense",
+  "version": "1.0.0",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@your-github-username"],
+  "config_flow": true,
+  "documentation": "https://www.example.com"
+}
