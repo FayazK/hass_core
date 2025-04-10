@@ -2,8 +2,7 @@ import logging
 
 import voluptuous as vol
 
-from homeassistant import config_entries, exceptions
-from homeassistant.core import HomeAssistant
+from homeassistant import config_entries
 
 from .const import DOMAIN  # Import the domain constant
 
@@ -28,11 +27,12 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         # Show the form to the user
         return self.async_show_form(
-            step_id="user", data_schema=vol.Schema({vol.Required("host"): str}), errors=errors
+            step_id="user",
+            data_schema=vol.Schema({vol.Required("host"): str}),
+            errors=errors,
         )
 
     async def async_step_import(self, user_input):
         """Handle import from config file."""
         # This implementation is optional but useful for YAML based config
         return await self.async_step_user(user_input)
-
