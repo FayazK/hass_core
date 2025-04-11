@@ -5,7 +5,7 @@ import logging
 from aiohasupervisor import SupervisorError
 import voluptuous as vol
 
-from homeassistant.components.hassio.addon_manager import AddonError, AddonManager
+from homeassistant.components.hassio.addon_manager import AddonError, AddonManager as HassioAddonManager
 from homeassistant.components.hassio.coordinator import get_addons_info
 from homeassistant.components.hassio.handler import (
     HassioAPIError,
@@ -27,116 +27,169 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 
-async def _async_install_addon(hass: HomeAssistant, addon_slug: str):
-    """Install the addon using the Supervisor API."""
-    _LOGGER.info("Attempting to install addon '%s' via Supervisor API", addon_slug)
 
-    # Check if Supervisor is available using the helper function
-    if not is_hassio(hass):
-        _LOGGER.warning(
-            "Supervisor integration not detected. Skipping addon installation for '%s'.",
+class AsciaAddonManager:
+    """Manages addon installation for the AsciaHomeSense component."""
+
+    def __init__(self, hass: HomeAssistant):
+        """Initialize the addon manager."""
+        self.hass = hass
+        self._supervisor_client = None  # Lazy load supervisor client
+
+    @property
+    def supervisor_client(self):
+        """Return the supervisor client, initializing if needed."""
+        if self._supervisor_client is None and is_hassio(self.hass):
+            self._supervisor_client = get_supervisor_client(self.hass)
+        return self._supervisor_client
+
+    def _is_addon_installed(self, addon_slug: str) -> bool:
+        """Check if the addon is already installed."""
+        addons_info = get_addons_info(self.hass)
+        if addons_info and addon_slug in addons_info:
+            _LOGGER.info(
+                "Addon '%s' is already installed, skipping installation.", addon_slug
+            )
+            return True
+        return False
+
+    async def async_install_addon(self, addon_slug: str) -> bool:
+        """Install the addon using the Supervisor API via HassioAddonManager."""
+        _LOGGER.info("Attempting to install addon '%s' via Supervisor API", addon_slug)
+
+        if not is_hassio(self.hass):
+            _LOGGER.warning(
+                "Supervisor integration not detected. Skipping addon installation for '%s'.",
+                addon_slug,
+            )
+            return False
+
+        if self._is_addon_installed(addon_slug):
+            return True
+
+        try:
+            # Use the renamed HassioAddonManager
+            addon_manager = HassioAddonManager(
+                self.hass,
+                _LOGGER,
+                addon_name=addon_slug,  # Using slug as name for simplicity
+                addon_slug=addon_slug,
+            )
+            _LOGGER.debug("Using HassioAddonManager to install '%s'", addon_slug)
+            await addon_manager.async_install_addon()
+            _LOGGER.info(
+                "Successfully initiated installation for addon '%s' via Supervisor API",
+                addon_slug,
+            )
+            return True
+        except AddonError as e:
+            _LOGGER.error(
+                "Failed to install addon '%s' via Supervisor API: %s", addon_slug, e
+            )
+            return False
+        except HassioAPIError as e:
+            _LOGGER.error(
+                "Hassio API error during installation of addon '%s': %s", addon_slug, e
+            )
+            return False
+        except SupervisorError as e:
+            _LOGGER.error(
+                "Supervisor error during installation of addon '%s': %s", addon_slug, e
+            )
+            return False
+        except Exception as e:
+            _LOGGER.exception(
+                "Unexpected error during installation of addon '%s': %s", addon_slug, e
+            )
+            return False
+
+    async def async_install_addon_alternative(self, addon_slug: str) -> bool:
+        """Alternative method using the Supervisor client directly."""
+        _LOGGER.info("Attempting to install addon '%s' via Supervisor client", addon_slug)
+
+        if not is_hassio(self.hass):
+            _LOGGER.warning(
+                "Supervisor integration not detected. Skipping addon installation for '%s'.",
+                addon_slug,
+            )
+            return False
+
+        if self._is_addon_installed(addon_slug):
+            return True
+
+        if not self.supervisor_client:
+             _LOGGER.error("Could not get Supervisor client for alternative installation.")
+             return False
+
+        try:
+            _LOGGER.debug("Using Supervisor client directly to install '%s'", addon_slug)
+            await self.supervisor_client.store.install_addon(addon_slug)
+            _LOGGER.info(
+                "Successfully initiated installation for addon '%s' via Supervisor client",
+                addon_slug,
+            )
+            return True
+        except HassioAPIError as e:
+            _LOGGER.error(
+                "Hassio API error during alternative installation of addon '%s': %s", addon_slug, e
+            )
+            return False
+        except SupervisorError as e:
+            _LOGGER.error(
+                "Supervisor error during alternative installation of addon '%s': %s", addon_slug, e
+            )
+            return False
+        except Exception as e:
+            _LOGGER.exception(
+                "Unexpected error during alternative installation of addon '%s': %s", addon_slug, e
+            )
+            return False
+    def _list_installed_addons(self):
+        """List all installed addons and log them."""
+        _LOGGER.info("Listing all installed add-ons")
+        addons_info = get_addons_info(self.hass)
+
+        if addons_info:
+            addon_list = []
+            for addon_slug, addon_data in addons_info.items():
+                addon_name = addon_data.get("name", addon_slug)
+                addon_version = addon_data.get("version", "unknown")
+                addon_state = addon_data.get("state", "unknown")
+                addon_list.append(
+                    f"{addon_name} ({addon_slug}, v{addon_version}, {addon_state})"
+                )
+            _LOGGER.info(
+                "Installed add-ons (%s): %s", len(addon_list), ", ".join(addon_list)
+            )
+        else:
+            _LOGGER.info("No add-ons information available or Supervisor not detected")
+        
+    async def _async_check_and_install_addon_on_start(self, event):
+        """Check for and install the required addon after HA starts."""
+        # Note: 'event' parameter is kept as it's passed by the listener, even if not used directly here.
+        addon_slug = "core_samba" # Assuming this is the target addon
+        _LOGGER.info(
+            "Home Assistant started, checking addon installation requirement for '%s'.",
             addon_slug,
         )
-        return False
 
-    # Check if addon is already installed
-    addons_info = get_addons_info(hass)
-    if addons_info and addon_slug in addons_info:
-        _LOGGER.info(
-            "Addon '%s' is already installed, skipping installation.", addon_slug
-        )
-        return True
+        # Attempt installation using the primary method
+        # No need to instantiate addon_manager here, use self
+        success = await self.async_install_addon(addon_slug)
 
-    try:
-        # Create an AddonManager instance for this addon
-        addon_manager = AddonManager(
-            hass,
-            _LOGGER,
-            addon_name=addon_slug,  # Using slug as name for simplicity
-            addon_slug=addon_slug,
-        )
-
-        # Install the addon
-        _LOGGER.debug("Using AddonManager to install '%s'", addon_slug)
-        await addon_manager.async_install_addon()
-
-        _LOGGER.info(
-            "Successfully initiated installation for addon '%s' via Supervisor API",
-            addon_slug,
-        )
-        # Note: Installation happens in the background. This confirms the API call succeeded.
-        return True
-
-    except AddonError as e:
-        _LOGGER.error(
-            "Failed to install addon '%s' via Supervisor API: %s", addon_slug, e
-        )
-        return False
-    except HassioAPIError as e:
-        _LOGGER.error(
-            "Hassio API error during installation of addon '%s': %s", addon_slug, e
-        )
-        return False
-    except SupervisorError as e:
-        _LOGGER.error(
-            "Supervisor error during installation of addon '%s': %s", addon_slug, e
-        )
-        return False
-    except Exception as e:
-        _LOGGER.exception(
-            "Unexpected error during installation of addon '%s': %s", addon_slug, e
-        )
-        return False
+        # If primary method fails, try the alternative method
+        if not success:
+            _LOGGER.info(
+                "Primary installation method failed, trying alternative method for '%s'",
+                addon_slug,
+            )
+            await self.async_install_addon_alternative(addon_slug)
 
 
-async def _async_install_addon_alternative(hass: HomeAssistant, addon_slug: str):
-    """Alternative method to install the addon using the Supervisor client directly."""
-    _LOGGER.info("Attempting to install addon '%s' via Supervisor client", addon_slug)
 
-    # Check if Supervisor is available using the helper function
-    if not is_hassio(hass):
-        _LOGGER.warning(
-            "Supervisor integration not detected. Skipping addon installation for '%s'.",
-            addon_slug,
-        )
-        return False
+# Removed _async_install_addon and _async_install_addon_alternative functions.
+# Their logic is now encapsulated in the AsciaAddonManager class below (to be inserted).
 
-    # Check if addon is already installed
-    addons_info = get_addons_info(hass)
-    if addons_info and addon_slug in addons_info:
-        _LOGGER.info(
-            "Addon '%s' is already installed, skipping installation.", addon_slug
-        )
-        return True
-
-    try:
-        # Get the supervisor client
-        supervisor_client = get_supervisor_client(hass)
-
-        # Install the addon using the store API
-        _LOGGER.debug("Using Supervisor client to install '%s'", addon_slug)
-        await supervisor_client.store.install_addon(addon_slug)
-
-        _LOGGER.info(
-            "Successfully initiated installation for addon '%s' via Supervisor client",
-            addon_slug,
-        )
-        return True
-    except HassioAPIError as e:
-        _LOGGER.error(
-            "Hassio API error during installation of addon '%s': %s", addon_slug, e
-        )
-        return False
-    except SupervisorError as e:
-        _LOGGER.error(
-            "Supervisor error during installation of addon '%s': %s", addon_slug, e
-        )
-        return False
-    except Exception as e:
-        _LOGGER.exception(
-            "Unexpected error during installation of addon '%s': %s", addon_slug, e
-        )
-        return False
 
 
 # _delayed_install_task removed as installation is now triggered by EVENT_HOMEASSISTANT_STARTED
@@ -160,51 +213,13 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     # await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     # --- End Placeholder ---
 
-    # List all installed add-ons
-    _LOGGER.info("Listing all installed add-ons")
+    # Instantiate the addon manager
+    addon_manager = AsciaAddonManager(hass)
 
-    # Get the dictionary of installed add-ons
-    addons_info = get_addons_info(hass)
-
-    if addons_info:
-        # Extract add-on names and slugs
-        addon_list = []
-        for addon_slug, addon_data in addons_info.items():
-            addon_name = addon_data.get("name", addon_slug)
-            addon_version = addon_data.get("version", "unknown")
-            addon_state = addon_data.get("state", "unknown")
-            addon_list.append(
-                f"{addon_name} ({addon_slug}, v{addon_version}, {addon_state})"
-            )
-
-        # Log the list of add-ons
-        _LOGGER.info(
-            "Installed add-ons (%s): %s", len(addon_list), ", ".join(addon_list)
-        )
-    else:
-        _LOGGER.info("No add-ons information available or Supervisor not detected")
-
+    # List installed addons using the manager
+    addon_manager._list_installed_addons()
     # --- Addon Installation Logic ---
-    async def _async_check_and_install_addon_on_start(event):
-        """Check for and install the required addon after HA starts."""
-        addon_slug = "core_samba"
-        _LOGGER.info(
-            "Home Assistant started, checking addon installation requirement for '%s'.",
-            addon_slug,
-        )
-
-        # Attempt installation using the primary method (AddonManager)
-        # The method already checks if the addon is installed
-        success = await _async_install_addon(hass, addon_slug)
-
-        # If primary method fails, try the alternative method
-        if not success:
-            _LOGGER.info(
-                "Primary installation method failed, trying alternative method for '%s'",
-                addon_slug,
-            )
-            await _async_install_addon_alternative(hass, addon_slug)
-
+    # _async_check_and_install_addon_on_start moved into AsciaAddonManager class
     # Listen for Home Assistant started event to trigger the check
     addon_slug = "core_samba"
 
@@ -215,7 +230,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             addon_slug,
         )
         hass.bus.async_listen_once(
-            EVENT_HOMEASSISTANT_STARTED, _async_check_and_install_addon_on_start
+            EVENT_HOMEASSISTANT_STARTED, addon_manager._async_check_and_install_addon_on_start
         )
         _LOGGER.info(
             "Scheduled addon '%s' installation check upon Home Assistant start.",
