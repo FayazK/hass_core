@@ -1,23 +1,19 @@
 """The AsciaHomeSense integration."""
 import logging
-import asyncio
 
-import voluptuous as vol
 from aiohasupervisor import SupervisorError
+import voluptuous as vol
 
-from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import HomeAssistantError
-from homeassistant.components.hassio.handler import HassioAPIError, get_supervisor_client
-from homeassistant.components.hassio.addon_manager import AddonManager, AddonError
-
-from homeassistant.helpers.typing import ConfigType
-import homeassistant.helpers.config_validation as cv
+from homeassistant.components.hassio.addon_manager import AddonError, AddonManager
 from homeassistant.components.hassio.coordinator import get_addons_info
-from homeassistant.components.hassio.const import DATA_COMPONENT
-
+from homeassistant.components.hassio.handler import (
+    HassioAPIError,
+    get_supervisor_client,
+)
 from homeassistant.const import EVENT_HOMEASSISTANT_STARTED
-from homeassistant.helpers import event as event_helper
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers.hassio import is_hassio
+from homeassistant.helpers.typing import ConfigType
 
 from .const import DOMAIN
 
@@ -32,18 +28,18 @@ CONFIG_SCHEMA = vol.Schema(
 async def _async_install_addon(hass: HomeAssistant, addon_slug: str):
     """Install the addon using the Supervisor API."""
     _LOGGER.info("Attempting to install addon '%s' via Supervisor API", addon_slug)
-    
+
     # Check if Supervisor is available using the helper function
     if not is_hassio(hass):
         _LOGGER.warning("Supervisor integration not detected. Skipping addon installation for '%s'.", addon_slug)
         return False
-    
+
     # Check if addon is already installed
     addons_info = get_addons_info(hass)
     if addons_info and addon_slug in addons_info:
         _LOGGER.info("Addon '%s' is already installed, skipping installation.", addon_slug)
         return True
-    
+
     try:
         # Create an AddonManager instance for this addon
         addon_manager = AddonManager(
@@ -52,14 +48,15 @@ async def _async_install_addon(hass: HomeAssistant, addon_slug: str):
             addon_name=addon_slug,  # Using slug as name for simplicity
             addon_slug=addon_slug
         )
-        
+
         # Install the addon
         _LOGGER.debug("Using AddonManager to install '%s'", addon_slug)
         await addon_manager.async_install_addon()
-        
+
         _LOGGER.info("Successfully initiated installation for addon '%s' via Supervisor API", addon_slug)
         # Note: Installation happens in the background. This confirms the API call succeeded.
         return True
+
     except AddonError as e:
         _LOGGER.error("Failed to install addon '%s' via Supervisor API: %s", addon_slug, e)
         return False
@@ -78,26 +75,26 @@ async def _async_install_addon(hass: HomeAssistant, addon_slug: str):
 async def _async_install_addon_alternative(hass: HomeAssistant, addon_slug: str):
     """Alternative method to install the addon using the Supervisor client directly."""
     _LOGGER.info("Attempting to install addon '%s' via Supervisor client", addon_slug)
-    
+
     # Check if Supervisor is available using the helper function
     if not is_hassio(hass):
         _LOGGER.warning("Supervisor integration not detected. Skipping addon installation for '%s'.", addon_slug)
         return False
-    
+
     # Check if addon is already installed
     addons_info = get_addons_info(hass)
     if addons_info and addon_slug in addons_info:
         _LOGGER.info("Addon '%s' is already installed, skipping installation.", addon_slug)
         return True
-    
+
     try:
         # Get the supervisor client
         supervisor_client = get_supervisor_client(hass)
-        
+
         # Install the addon using the store API
         _LOGGER.debug("Using Supervisor client to install '%s'", addon_slug)
         await supervisor_client.store.install_addon(addon_slug)
-        
+
         _LOGGER.info("Successfully initiated installation for addon '%s' via Supervisor client", addon_slug)
         return True
     except HassioAPIError as e:
@@ -134,10 +131,10 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     # List all installed add-ons
     _LOGGER.info("Listing all installed add-ons")
-    
+
     # Get the dictionary of installed add-ons
     addons_info = get_addons_info(hass)
-    
+
     if addons_info:
         # Extract add-on names and slugs
         addon_list = []
@@ -146,7 +143,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             addon_version = addon_data.get("version", "unknown")
             addon_state = addon_data.get("state", "unknown")
             addon_list.append(f"{addon_name} ({addon_slug}, v{addon_version}, {addon_state})")
-        
+
         # Log the list of add-ons
         _LOGGER.info("Installed add-ons (%s): %s",
                     len(addon_list),
@@ -160,11 +157,11 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         """Check for and install the required addon after HA starts."""
         addon_slug = "core_samba"
         _LOGGER.info("Home Assistant started, checking addon installation requirement for '%s'.", addon_slug)
-        
+
         # Attempt installation using the primary method (AddonManager)
         # The method already checks if the addon is installed
         success = await _async_install_addon(hass, addon_slug)
-        
+
         # If primary method fails, try the alternative method
         if not success:
             _LOGGER.info("Primary installation method failed, trying alternative method for '%s'", addon_slug)
@@ -172,7 +169,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     # Listen for Home Assistant started event to trigger the check
     addon_slug = "core_samba"
-    
+
     # Check if Supervisor integration is available using the helper function
     if is_hassio(hass):
         _LOGGER.info("Supervisor integration detected. Scheduling '%s' addon installation check.", addon_slug)
