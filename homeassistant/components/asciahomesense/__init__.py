@@ -5,7 +5,10 @@ import logging
 from aiohasupervisor import SupervisorError
 import voluptuous as vol
 
-from homeassistant.components.hassio.addon_manager import AddonError, AddonManager as HassioAddonManager
+from homeassistant.components.hassio.addon_manager import (
+    AddonError,
+    AddonManager as HassioAddonManager,
+)
 from homeassistant.components.hassio.coordinator import get_addons_info
 from homeassistant.components.hassio.handler import (
     HassioAPIError,
@@ -144,6 +147,7 @@ class AsciaAddonManager:
                 "Unexpected error during alternative installation of addon '%s': %s", addon_slug, e
             )
             return False
+
     def _list_installed_addons(self):
         """List all installed addons and log them."""
         _LOGGER.info("Listing all installed add-ons")
@@ -163,7 +167,7 @@ class AsciaAddonManager:
             )
         else:
             _LOGGER.info("No add-ons information available or Supervisor not detected")
-        
+
     async def _async_check_and_install_addon_on_start(self, event):
         """Check for and install the required addon after HA starts."""
         # Note: 'event' parameter is kept as it's passed by the listener, even if not used directly here.
@@ -249,11 +253,11 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     return True
 
 
-# Optional: If you need cleanup when Home Assistant stops
-# async def async_unload(hass: HomeAssistant) -> bool:
-#     """Unload the AsciaHomeSense component."""
-#     _LOGGER.info("Unloading AsciaHomeSense integration")
-#     # Perform cleanup here, like closing connections
-#     # Example: await hass.data[DOMAIN]['coordinator'].shutdown()
-#     # hass.data.pop(DOMAIN)
-#     return True
+#Optional: If you need cleanup when Home Assistant stops
+async def async_unload(hass: HomeAssistant) -> bool:
+    """Unload the AsciaHomeSense component."""
+    _LOGGER.info("Unloading AsciaHomeSense integration")
+    # Perform cleanup here, like closing connections
+    # Example: await hass.data[DOMAIN]['coordinator'].shutdown()
+    # hass.data.pop(DOMAIN)
+    return True
