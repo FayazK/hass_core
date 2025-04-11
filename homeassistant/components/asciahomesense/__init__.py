@@ -169,25 +169,35 @@ class AsciaAddonManager:
             _LOGGER.info("No add-ons information available or Supervisor not detected")
 
     async def _async_check_and_install_addon_on_start(self, event):
-        """Check for and install the required addon after HA starts."""
-        # Note: 'event' parameter is kept as it's passed by the listener, even if not used directly here.
-        addon_slug = "core_samba" # Assuming this is the target addon
+        """Check for and install required addons after HA starts."""
+        # Note: 'event' parameter is kept as it's passed by the listener.
         _LOGGER.info(
-            "Home Assistant started, checking addon installation requirement for '%s'.",
-            addon_slug,
+            "Home Assistant started, checking required addon installations."
         )
 
-        # Attempt installation using the primary method
-        # No need to instantiate addon_manager here, use self
-        success = await self.async_install_addon(addon_slug)
+        addons_to_install = [
+            {"slug": "core_mosquitto", "name": "Mosquitto Broker", "options": {"log_level": "info"}},
+            {"slug": "d5369777_music_assistant", "name": "Music Assistant Server", "options": {}},
+            {"slug": "core_ssh", "name": "Terminal & SSH", "options": {}},
+            {"slug": "a0d7b954_tailscale", "name": "Tailscale", "options": {}},
+            {"slug": "core_samba", "name": "Samba share", "options": {}},
+        ]
 
-        # If primary method fails, try the alternative method
-        if not success:
-            _LOGGER.info(
-                "Primary installation method failed, trying alternative method for '%s'",
-                addon_slug,
-            )
-            await self.async_install_addon_alternative(addon_slug)
+        for addon_info in addons_to_install:
+            addon_slug = addon_info["slug"]
+            addon_name = addon_info["name"] # Name and options currently unused, but kept for potential future use
+            _LOGGER.info("Checking installation requirement for addon '%s' (%s)", addon_name, addon_slug)
+
+            # Attempt installation using the primary method
+            success = await self.async_install_addon(addon_slug)
+
+            # If primary method fails, try the alternative method
+            if not success:
+                _LOGGER.info(
+                    "Primary installation method failed, trying alternative method for '%s'",
+                    addon_slug,
+                )
+                await self.async_install_addon_alternative(addon_slug)
 
 
 
@@ -224,26 +234,22 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     addon_manager._list_installed_addons()
     # --- Addon Installation Logic ---
     # _async_check_and_install_addon_on_start moved into AsciaAddonManager class
-    # Listen for Home Assistant started event to trigger the check
-    addon_slug = "core_samba"
+    # Listen for Home Assistant started event to trigger the check for multiple addons
 
     # Check if Supervisor integration is available using the helper function
     if is_hassio(hass):
         _LOGGER.info(
-            "Supervisor integration detected. Scheduling '%s' addon installation check.",
-            addon_slug,
+            "Supervisor integration detected. Scheduling required addon installation check."
         )
         hass.bus.async_listen_once(
             EVENT_HOMEASSISTANT_STARTED, addon_manager._async_check_and_install_addon_on_start
         )
         _LOGGER.info(
-            "Scheduled addon '%s' installation check upon Home Assistant start.",
-            addon_slug,
+            "Scheduled required addon installation check upon Home Assistant start."
         )
     else:
         _LOGGER.warning(
-            "Supervisor integration not available. Addon '%s' installation will be skipped.",
-            addon_slug,
+            "Supervisor integration not available. Addon installation will be skipped."
         )
     # --- End Addon Installation Logic ---
 
