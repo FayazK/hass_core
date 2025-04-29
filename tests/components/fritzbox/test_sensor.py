@@ -51,40 +51,11 @@ async def test_setup(
     """Test setup of sensor platform for different device types."""
     device = device()
 
-<<<<<<< HEAD
     with patch("homeassistant.components.fritzbox.PLATFORMS", [Platform.SENSOR]):
         entry = await setup_config_entry(
             hass, MOCK_CONFIG[FB_DOMAIN][CONF_DEVICES][0], ENTITY_ID, device, fritz
         )
     assert entry.state is ConfigEntryState.LOADED
-=======
-    sensors = (
-        [
-            f"{ENTITY_ID}_temperature",
-            "1.23",
-            f"{CONF_FAKE_NAME} Temperature",
-            UnitOfTemperature.CELSIUS,
-            SensorStateClass.MEASUREMENT,
-            None,
-        ],
-        [
-            f"{ENTITY_ID}_humidity",
-            "42",
-            f"{CONF_FAKE_NAME} Humidity",
-            PERCENTAGE,
-            SensorStateClass.MEASUREMENT,
-            None,
-        ],
-        [
-            f"{ENTITY_ID}_battery",
-            "23",
-            f"{CONF_FAKE_NAME} Battery",
-            PERCENTAGE,
-            SensorStateClass.MEASUREMENT,
-            EntityCategory.DIAGNOSTIC,
-        ],
-    )
->>>>>>> 2025.4.0
 
     await snapshot_platform(hass, entity_registry, snapshot, entry.entry_id)
 

@@ -9,26 +9,8 @@ from syrupy import SnapshotAssertion
 
 from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
 from homeassistant.components.fritzbox.const import DOMAIN as FB_DOMAIN
-<<<<<<< HEAD
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.const import CONF_DEVICES, STATE_UNAVAILABLE, Platform
-=======
-from homeassistant.components.sensor import (
-    ATTR_STATE_CLASS,
-    DOMAIN as SENSOR_DOMAIN,
-    SensorStateClass,
-)
-from homeassistant.const import (
-    ATTR_DEVICE_CLASS,
-    ATTR_FRIENDLY_NAME,
-    ATTR_UNIT_OF_MEASUREMENT,
-    CONF_DEVICES,
-    PERCENTAGE,
-    STATE_OFF,
-    STATE_ON,
-    STATE_UNAVAILABLE,
-)
->>>>>>> 2025.4.0
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
@@ -55,42 +37,7 @@ async def test_setup(
         )
     assert entry.state is ConfigEntryState.LOADED
 
-<<<<<<< HEAD
     await snapshot_platform(hass, entity_registry, snapshot, entry.entry_id)
-=======
-    state = hass.states.get(f"{ENTITY_ID}_alarm")
-    assert state
-    assert state.state == STATE_ON
-    assert state.attributes[ATTR_FRIENDLY_NAME] == f"{CONF_FAKE_NAME} Alarm"
-    assert state.attributes[ATTR_DEVICE_CLASS] == BinarySensorDeviceClass.WINDOW
-    assert ATTR_STATE_CLASS not in state.attributes
-
-    state = hass.states.get(f"{ENTITY_ID}_button_lock_on_device")
-    assert state
-    assert state.state == STATE_OFF
-    assert (
-        state.attributes[ATTR_FRIENDLY_NAME]
-        == f"{CONF_FAKE_NAME} Button lock on device"
-    )
-    assert state.attributes[ATTR_DEVICE_CLASS] == BinarySensorDeviceClass.LOCK
-    assert ATTR_STATE_CLASS not in state.attributes
-
-    state = hass.states.get(f"{ENTITY_ID}_button_lock_via_ui")
-    assert state
-    assert state.state == STATE_OFF
-    assert (
-        state.attributes[ATTR_FRIENDLY_NAME] == f"{CONF_FAKE_NAME} Button lock via UI"
-    )
-    assert state.attributes[ATTR_DEVICE_CLASS] == BinarySensorDeviceClass.LOCK
-    assert ATTR_STATE_CLASS not in state.attributes
-
-    state = hass.states.get(f"{SENSOR_DOMAIN}.{CONF_FAKE_NAME}_battery")
-    assert state
-    assert state.state == "23"
-    assert state.attributes[ATTR_FRIENDLY_NAME] == f"{CONF_FAKE_NAME} Battery"
-    assert state.attributes[ATTR_UNIT_OF_MEASUREMENT] == PERCENTAGE
-    assert state.attributes[ATTR_STATE_CLASS] is SensorStateClass.MEASUREMENT
->>>>>>> 2025.4.0
 
 
 async def test_is_off(hass: HomeAssistant, fritz: Mock) -> None:
