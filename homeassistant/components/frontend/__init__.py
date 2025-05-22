@@ -37,6 +37,10 @@ from homeassistant.util.hass_dict import HassKey
 
 from .storage import async_setup_frontend_storage
 
+# Custom frontend configuration
+CUSTOM_FRONTEND_ENABLED = True
+CUSTOM_FRONTEND_PATH = "custom_static"
+
 DOMAIN = "frontend"
 CONF_THEMES = "themes"
 CONF_THEMES_MODES = "modes"
@@ -361,13 +365,14 @@ def add_manifest_json_key(key: str, val: Any) -> None:
 
 def _frontend_root(dev_repo_path: str | None) -> pathlib.Path:
     """Return root path to the frontend files."""
-    if dev_repo_path is not None:
-        return pathlib.Path(dev_repo_path) / "hass_frontend"
+    #if dev_repo_path is not None:
+    #    return pathlib.Path(dev_repo_path) / "hass_frontend"
     # Keep import here so that we can import frontend without installing reqs
     # pylint: disable-next=import-outside-toplevel
-    import hass_frontend
+    #import hass_frontend
 
-    return hass_frontend.where()
+    #return hass_frontend.where()
+    return pathlib.Path(__file__).parent / "custom_static"
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
