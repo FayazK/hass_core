@@ -18,3 +18,17 @@ venv
 
 # Temporary files
 **/__pycache__
+
+
+.idea
+*.pyo
+*.pyd
+.Python
+.pytest_cache
+.coverage
+.tox
+build/
+dist/
+*.egg-info/
+.DS_Store
+Thumbs.db

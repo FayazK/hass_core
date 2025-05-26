@@ -1,0 +1,115 @@
+# /Users/safwanyusufzai/HomeAssistant/core/Dockerfile.custom
+FROM python:3.13-slim-bullseye
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PYTHONPATH="/usr/src/app:$PYTHONPATH"
+
+# Install system dependencies including updated SQLite and FFmpeg
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    wget \
+    libffi-dev \
+    libssl-dev \
+    libjpeg-dev \
+    zlib1g-dev \
+    autoconf \
+    automake \
+    libtool \
+    pkg-config \
+    libavformat-dev \
+    libavcodec-dev \
+    libavdevice-dev \
+    libavutil-dev \
+    libswscale-dev \
+    libswresample-dev \
+    libavfilter-dev \
+    libturbojpeg0-dev \
+    tzdata \
+    bluez \
+    libcups2-dev \
+    libpcap-dev \
+    git \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install newer SQLite from source (required version 3.40.1+)
+RUN wget https://www.sqlite.org/2024/sqlite-autoconf-3450100.tar.gz && \
+    tar xzf sqlite-autoconf-3450100.tar.gz && \
+    cd sqlite-autoconf-3450100 && \
+    ./configure --prefix=/usr/local && \
+    make && make install && \
+    cd .. && rm -rf sqlite-autoconf-3450100* && \
+    echo "/usr/local/lib" > /etc/ld.so.conf.d/sqlite3.conf && \
+    ldconfig
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy source code first (needed for constraint file)
+COPY . .
+
+# Install uv for faster dependency management
+RUN pip install --no-cache-dir uv
+
+# Install Python dependencies using constraint file
+RUN uv pip install --system --no-cache \
+    --constraint homeassistant/package_constraints.txt \
+    -r requirements_all.txt
+
+# Install Home Assistant in development mode
+RUN uv pip install --system --no-cache \
+    --constraint homeassistant/package_constraints.txt \
+    -e .
+
+# Create config directory with proper permissions
+RUN mkdir -p /config && \
+    mkdir -p /usr/share/hassio
+
+# Create initial Home Assistant configuration
+RUN echo "# Home Assistant Configuration" > /config/configuration.yaml && \
+    echo "default_config:" >> /config/configuration.yaml && \
+    echo "" >> /config/configuration.yaml && \
+    echo "# Disable problematic components for container" >> /config/configuration.yaml && \
+    echo "recorder:" >> /config/configuration.yaml && \
+    echo "  db_url: sqlite:////config/home-assistant_v2.db" >> /config/configuration.yaml && \
+    echo "  auto_purge: true" >> /config/configuration.yaml && \
+    echo "  purge_keep_days: 7" >> /config/configuration.yaml && \
+    echo "" >> /config/configuration.yaml && \
+    echo "logger:" >> /config/configuration.yaml && \
+    echo "  default: info" >> /config/configuration.yaml && \
+    echo "  logs:" >> /config/configuration.yaml && \
+    echo "    homeassistant.components.recorder: warning" >> /config/configuration.yaml
+
+# Copy custom frontend info if it exists
+RUN if [ -f "homeassistant/components/frontend/custom_integration_info.json" ]; then \
+        cp homeassistant/components/frontend/custom_integration_info.json /usr/share/hassio/; \
+    fi
+
+# Create non-root user and fix permissions
+RUN useradd -rm -d /home/homeassistant -s /bin/bash -u 1001 homeassistant && \
+    chown -R homeassistant:homeassistant /usr/src/app /config /usr/share/hassio
+
+# Switch to non-root user
+USER homeassistant
+
+# Expose port
+EXPOSE 8123
+
+# Health check with longer startup time
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10m --retries=3 \
+  CMD curl -f http://localhost:8123 || exit 1
+
+# Labels
+LABEL \
+    org.opencontainers.image.title="Home Assistant Custom Core" \
+    org.opencontainers.image.description="Home Assistant Core with custom frontend and integrations" \
+    org.opencontainers.image.version="2025.5.0-custom" \
+    org.opencontainers.image.source="https://github.com/FayazK/hass_core" \
+    org.opencontainers.image.authors="Custom Build"
+
+# Default command
+CMD ["python", "-m", "homeassistant", "--config", "/config"]
