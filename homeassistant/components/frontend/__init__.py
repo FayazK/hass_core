@@ -41,6 +41,10 @@ from .storage import async_setup_frontend_storage
 CUSTOM_FRONTEND_ENABLED = True
 CUSTOM_FRONTEND_PATH = "custom_static"
 
+# Add custom frontend path
+CUSTOM_FRONTEND_STATIC_PATH = os.path.join(os.path.dirname(__file__), "custom_static")
+
+
 DOMAIN = "frontend"
 CONF_THEMES = "themes"
 CONF_THEMES_MODES = "modes"
@@ -129,6 +133,38 @@ CONFIG_SCHEMA = vol.Schema(
 
 SERVICE_SET_THEME = "set_theme"
 SERVICE_RELOAD_THEMES = "reload_themes"
+
+# Add custom frontend configuration after existing imports
+CUSTOM_FRONTEND_STATIC_PATH = os.path.join(os.path.dirname(__file__), "custom_static")
+
+def setup_custom_frontend_static(app):
+    """Setup serving of custom frontend static files."""
+    from aiohttp import web
+
+    # Serve custom static files with high priority
+    app.router.add_static(
+        "/static",
+        CUSTOM_FRONTEND_STATIC_PATH + "/static",
+        name="custom_static",
+    )
+
+    # Serve custom frontend files
+    app.router.add_static(
+        "/frontend_latest",
+        CUSTOM_FRONTEND_STATIC_PATH + "/frontend_latest",
+        name="custom_frontend_latest",
+    )
+
+    app.router.add_static(
+        "/frontend_es5",
+        CUSTOM_FRONTEND_STATIC_PATH + "/frontend_es5",
+        name="custom_frontend_es5",
+    )
+
+# Find the async_setup function and add custom setup call
+# Look for: async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+# Add after the existing app setup:
+# setup_custom_frontend_static(hass.http.app)
 
 
 class Manifest:
@@ -468,6 +504,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data[DATA_WS_SUBSCRIBERS] = set()
 
     await _async_setup_themes(hass, conf.get(CONF_THEMES))
+
+    setup_custom_frontend_static(hass.http.app)
 
     return True
 
