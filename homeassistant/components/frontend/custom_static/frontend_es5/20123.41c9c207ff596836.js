@@ -1,8 +1,105 @@
-"use strict";(self.webpackChunkhome_assistant_frontend=self.webpackChunkhome_assistant_frontend||[]).push([["20123"],{24730:function(e,i,t){t.a(e,(async function(e,a){try{t.r(i),t.d(i,{HaBackgroundSelector:()=>m});var n=t(61701),s=t(72621),o=(t(71695),t(88044),t(47021),t(57243)),l=t(50778),d=t(36522),r=t(2928),c=(t(99426),t(6343)),h=e([r]);r=(h.then?(await h)():h)[0];let u,v,g,p,f=e=>e,m=(0,n.Z)([(0,l.Mo)("ha-selector-background")],(function(e,i){class t extends i{constructor(...i){super(...i),e(this)}}return{F:t,d:[{kind:"field",decorators:[(0,l.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,l.Cb)()],key:"value",value:void 0},{kind:"field",decorators:[(0,l.Cb)({attribute:!1})],key:"selector",value:void 0},{kind:"field",decorators:[(0,l.Cb)({type:Boolean})],key:"disabled",value(){return!1}},{kind:"field",decorators:[(0,l.Cb)({type:Boolean})],key:"required",value(){return!0}},{kind:"field",decorators:[(0,l.SB)()],key:"yamlBackground",value(){return!1}},{kind:"method",key:"updated",value:function(e){(0,s.Z)(t,"updated",this,3)([e]),e.has("value")&&(this.yamlBackground=!!this.value&&!this.value.startsWith(c.JS))}},{kind:"method",key:"render",value:function(){var e,i,t;return(0,o.dy)(u||(u=f`
+"use strict";
+(self.webpackChunkhome_assistant_frontend =
+  self.webpackChunkhome_assistant_frontend || []).push([
+  ["20123"],
+  {
+    24730: function (e, i, t) {
+      t.a(e, async function (e, a) {
+        try {
+          t.r(i), t.d(i, { HaBackgroundSelector: () => m });
+          var n = t(61701),
+            s = t(72621),
+            o = (t(71695), t(88044), t(47021), t(57243)),
+            l = t(50778),
+            d = t(36522),
+            r = t(2928),
+            c = (t(99426), t(6343)),
+            h = e([r]);
+          r = (h.then ? (await h)() : h)[0];
+          let u,
+            v,
+            g,
+            p,
+            f = (e) => e,
+            m = (0, n.Z)(
+              [(0, l.Mo)("ha-selector-background")],
+              function (e, i) {
+                class t extends i {
+                  constructor(...i) {
+                    super(...i), e(this);
+                  }
+                }
+                return {
+                  F: t,
+                  d: [
+                    {
+                      kind: "field",
+                      decorators: [(0, l.Cb)({ attribute: !1 })],
+                      key: "hass",
+                      value: void 0,
+                    },
+                    {
+                      kind: "field",
+                      decorators: [(0, l.Cb)()],
+                      key: "value",
+                      value: void 0,
+                    },
+                    {
+                      kind: "field",
+                      decorators: [(0, l.Cb)({ attribute: !1 })],
+                      key: "selector",
+                      value: void 0,
+                    },
+                    {
+                      kind: "field",
+                      decorators: [(0, l.Cb)({ type: Boolean })],
+                      key: "disabled",
+                      value() {
+                        return !1;
+                      },
+                    },
+                    {
+                      kind: "field",
+                      decorators: [(0, l.Cb)({ type: Boolean })],
+                      key: "required",
+                      value() {
+                        return !0;
+                      },
+                    },
+                    {
+                      kind: "field",
+                      decorators: [(0, l.SB)()],
+                      key: "yamlBackground",
+                      value() {
+                        return !1;
+                      },
+                    },
+                    {
+                      kind: "method",
+                      key: "updated",
+                      value: function (e) {
+                        (0, s.Z)(t, "updated", this, 3)([e]),
+                          e.has("value") &&
+                            (this.yamlBackground =
+                              !!this.value && !this.value.startsWith(c.JS));
+                      },
+                    },
+                    {
+                      kind: "method",
+                      key: "render",
+                      value: function () {
+                        var e, i, t;
+                        return (0, o.dy)(
+                          u ||
+                            (u = f`
       <div>
         ${0}
       </div>
-    `),this.yamlBackground?(0,o.dy)(v||(v=f`
+    `),
+                          this.yamlBackground
+                            ? (0, o.dy)(
+                                v ||
+                                  (v = f`
               <div class="value">
                 <img src=${0} alt=${0}/>
               </div>
@@ -12,13 +109,327 @@
                   ${0}
                 </ha-button>
               </ha-alert>
-            `),this.value,this.hass.localize("ui.components.picture-upload.current_image_alt"),this.hass.localize("ui.components.selectors.background.yaml_info"),this._clearValue,this.hass.localize("ui.components.picture-upload.clear_picture")):(0,o.dy)(g||(g=f`
+            `),
+                                this.value,
+                                this.hass.localize(
+                                  "ui.components.picture-upload.current_image_alt",
+                                ),
+                                this.hass.localize(
+                                  "ui.components.selectors.background.yaml_info",
+                                ),
+                                this._clearValue,
+                                this.hass.localize(
+                                  "ui.components.picture-upload.clear_picture",
+                                ),
+                              )
+                            : (0, o.dy)(
+                                g ||
+                                  (g = f`
               <ha-picture-upload .hass=${0} .value=${0} .original=${0} .cropOptions=${0} select-media @change=${0}></ha-picture-upload>
-            `),this.hass,null!==(e=this.value)&&void 0!==e&&e.startsWith(c.JS)?this.value:null,!(null===(i=this.selector.background)||void 0===i||!i.original),null===(t=this.selector.background)||void 0===t?void 0:t.crop,this._pictureChanged))}},{kind:"method",key:"_pictureChanged",value:function(e){const i=e.target.value;(0,d.B)(this,"value-changed",{value:null!=i?i:void 0})}},{kind:"method",key:"_clearValue",value:function(){(0,d.B)(this,"value-changed",{value:void 0})}},{kind:"field",static:!0,key:"styles",value(){return(0,o.iv)(p||(p=f`:host{display:block;position:relative}.value,div{display:flex}div{flex-direction:column}ha-button{white-space:nowrap;--mdc-theme-primary:var(--primary-color)}.value{width:100%;flex-direction:column;align-items:center}img{max-width:100%;max-height:200px;margin-bottom:4px;border-radius:var(--file-upload-image-border-radius);transition:opacity .3s;opacity:var(--picture-opacity, 1)}img:hover{opacity:1}`))}}]}}),o.oi);a()}catch(u){a(u)}}))},83166:function(e,i,t){var a=t(61701),n=t(72621),s=(t(71695),t(47021),t(1105)),o=t(33990),l=t(57243),d=t(50778),r=t(5111);let c,h,u,v,g=e=>e;(0,a.Z)([(0,d.Mo)("ha-textfield")],(function(e,i){class t extends i{constructor(...i){super(...i),e(this)}}return{F:t,d:[{kind:"field",decorators:[(0,d.Cb)({type:Boolean})],key:"invalid",value:void 0},{kind:"field",decorators:[(0,d.Cb)({attribute:"error-message"})],key:"errorMessage",value:void 0},{kind:"field",decorators:[(0,d.Cb)({type:Boolean})],key:"icon",value(){return!1}},{kind:"field",decorators:[(0,d.Cb)({type:Boolean})],key:"iconTrailing",value(){return!1}},{kind:"field",decorators:[(0,d.Cb)()],key:"autocomplete",value:void 0},{kind:"field",decorators:[(0,d.Cb)()],key:"autocorrect",value:void 0},{kind:"field",decorators:[(0,d.Cb)({attribute:"input-spellcheck"})],key:"inputSpellcheck",value:void 0},{kind:"field",decorators:[(0,d.IO)("input")],key:"formElement",value:void 0},{kind:"method",key:"updated",value:function(e){(0,n.Z)(t,"updated",this,3)([e]),(e.has("invalid")||e.has("errorMessage"))&&(this.setCustomValidity(this.invalid?this.errorMessage||this.validationMessage||"Invalid":""),(this.invalid||this.validateOnInitialRender||e.has("invalid")&&void 0!==e.get("invalid"))&&this.reportValidity()),e.has("autocomplete")&&(this.autocomplete?this.formElement.setAttribute("autocomplete",this.autocomplete):this.formElement.removeAttribute("autocomplete")),e.has("autocorrect")&&(this.autocorrect?this.formElement.setAttribute("autocorrect",this.autocorrect):this.formElement.removeAttribute("autocorrect")),e.has("inputSpellcheck")&&(this.inputSpellcheck?this.formElement.setAttribute("spellcheck",this.inputSpellcheck):this.formElement.removeAttribute("spellcheck"))}},{kind:"method",key:"renderIcon",value:function(e,i=!1){const t=i?"trailing":"leading";return(0,l.dy)(c||(c=g`
+            `),
+                                this.hass,
+                                null !== (e = this.value) &&
+                                  void 0 !== e &&
+                                  e.startsWith(c.JS)
+                                  ? this.value
+                                  : null,
+                                !(
+                                  null === (i = this.selector.background) ||
+                                  void 0 === i ||
+                                  !i.original
+                                ),
+                                null === (t = this.selector.background) ||
+                                  void 0 === t
+                                  ? void 0
+                                  : t.crop,
+                                this._pictureChanged,
+                              ),
+                        );
+                      },
+                    },
+                    {
+                      kind: "method",
+                      key: "_pictureChanged",
+                      value: function (e) {
+                        const i = e.target.value;
+                        (0, d.B)(this, "value-changed", {
+                          value: null != i ? i : void 0,
+                        });
+                      },
+                    },
+                    {
+                      kind: "method",
+                      key: "_clearValue",
+                      value: function () {
+                        (0, d.B)(this, "value-changed", { value: void 0 });
+                      },
+                    },
+                    {
+                      kind: "field",
+                      static: !0,
+                      key: "styles",
+                      value() {
+                        return (0, o.iv)(
+                          p ||
+                            (p = f`:host{display:block;position:relative}.value,div{display:flex}div{flex-direction:column}ha-button{white-space:nowrap;--mdc-theme-primary:var(--primary-color)}.value{width:100%;flex-direction:column;align-items:center}img{max-width:100%;max-height:200px;margin-bottom:4px;border-radius:var(--file-upload-image-border-radius);transition:opacity .3s;opacity:var(--picture-opacity, 1)}img:hover{opacity:1}`),
+                        );
+                      },
+                    },
+                  ],
+                };
+              },
+              o.oi,
+            );
+          a();
+        } catch (u) {
+          a(u);
+        }
+      });
+    },
+    83166: function (e, i, t) {
+      var a = t(61701),
+        n = t(72621),
+        s = (t(71695), t(47021), t(1105)),
+        o = t(33990),
+        l = t(57243),
+        d = t(50778),
+        r = t(5111);
+      let c,
+        h,
+        u,
+        v,
+        g = (e) => e;
+      (0, a.Z)(
+        [(0, d.Mo)("ha-textfield")],
+        function (e, i) {
+          class t extends i {
+            constructor(...i) {
+              super(...i), e(this);
+            }
+          }
+          return {
+            F: t,
+            d: [
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)({ type: Boolean })],
+                key: "invalid",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)({ attribute: "error-message" })],
+                key: "errorMessage",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)({ type: Boolean })],
+                key: "icon",
+                value() {
+                  return !1;
+                },
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)({ type: Boolean })],
+                key: "iconTrailing",
+                value() {
+                  return !1;
+                },
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)()],
+                key: "autocomplete",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)()],
+                key: "autocorrect",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.Cb)({ attribute: "input-spellcheck" })],
+                key: "inputSpellcheck",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, d.IO)("input")],
+                key: "formElement",
+                value: void 0,
+              },
+              {
+                kind: "method",
+                key: "updated",
+                value: function (e) {
+                  (0, n.Z)(t, "updated", this, 3)([e]),
+                    (e.has("invalid") || e.has("errorMessage")) &&
+                      (this.setCustomValidity(
+                        this.invalid
+                          ? this.errorMessage ||
+                              this.validationMessage ||
+                              "Invalid"
+                          : "",
+                      ),
+                      (this.invalid ||
+                        this.validateOnInitialRender ||
+                        (e.has("invalid") && void 0 !== e.get("invalid"))) &&
+                        this.reportValidity()),
+                    e.has("autocomplete") &&
+                      (this.autocomplete
+                        ? this.formElement.setAttribute(
+                            "autocomplete",
+                            this.autocomplete,
+                          )
+                        : this.formElement.removeAttribute("autocomplete")),
+                    e.has("autocorrect") &&
+                      (this.autocorrect
+                        ? this.formElement.setAttribute(
+                            "autocorrect",
+                            this.autocorrect,
+                          )
+                        : this.formElement.removeAttribute("autocorrect")),
+                    e.has("inputSpellcheck") &&
+                      (this.inputSpellcheck
+                        ? this.formElement.setAttribute(
+                            "spellcheck",
+                            this.inputSpellcheck,
+                          )
+                        : this.formElement.removeAttribute("spellcheck"));
+                },
+              },
+              {
+                kind: "method",
+                key: "renderIcon",
+                value: function (e, i = !1) {
+                  const t = i ? "trailing" : "leading";
+                  return (0, l.dy)(
+                    c ||
+                      (c = g`
       <span class="mdc-text-field__icon mdc-text-field__icon--${0}" tabindex=${0}>
         <slot name="${0}Icon"></slot>
       </span>
-    `),t,i?1:-1,t)}},{kind:"field",static:!0,key:"styles",value(){return[o.W,(0,l.iv)(h||(h=g`.mdc-text-field__input{width:var(--ha-textfield-input-width,100%)}.mdc-text-field:not(.mdc-text-field--with-leading-icon){padding:var(--text-field-padding,0px 16px)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon,.mdc-text-field__affix--suffix{padding-right:var(--text-field-suffix-padding-right,0px);padding-inline-end:var(--text-field-suffix-padding-right,0px)}.mdc-text-field__affix--suffix{padding-left:var(--text-field-suffix-padding-left,12px);padding-inline-start:var(--text-field-suffix-padding-left,12px);direction:ltr}.mdc-text-field--with-leading-icon{padding-inline-start:var(--text-field-suffix-padding-left,0px);padding-inline-end:var(--text-field-suffix-padding-right,16px);direction:var(--direction)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon{padding-left:var(--text-field-suffix-padding-left,0px);padding-inline-start:var(--text-field-suffix-padding-left,0px)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--suffix,.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon{color:var(--secondary-text-color)}.mdc-text-field__icon--leading{margin-inline-start:16px;margin-inline-end:8px;direction:var(--direction)}.mdc-text-field__icon--trailing{padding:var(--textfield-icon-trailing-padding,12px)}.mdc-floating-label:not(.mdc-floating-label--float-above){text-overflow:ellipsis;width:inherit;padding-right:30px;padding-inline-end:30px;padding-inline-start:initial;box-sizing:border-box;direction:var(--direction)}input{text-align:var(--text-field-text-align,start)}input[type=color]{height:20px}::-ms-reveal{display:none}:host([no-spinner]) input::-webkit-inner-spin-button,:host([no-spinner]) input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=color]::-webkit-color-swatch-wrapper{padding:0}:host([no-spinner]) input[type=number]{-moz-appearance:textfield}.mdc-text-field__ripple{overflow:hidden}.mdc-text-field{overflow:var(--text-field-overflow)}.mdc-floating-label{inset-inline-start:16px!important;inset-inline-end:initial!important;transform-origin:var(--float-start);direction:var(--direction);text-align:var(--float-start)}.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 48px - var(--text-field-suffix-padding-left,0px));inset-inline-start:calc(48px + var(--text-field-suffix-padding-left,0px))!important;inset-inline-end:initial!important;direction:var(--direction)}.mdc-text-field__input[type=number]{direction:var(--direction)}.mdc-text-field__affix--prefix{padding-right:var(--text-field-prefix-padding-right,2px);padding-inline-end:var(--text-field-prefix-padding-right,2px);padding-inline-start:initial}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--prefix{color:var(--mdc-text-field-label-ink-color)}#helper-text ha-markdown{display:inline-block}`)),"rtl"===r.E.document.dir?(0,l.iv)(u||(u=g`.mdc-floating-label,.mdc-text-field--with-leading-icon,.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label,.mdc-text-field__icon--leading,.mdc-text-field__input[type=number]{direction:rtl;--direction:rtl}`)):(0,l.iv)(v||(v=g``))]}}]}}),s.P)},84097:function(e,i,t){t.a(e,(async function(e,i){try{var a=t(61701),n=(t(71695),t(19423),t(40251),t(11740),t(46692),t(47021),t(57243)),s=t(50778),o=t(91583),l=t(36522),d=t(58725),r=(t(23334),t(62801),e([d]));d=(r.then?(await r)():r)[0];let c,h,u,v=e=>e;const g="M7,19V17H9V19H7M11,19V17H13V19H11M15,19V17H17V19H15M7,15V13H9V15H7M11,15V13H13V15H11M15,15V13H17V15H15M7,11V9H9V11H7M11,11V9H13V11H11M15,11V9H17V11H15M7,7V5H9V7H7M11,7V5H13V7H11M15,7V5H17V7H15Z";(0,a.Z)([(0,s.Mo)("hui-entity-editor")],(function(e,i){return{F:class extends i{constructor(...i){super(...i),e(this)}},d:[{kind:"field",decorators:[(0,s.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,s.Cb)({attribute:!1})],key:"entities",value:void 0},{kind:"field",decorators:[(0,s.Cb)({attribute:!1})],key:"entityFilter",value:void 0},{kind:"field",decorators:[(0,s.Cb)()],key:"label",value:void 0},{kind:"field",key:"_entityKeys",value(){return new WeakMap}},{kind:"method",key:"_getKey",value:function(e){return this._entityKeys.has(e)||this._entityKeys.set(e,Math.random().toString()),this._entityKeys.get(e)}},{kind:"method",key:"render",value:function(){return this.entities?(0,n.dy)(c||(c=v`
+    `),
+                    t,
+                    i ? 1 : -1,
+                    t,
+                  );
+                },
+              },
+              {
+                kind: "field",
+                static: !0,
+                key: "styles",
+                value() {
+                  return [
+                    o.W,
+                    (0, l.iv)(
+                      h ||
+                        (h = g`.mdc-text-field__input{width:var(--ha-textfield-input-width,100%)}.mdc-text-field:not(.mdc-text-field--with-leading-icon){padding:var(--text-field-padding,0px 16px)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon,.mdc-text-field__affix--suffix{padding-right:var(--text-field-suffix-padding-right,0px);padding-inline-end:var(--text-field-suffix-padding-right,0px)}.mdc-text-field__affix--suffix{padding-left:var(--text-field-suffix-padding-left,12px);padding-inline-start:var(--text-field-suffix-padding-left,12px);direction:ltr}.mdc-text-field--with-leading-icon{padding-inline-start:var(--text-field-suffix-padding-left,0px);padding-inline-end:var(--text-field-suffix-padding-right,16px);direction:var(--direction)}.mdc-text-field--with-leading-icon.mdc-text-field--with-trailing-icon{padding-left:var(--text-field-suffix-padding-left,0px);padding-inline-start:var(--text-field-suffix-padding-left,0px)}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--suffix,.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon{color:var(--secondary-text-color)}.mdc-text-field__icon--leading{margin-inline-start:16px;margin-inline-end:8px;direction:var(--direction)}.mdc-text-field__icon--trailing{padding:var(--textfield-icon-trailing-padding,12px)}.mdc-floating-label:not(.mdc-floating-label--float-above){text-overflow:ellipsis;width:inherit;padding-right:30px;padding-inline-end:30px;padding-inline-start:initial;box-sizing:border-box;direction:var(--direction)}input{text-align:var(--text-field-text-align,start)}input[type=color]{height:20px}::-ms-reveal{display:none}:host([no-spinner]) input::-webkit-inner-spin-button,:host([no-spinner]) input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input[type=color]::-webkit-color-swatch-wrapper{padding:0}:host([no-spinner]) input[type=number]{-moz-appearance:textfield}.mdc-text-field__ripple{overflow:hidden}.mdc-text-field{overflow:var(--text-field-overflow)}.mdc-floating-label{inset-inline-start:16px!important;inset-inline-end:initial!important;transform-origin:var(--float-start);direction:var(--direction);text-align:var(--float-start)}.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label{max-width:calc(100% - 48px - var(--text-field-suffix-padding-left,0px));inset-inline-start:calc(48px + var(--text-field-suffix-padding-left,0px))!important;inset-inline-end:initial!important;direction:var(--direction)}.mdc-text-field__input[type=number]{direction:var(--direction)}.mdc-text-field__affix--prefix{padding-right:var(--text-field-prefix-padding-right,2px);padding-inline-end:var(--text-field-prefix-padding-right,2px);padding-inline-start:initial}.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__affix--prefix{color:var(--mdc-text-field-label-ink-color)}#helper-text ha-markdown{display:inline-block}`),
+                    ),
+                    "rtl" === r.E.document.dir
+                      ? (0, l.iv)(
+                          u ||
+                            (u = g`.mdc-floating-label,.mdc-text-field--with-leading-icon,.mdc-text-field--with-leading-icon.mdc-text-field--filled .mdc-floating-label,.mdc-text-field__icon--leading,.mdc-text-field__input[type=number]{direction:rtl;--direction:rtl}`),
+                        )
+                      : (0, l.iv)(v || (v = g``)),
+                  ];
+                },
+              },
+            ],
+          };
+        },
+        s.P,
+      );
+    },
+    84097: function (e, i, t) {
+      t.a(e, async function (e, i) {
+        try {
+          var a = t(61701),
+            n =
+              (t(71695),
+              t(19423),
+              t(40251),
+              t(11740),
+              t(46692),
+              t(47021),
+              t(57243)),
+            s = t(50778),
+            o = t(91583),
+            l = t(36522),
+            d = t(58725),
+            r = (t(23334), t(62801), e([d]));
+          d = (r.then ? (await r)() : r)[0];
+          let c,
+            h,
+            u,
+            v = (e) => e;
+          const g =
+            "M7,19V17H9V19H7M11,19V17H13V19H11M15,19V17H17V19H15M7,15V13H9V15H7M11,15V13H13V15H11M15,15V13H17V15H15M7,11V9H9V11H7M11,11V9H13V11H11M15,11V9H17V11H15M7,7V5H9V7H7M11,7V5H13V7H11M15,7V5H17V7H15Z";
+          (0, a.Z)(
+            [(0, s.Mo)("hui-entity-editor")],
+            function (e, i) {
+              return {
+                F: class extends i {
+                  constructor(...i) {
+                    super(...i), e(this);
+                  }
+                },
+                d: [
+                  {
+                    kind: "field",
+                    decorators: [(0, s.Cb)({ attribute: !1 })],
+                    key: "hass",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, s.Cb)({ attribute: !1 })],
+                    key: "entities",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, s.Cb)({ attribute: !1 })],
+                    key: "entityFilter",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, s.Cb)()],
+                    key: "label",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    key: "_entityKeys",
+                    value() {
+                      return new WeakMap();
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_getKey",
+                    value: function (e) {
+                      return (
+                        this._entityKeys.has(e) ||
+                          this._entityKeys.set(e, Math.random().toString()),
+                        this._entityKeys.get(e)
+                      );
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "render",
+                    value: function () {
+                      return this.entities
+                        ? (0, n.dy)(
+                            c ||
+                              (c = v`
       <h3>
         ${0}
       </h3>
@@ -28,22 +439,411 @@
         </div>
       </ha-sortable>
       <ha-entity-picker class="add-entity" .hass=${0} .entityFilter=${0} @value-changed=${0}></ha-entity-picker>
-    `),this.label||this.hass.localize("ui.panel.lovelace.editor.card.generic.entities")+" ("+this.hass.localize("ui.panel.lovelace.editor.card.config.required")+")",this._entityMoved,(0,o.r)(this.entities,(e=>this._getKey(e)),((e,i)=>(0,n.dy)(h||(h=v`
+    `),
+                            this.label ||
+                              this.hass.localize(
+                                "ui.panel.lovelace.editor.card.generic.entities",
+                              ) +
+                                " (" +
+                                this.hass.localize(
+                                  "ui.panel.lovelace.editor.card.config.required",
+                                ) +
+                                ")",
+                            this._entityMoved,
+                            (0, o.r)(
+                              this.entities,
+                              (e) => this._getKey(e),
+                              (e, i) =>
+                                (0, n.dy)(
+                                  h ||
+                                    (h = v`
               <div class="entity" data-entity-id=${0}>
                 <div class="handle">
                   <ha-svg-icon .path=${0}></ha-svg-icon>
                 </div>
                 <ha-entity-picker .hass=${0} .value=${0} .index=${0} .entityFilter=${0} @value-changed=${0} allow-custom-entity></ha-entity-picker>
               </div>
-            `),e.entity,g,this.hass,e.entity,i,this.entityFilter,this._valueChanged))),this.hass,this.entityFilter,this._addEntity):n.Ld}},{kind:"method",key:"_addEntity",value:async function(e){const i=e.detail.value;if(""===i)return;const t=this.entities.concat({entity:i});e.target.value="",(0,l.B)(this,"entities-changed",{entities:t})}},{kind:"method",key:"_entityMoved",value:function(e){e.stopPropagation();const{oldIndex:i,newIndex:t}=e.detail,a=this.entities.concat();a.splice(t,0,a.splice(i,1)[0]),(0,l.B)(this,"entities-changed",{entities:a})}},{kind:"method",key:"_valueChanged",value:function(e){const i=e.detail.value,t=e.target.index,a=this.entities.concat();""===i||void 0===i?a.splice(t,1):a[t]=Object.assign(Object.assign({},a[t]),{},{entity:i}),(0,l.B)(this,"entities-changed",{entities:a})}},{kind:"field",static:!0,key:"styles",value(){return(0,n.iv)(u||(u=v`ha-entity-picker{margin-top:8px}.add-entity{display:block;margin-left:31px;margin-inline-start:31px;margin-inline-end:initial;direction:var(--direction)}.entity{display:flex;align-items:center}.entity .handle{padding-right:8px;cursor:move;cursor:grab;padding-inline-end:8px;padding-inline-start:initial;direction:var(--direction)}.entity .handle>*{pointer-events:none}.entity ha-entity-picker{flex-grow:1}`))}}]}}),n.oi);i()}catch(c){i(c)}}))},7883:function(e,i,t){t.d(i,{e:()=>n});t(71695),t(40251),t(47021);var a=t(36522);const n=(e,i)=>{(0,a.B)(e,"show-dialog",{dialogTag:"hui-dialog-select-dashboard",dialogImport:()=>Promise.all([t.e("5080"),t.e("44680"),t.e("81465"),t.e("7442"),t.e("86628"),t.e("52470")]).then(t.bind(t,38321)),dialogParams:i})}},7753:function(e,i,t){t.a(e,(async function(e,a){try{t.r(i),t.d(i,{HuiDialogEditView:()=>N});var n=t(58814),s=t(61701),o=(t(71695),t(77439),t(19423),t(40251),t(19134),t(97003),t(47021),t(56820),t(99619),t(57243)),l=t(50778),d=t(35359),r=t(36522),c=t(49976),h=t(83523),u=t(48045),v=(t(99426),t(59826),t(17170)),g=(t(73729),t(95198),t(64889),t(10571)),p=t(76131),f=t(28008),m=t(84097),_=t(82747),y=t(80714),k=t(18461),b=t(27353),x=t(68658),w=(t(83849),t(91551),t(7883)),$=t(48977),C=e([v,m,x]);[v,m,x]=C.then?(await C)():C;let z,V,M,H,L,B,T,S,A,I,D,O,Z=e=>e;const E=["strategy"],F="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",j="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z",P="M14 2H6C4.9 2 4 2.9 4 4V20C4 20.41 4.12 20.8 4.34 21.12C4.41 21.23 4.5 21.33 4.59 21.41C4.95 21.78 5.45 22 6 22H13.53C13 21.42 12.61 20.75 12.35 20H6V4H13V9H18V12C18.7 12 19.37 12.12 20 12.34V8L14 2M18 23L23 18.5L20 15.8L18 14V17H14V20H18V23Z",K="M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z",U=["tab-settings","tab-background","tab-visibility"];let N=(0,s.Z)([(0,l.Mo)("hui-dialog-edit-view")],(function(e,i){return{F:class extends i{constructor(...i){super(...i),e(this)}},d:[{kind:"field",decorators:[(0,l.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,l.SB)()],key:"_params",value:void 0},{kind:"field",decorators:[(0,l.SB)()],key:"_lovelace",value:void 0},{kind:"field",decorators:[(0,l.SB)()],key:"_config",value:void 0},{kind:"field",decorators:[(0,l.SB)()],key:"_saving",value(){return!1}},{kind:"field",decorators:[(0,l.SB)()],key:"_currTab",value(){return U[0]}},{kind:"field",decorators:[(0,l.SB)()],key:"_dirty",value(){return!1}},{kind:"field",decorators:[(0,l.SB)()],key:"_yamlMode",value(){return!1}},{kind:"field",decorators:[(0,l.IO)("ha-yaml-editor")],key:"_editor",value:void 0},{kind:"field",decorators:[(0,l.SB)()],key:"_currentType",value(){return(0,k.W)()}},{kind:"get",key:"_type",value:function(){return(0,k.W)(this._config)}},{kind:"method",key:"updated",value:function(e){if(this._yamlMode&&e.has("_yamlMode")){var i;const e=Object.assign({},this._config);null===(i=this._editor)||void 0===i||i.setValue(e)}}},{kind:"method",key:"showDialog",value:function(e){if(this._params=e,void 0===this._params.viewIndex)return this._config={type:_.zh},void(this._dirty=!1);this._lovelace=this._params.lovelace;const i=this._lovelace.config.views[this._params.viewIndex];if((0,g.s)(i)){const{strategy:e}=i,t=(0,n.Z)(i,E);this._config=t}else this._config=i,this._currentType=this._type}},{kind:"method",key:"closeDialog",value:function(){this._params=void 0,this._config={},this._yamlMode=!1,this._dirty=!1,this._currTab=U[0],(0,r.B)(this,"dialog-closed",{dialog:this.localName})}},{kind:"get",key:"_viewConfigTitle",value:function(){return this._config&&this._config.title?this.hass.localize("ui.panel.lovelace.editor.edit_view.header_name",{name:this._config.title}):this.hass.localize("ui.panel.lovelace.editor.edit_view.header")}},{kind:"method",key:"render",value:function(){var e,i;if(!this._params)return o.Ld;let t;if(this._yamlMode)t=(0,o.dy)(z||(z=Z`
+            `),
+                                  e.entity,
+                                  g,
+                                  this.hass,
+                                  e.entity,
+                                  i,
+                                  this.entityFilter,
+                                  this._valueChanged,
+                                ),
+                            ),
+                            this.hass,
+                            this.entityFilter,
+                            this._addEntity,
+                          )
+                        : n.Ld;
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_addEntity",
+                    value: async function (e) {
+                      const i = e.detail.value;
+                      if ("" === i) return;
+                      const t = this.entities.concat({ entity: i });
+                      (e.target.value = ""),
+                        (0, l.B)(this, "entities-changed", { entities: t });
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_entityMoved",
+                    value: function (e) {
+                      e.stopPropagation();
+                      const { oldIndex: i, newIndex: t } = e.detail,
+                        a = this.entities.concat();
+                      a.splice(t, 0, a.splice(i, 1)[0]),
+                        (0, l.B)(this, "entities-changed", { entities: a });
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_valueChanged",
+                    value: function (e) {
+                      const i = e.detail.value,
+                        t = e.target.index,
+                        a = this.entities.concat();
+                      "" === i || void 0 === i
+                        ? a.splice(t, 1)
+                        : (a[t] = Object.assign(
+                            Object.assign({}, a[t]),
+                            {},
+                            { entity: i },
+                          )),
+                        (0, l.B)(this, "entities-changed", { entities: a });
+                    },
+                  },
+                  {
+                    kind: "field",
+                    static: !0,
+                    key: "styles",
+                    value() {
+                      return (0, n.iv)(
+                        u ||
+                          (u = v`ha-entity-picker{margin-top:8px}.add-entity{display:block;margin-left:31px;margin-inline-start:31px;margin-inline-end:initial;direction:var(--direction)}.entity{display:flex;align-items:center}.entity .handle{padding-right:8px;cursor:move;cursor:grab;padding-inline-end:8px;padding-inline-start:initial;direction:var(--direction)}.entity .handle>*{pointer-events:none}.entity ha-entity-picker{flex-grow:1}`),
+                      );
+                    },
+                  },
+                ],
+              };
+            },
+            n.oi,
+          );
+          i();
+        } catch (c) {
+          i(c);
+        }
+      });
+    },
+    7883: function (e, i, t) {
+      t.d(i, { e: () => n });
+      t(71695), t(40251), t(47021);
+      var a = t(36522);
+      const n = (e, i) => {
+        (0, a.B)(e, "show-dialog", {
+          dialogTag: "hui-dialog-select-dashboard",
+          dialogImport: () =>
+            Promise.all([
+              t.e("5080"),
+              t.e("44680"),
+              t.e("81465"),
+              t.e("7442"),
+              t.e("86628"),
+              t.e("52470"),
+            ]).then(t.bind(t, 38321)),
+          dialogParams: i,
+        });
+      };
+    },
+    7753: function (e, i, t) {
+      t.a(e, async function (e, a) {
+        try {
+          t.r(i), t.d(i, { HuiDialogEditView: () => N });
+          var n = t(58814),
+            s = t(61701),
+            o =
+              (t(71695),
+              t(77439),
+              t(19423),
+              t(40251),
+              t(19134),
+              t(97003),
+              t(47021),
+              t(56820),
+              t(99619),
+              t(57243)),
+            l = t(50778),
+            d = t(35359),
+            r = t(36522),
+            c = t(49976),
+            h = t(83523),
+            u = t(48045),
+            v = (t(99426), t(59826), t(17170)),
+            g = (t(73729), t(95198), t(64889), t(10571)),
+            p = t(76131),
+            f = t(28008),
+            m = t(84097),
+            _ = t(82747),
+            y = t(80714),
+            k = t(18461),
+            b = t(27353),
+            x = t(68658),
+            w = (t(83849), t(91551), t(7883)),
+            $ = t(48977),
+            C = e([v, m, x]);
+          [v, m, x] = C.then ? (await C)() : C;
+          let z,
+            V,
+            M,
+            H,
+            L,
+            B,
+            T,
+            S,
+            A,
+            I,
+            D,
+            O,
+            Z = (e) => e;
+          const E = ["strategy"],
+            F =
+              "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",
+            j =
+              "M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z",
+            P =
+              "M14 2H6C4.9 2 4 2.9 4 4V20C4 20.41 4.12 20.8 4.34 21.12C4.41 21.23 4.5 21.33 4.59 21.41C4.95 21.78 5.45 22 6 22H13.53C13 21.42 12.61 20.75 12.35 20H6V4H13V9H18V12C18.7 12 19.37 12.12 20 12.34V8L14 2M18 23L23 18.5L20 15.8L18 14V17H14V20H18V23Z",
+            K =
+              "M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z",
+            U = ["tab-settings", "tab-background", "tab-visibility"];
+          let N = (0, s.Z)(
+            [(0, l.Mo)("hui-dialog-edit-view")],
+            function (e, i) {
+              return {
+                F: class extends i {
+                  constructor(...i) {
+                    super(...i), e(this);
+                  }
+                },
+                d: [
+                  {
+                    kind: "field",
+                    decorators: [(0, l.Cb)({ attribute: !1 })],
+                    key: "hass",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_params",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_lovelace",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_config",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_saving",
+                    value() {
+                      return !1;
+                    },
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_currTab",
+                    value() {
+                      return U[0];
+                    },
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_dirty",
+                    value() {
+                      return !1;
+                    },
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_yamlMode",
+                    value() {
+                      return !1;
+                    },
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.IO)("ha-yaml-editor")],
+                    key: "_editor",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, l.SB)()],
+                    key: "_currentType",
+                    value() {
+                      return (0, k.W)();
+                    },
+                  },
+                  {
+                    kind: "get",
+                    key: "_type",
+                    value: function () {
+                      return (0, k.W)(this._config);
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "updated",
+                    value: function (e) {
+                      if (this._yamlMode && e.has("_yamlMode")) {
+                        var i;
+                        const e = Object.assign({}, this._config);
+                        null === (i = this._editor) ||
+                          void 0 === i ||
+                          i.setValue(e);
+                      }
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "showDialog",
+                    value: function (e) {
+                      if (
+                        ((this._params = e), void 0 === this._params.viewIndex)
+                      )
+                        return (
+                          (this._config = { type: _.zh }),
+                          void (this._dirty = !1)
+                        );
+                      this._lovelace = this._params.lovelace;
+                      const i =
+                        this._lovelace.config.views[this._params.viewIndex];
+                      if ((0, g.s)(i)) {
+                        const { strategy: e } = i,
+                          t = (0, n.Z)(i, E);
+                        this._config = t;
+                      } else
+                        (this._config = i), (this._currentType = this._type);
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "closeDialog",
+                    value: function () {
+                      (this._params = void 0),
+                        (this._config = {}),
+                        (this._yamlMode = !1),
+                        (this._dirty = !1),
+                        (this._currTab = U[0]),
+                        (0, r.B)(this, "dialog-closed", {
+                          dialog: this.localName,
+                        });
+                    },
+                  },
+                  {
+                    kind: "get",
+                    key: "_viewConfigTitle",
+                    value: function () {
+                      return this._config && this._config.title
+                        ? this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.header_name",
+                            { name: this._config.title },
+                          )
+                        : this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.header",
+                          );
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "render",
+                    value: function () {
+                      var e, i;
+                      if (!this._params) return o.Ld;
+                      let t;
+                      if (this._yamlMode)
+                        t = (0, o.dy)(
+                          z ||
+                            (z = Z`
         <ha-yaml-editor .hass=${0} dialogInitialFocus @value-changed=${0}></ha-yaml-editor>
-      `),this.hass,this._viewYamlChanged);else switch(this._currTab){case"tab-settings":t=(0,o.dy)(V||(V=Z`
+      `),
+                          this.hass,
+                          this._viewYamlChanged,
+                        );
+                      else
+                        switch (this._currTab) {
+                          case "tab-settings":
+                            t = (0, o.dy)(
+                              V ||
+                                (V = Z`
             <hui-view-editor .isNew=${0} .hass=${0} .config=${0} @view-config-changed=${0}></hui-view-editor>
-          `),void 0===this._params.viewIndex,this.hass,this._config,this._viewConfigChanged);break;case"tab-background":t=(0,o.dy)(M||(M=Z`
+          `),
+                              void 0 === this._params.viewIndex,
+                              this.hass,
+                              this._config,
+                              this._viewConfigChanged,
+                            );
+                            break;
+                          case "tab-background":
+                            t = (0, o.dy)(
+                              M ||
+                                (M = Z`
             <hui-view-background-editor .hass=${0} .config=${0} @view-config-changed=${0}></hui-view-background-editor>
-          `),this.hass,this._config,this._viewConfigChanged);break;case"tab-visibility":t=(0,o.dy)(H||(H=Z`
+          `),
+                              this.hass,
+                              this._config,
+                              this._viewConfigChanged,
+                            );
+                            break;
+                          case "tab-visibility":
+                            t = (0, o.dy)(
+                              H ||
+                                (H = Z`
             <hui-view-visibility-editor .hass=${0} .config=${0} @view-visibility-changed=${0}></hui-view-visibility-editor>
-          `),this.hass,this._config,this._viewVisibilityChanged)}const a=this._type===_.zh&&this._currentType!==_.zh&&(null===(e=this._config)||void 0===e||null===(e=e.cards)||void 0===e?void 0:e.length),n=this._type!==_.zh&&this._currentType===_.zh&&(null===(i=this._config)||void 0===i||null===(i=i.sections)||void 0===i?void 0:i.length);return(0,o.dy)(L||(L=Z`
+          `),
+                              this.hass,
+                              this._config,
+                              this._viewVisibilityChanged,
+                            );
+                        }
+                      const a =
+                          this._type === _.zh &&
+                          this._currentType !== _.zh &&
+                          (null === (e = this._config) ||
+                          void 0 === e ||
+                          null === (e = e.cards) ||
+                          void 0 === e
+                            ? void 0
+                            : e.length),
+                        n =
+                          this._type !== _.zh &&
+                          this._currentType === _.zh &&
+                          (null === (i = this._config) ||
+                          void 0 === i ||
+                          null === (i = i.sections) ||
+                          void 0 === i
+                            ? void 0
+                            : i.length);
+                      return (0, o.dy)(
+                        L ||
+                          (L = Z`
       <ha-dialog open scrimClickAction escapeKeyAction @closed=${0} .heading=${0} class=${0}>
         <ha-dialog-header show-border slot="heading">
           <ha-icon-button slot="navigationIcon" dialogAction="cancel" .label=${0} .path=${0}></ha-icon-button>
@@ -69,39 +869,1130 @@
           ${0}
           ${0}</ha-button>
       </ha-dialog>
-    `),this.closeDialog,this._viewConfigTitle,(0,d.$)({"yaml-mode":this._yamlMode}),this.hass.localize("ui.common.close"),F,this._viewConfigTitle,this._handleAction,c.U,this.hass.localize("ui.common.menu"),j,this.hass.localize("ui.panel.lovelace.editor.edit_view.edit_"+(this._yamlMode?"ui":"yaml")),K,this.hass.localize("ui.panel.lovelace.editor.edit_view.move_to_dashboard"),P,a?(0,o.dy)(B||(B=Z`
+    `),
+                        this.closeDialog,
+                        this._viewConfigTitle,
+                        (0, d.$)({ "yaml-mode": this._yamlMode }),
+                        this.hass.localize("ui.common.close"),
+                        F,
+                        this._viewConfigTitle,
+                        this._handleAction,
+                        c.U,
+                        this.hass.localize("ui.common.menu"),
+                        j,
+                        this.hass.localize(
+                          "ui.panel.lovelace.editor.edit_view.edit_" +
+                            (this._yamlMode ? "ui" : "yaml"),
+                        ),
+                        K,
+                        this.hass.localize(
+                          "ui.panel.lovelace.editor.edit_view.move_to_dashboard",
+                        ),
+                        P,
+                        a
+                          ? (0, o.dy)(
+                              B ||
+                                (B = Z`
                 <ha-alert alert-type="info">
                   ${0}
                   <ha-button slot="action" .label=${0} @click=${0}>
                   </ha-button>
                 </ha-alert>
-              `),this.hass.localize("ui.panel.lovelace.editor.edit_view.card_to_section_convert"),this.hass.localize("ui.panel.lovelace.editor.edit_view.convert_view"),this._convertToSection):o.Ld,n?(0,o.dy)(T||(T=Z`
+              `),
+                              this.hass.localize(
+                                "ui.panel.lovelace.editor.edit_view.card_to_section_convert",
+                              ),
+                              this.hass.localize(
+                                "ui.panel.lovelace.editor.edit_view.convert_view",
+                              ),
+                              this._convertToSection,
+                            )
+                          : o.Ld,
+                        n
+                          ? (0, o.dy)(
+                              T ||
+                                (T = Z`
                 <ha-alert alert-type="warning">
                   ${0}
                 </ha-alert>
-              `),this.hass.localize("ui.panel.lovelace.editor.edit_view.section_to_card_not_supported")):o.Ld,this._yamlMode?o.Ld:(0,o.dy)(S||(S=Z`<mwc-tab-bar .activeIndex=${0} @MDCTabBar:activated=${0}>
+              `),
+                              this.hass.localize(
+                                "ui.panel.lovelace.editor.edit_view.section_to_card_not_supported",
+                              ),
+                            )
+                          : o.Ld,
+                        this._yamlMode
+                          ? o.Ld
+                          : (0, o.dy)(
+                              S ||
+                                (S = Z`<mwc-tab-bar .activeIndex=${0} @MDCTabBar:activated=${0}>
                 ${0}
-              </mwc-tab-bar>`),U.indexOf(this._currTab),this._handleTabChanged,U.map((e=>(0,o.dy)(A||(A=Z`
+              </mwc-tab-bar>`),
+                              U.indexOf(this._currTab),
+                              this._handleTabChanged,
+                              U.map((e) =>
+                                (0, o.dy)(
+                                  A ||
+                                    (A = Z`
                     <mwc-tab .label=${0}>
                     </mwc-tab>
-                  `),this.hass.localize(`ui.panel.lovelace.editor.edit_view.${e.replace("-","_")}`))))),t,void 0!==this._params.viewIndex?(0,o.dy)(I||(I=Z`
+                  `),
+                                  this.hass.localize(
+                                    `ui.panel.lovelace.editor.edit_view.${e.replace(
+                                      "-",
+                                      "_",
+                                    )}`,
+                                  ),
+                                ),
+                              ),
+                            ),
+                        t,
+                        void 0 !== this._params.viewIndex
+                          ? (0, o.dy)(
+                              I ||
+                                (I = Z`
               <ha-button class="warning" slot="secondaryAction" @click=${0}>
                 ${0}
               </ha-button>
-            `),this._deleteConfirm,this.hass.localize("ui.panel.lovelace.editor.edit_view.delete")):o.Ld,!this._config||this._saving||!this._dirty||a||n,this._save,this._saving?(0,o.dy)(D||(D=Z`<ha-spinner size="small" aria-label="Saving"></ha-spinner>`)):o.Ld,this.hass.localize("ui.common.save"))}},{kind:"method",key:"_handleAction",value:async function(e){switch(e.stopPropagation(),e.preventDefault(),e.detail.index){case 0:this._yamlMode=!this._yamlMode;break;case 1:this._openSelectDashboard()}}},{kind:"method",key:"_openSelectDashboard",value:function(){(0,w.e)(this,{lovelaceConfig:this._lovelace.config,dashboardSelectedCallback:this._moveViewToDashboard,urlPath:this._lovelace.urlPath})}},{kind:"field",key:"_moveViewToDashboard",value(){return async e=>{let i,t,a;try{t=await(0,$.Q2)(this.hass.connection,e,!1)}catch(n){i=this.hass.localize("ui.panel.lovelace.editor.select_dashboard.get_config_failed"),console.error(n)}if(t&&(0,$.Tx)(t)&&(i=this.hass.localize("ui.panel.lovelace.editor.select_dashboard.cannot_move_to_strategy")),!i){const[o,l]=(0,b.K_)(this.hass,this._lovelace.config,t,this._params.viewIndex),d=this._lovelace.config,r=t;a=async()=>{await(0,$.Oh)(this.hass,e,r),await this._lovelace.saveConfig(d)};try{await this._lovelace.saveConfig(o),await(0,$.Oh)(this.hass,e,l)}catch(n){console.error(n);try{await a(),i=this.hass.localize("ui.panel.lovelace.editor.select_dashboard.move_failed")}catch(s){console.error(s),i=this.hass.localize("ui.panel.lovelace.editor.select_dashboard.revert_failed")}}}i?(0,p.showAlertDialog)(this,{text:i}):(this._lovelace.showToast({message:this.hass.localize("ui.panel.lovelace.editor.select_dashboard.success"),duration:4e3,action:{action:a,text:this.hass.localize("ui.common.undo")}}),this.closeDialog(),(0,h.c)(`/${window.location.pathname.split("/")[1]}`))}}},{kind:"method",key:"_convertToSection",value:async function(){if(!this._params||!this._config)return;if(!(await(0,p.showConfirmationDialog)(this,{title:this.hass.localize("ui.panel.lovelace.editor.edit_view.convert_view_title"),text:this.hass.localize("ui.panel.lovelace.editor.edit_view.convert_view_text"),confirmText:this.hass.localize("ui.panel.lovelace.editor.edit_view.convert_view_action"),dismissText:this.hass.localize("ui.common.cancel")})))return;const e=Object.assign({},this._config);e.type=_.zh,e.sections=[(0,y.d)(this.hass.localize)],e.path=void 0;const i=this._params.lovelace;try{await i.saveConfig((0,b.Uo)(this.hass,i.config,e)),this._params.saveCallback&&this._params.saveCallback(i.config.views.length,e),this.closeDialog()}catch(t){(0,p.showAlertDialog)(this,{text:`${this.hass.localize("ui.panel.lovelace.editor.edit_view.saving_failed")}: ${t.message}`})}finally{this._saving=!1}}},{kind:"method",key:"_delete",value:async function(){if(this._params)try{await this._params.lovelace.saveConfig((0,b.PT)(this._params.lovelace.config,this._params.viewIndex)),this.closeDialog(),(0,h.c)(`/${window.location.pathname.split("/")[1]}`)}catch(e){(0,p.showAlertDialog)(this,{text:`Deleting failed: ${e.message}`})}}},{kind:"method",key:"_deleteConfirm",value:async function(){var e,i,t,a;const n=null!==(e=this._config)&&void 0!==e&&null!==(e=e.sections)&&void 0!==e&&e.length?"sections":null!==(i=this._config)&&void 0!==i&&null!==(i=i.cards)&&void 0!==i&&i.length?"cards":"only",s=null!==(t=this._config)&&void 0!==t&&t.title?"named":"unnamed";await(0,p.showConfirmationDialog)(this,{title:this.hass.localize("ui.panel.lovelace.views.delete_title"),text:this.hass.localize(`ui.panel.lovelace.views.delete_${s}_view_${n}`,{name:null===(a=this._config)||void 0===a?void 0:a.title}),confirmText:this.hass.localize("ui.common.delete"),destructive:!0})&&this._delete()}},{kind:"method",key:"_handleTabChanged",value:function(e){const i=U[e.detail.index];i!==this._currTab&&(this._currTab=i)}},{kind:"method",key:"_save",value:async function(){var e,i;if(!this._params||!this._config)return;if(!this._isConfigChanged())return void this.closeDialog();this._saving=!0;const t=Object.assign({},this._config);t.type!==_.zh||null!==(e=t.sections)&&void 0!==e&&e.length?null!==(i=t.cards)&&void 0!==i&&i.length||(t.cards=[]):t.sections=[(0,y.d)(this.hass.localize)];const a=this._params.lovelace;try{await a.saveConfig(this._creatingView?(0,b.Uo)(this.hass,a.config,t):(0,b.YI)(this.hass,a.config,this._params.viewIndex,t)),this._params.saveCallback&&this._creatingView&&this._params.saveCallback(this._params.viewIndex||a.config.views.length,t),this.closeDialog()}catch(n){(0,p.showAlertDialog)(this,{text:`${this.hass.localize("ui.panel.lovelace.editor.edit_view.saving_failed")}: ${n.message}`})}finally{this._saving=!1}}},{kind:"method",key:"_viewConfigChanged",value:function(e){e.detail&&e.detail.config&&!(0,u.v)(this._config,e.detail.config)&&(this._config=e.detail.config,this._dirty=!0)}},{kind:"method",key:"_viewVisibilityChanged",value:function(e){e.detail.visible&&this._config&&(this._config=Object.assign(Object.assign({},this._config),{},{visible:e.detail.visible})),this._dirty=!0}},{kind:"method",key:"_viewYamlChanged",value:function(e){e.stopPropagation(),e.detail.isValid&&(this._config=e.detail.value,this._dirty=!0)}},{kind:"method",key:"_isConfigChanged",value:function(){return this._creatingView||JSON.stringify(this._config)!==JSON.stringify(this._params.lovelace.config.views[this._params.viewIndex])}},{kind:"get",key:"_creatingView",value:function(){return void 0===this._params.viewIndex}},{kind:"get",static:!0,key:"styles",value:function(){return[f.yu,(0,o.iv)(O||(O=Z`ha-dialog{--vertical-align-dialog:flex-start;--dialog-surface-margin-top:40px}@media all and (max-width:450px),all and (max-height:500px){ha-dialog{--dialog-surface-margin-top:0px}}ha-dialog.yaml-mode{--dialog-content-padding:0}h2{margin:0;font-size:inherit;font-weight:inherit}mwc-tab-bar{color:var(--primary-text-color);text-transform:uppercase;padding:0 20px}ha-button.warning{margin-right:auto;margin-inline-end:auto;margin-inline-start:initial}.hidden{display:none}.error{color:var(--error-color);border-bottom:1px solid var(--error-color)}ha-alert,ha-alert ha-button{display:block}@media all and (min-width:600px){ha-dialog{--mdc-dialog-min-width:600px}}`))]}}]}}),o.oi);a()}catch(z){a(z)}}))},68658:function(e,i,t){t.a(e,(async function(e,i){try{var a=t(61701),n=(t(71695),t(19423),t(19134),t(44495),t(47021),t(87319),t(27486)),s=t(57243),o=t(50778),l=t(36522),d=(t(29073),t(24730)),r=e([d]);d=(r.then?(await r)():r)[0];let c,h,u=e=>e;(0,a.Z)([(0,o.Mo)("hui-view-background-editor")],(function(e,i){return{F:class extends i{constructor(...i){super(...i),e(this)}},d:[{kind:"field",decorators:[(0,o.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,o.SB)()],key:"_config",value:void 0},{kind:"set",key:"config",value:function(e){this._config=e}},{kind:"field",key:"_localizeValueCallback",value(){return e=>this.hass.localize(e)}},{kind:"field",key:"_schema",value(){return(0,n.Z)((e=>[{name:"image",selector:{background:{original:!0}}},...e?[{name:"settings",flatten:!0,expanded:!0,type:"expandable",schema:[{name:"opacity",selector:{number:{min:0,max:100,mode:"slider"}}},{name:"attachment",selector:{button_toggle:{translation_key:"ui.panel.lovelace.editor.edit_view.background.attachment",options:["scroll","fixed"]}}},{name:"size",required:!0,selector:{select:{translation_key:"ui.panel.lovelace.editor.edit_view.background.size",options:["auto","cover","contain"],mode:"dropdown"}}},{name:"alignment",required:!0,selector:{select:{translation_key:"ui.panel.lovelace.editor.edit_view.background.alignment",options:["top left","top center","top right","center left","center","center right","bottom left","bottom center","bottom right"],mode:"dropdown"}}},{name:"repeat",required:!0,selector:{select:{translation_key:"ui.panel.lovelace.editor.edit_view.background.repeat",options:["repeat","no-repeat"],mode:"dropdown"}}}]}]:[]]))}},{kind:"method",key:"render",value:function(){var e,i;if(!this.hass)return s.Ld;let t=null===(e=this._config)||void 0===e?void 0:e.background;if("string"==typeof t){var a;const e=null===(a=t.match(/url\(['"]?([^'"]+)['"]?\)/))||void 0===a?void 0:a[1];t={image:e}}return t=t?Object.assign({opacity:100,alignment:"center",size:"cover",repeat:"no-repeat",attachment:"scroll"},t):{opacity:33,alignment:"center",size:"cover",repeat:"repeat",attachment:"fixed"},(0,s.dy)(c||(c=u`
+            `),
+                              this._deleteConfirm,
+                              this.hass.localize(
+                                "ui.panel.lovelace.editor.edit_view.delete",
+                              ),
+                            )
+                          : o.Ld,
+                        !this._config || this._saving || !this._dirty || a || n,
+                        this._save,
+                        this._saving
+                          ? (0, o.dy)(
+                              D ||
+                                (D = Z`<ha-spinner size="small" aria-label="Saving"></ha-spinner>`),
+                            )
+                          : o.Ld,
+                        this.hass.localize("ui.common.save"),
+                      );
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_handleAction",
+                    value: async function (e) {
+                      switch (
+                        (e.stopPropagation(),
+                        e.preventDefault(),
+                        e.detail.index)
+                      ) {
+                        case 0:
+                          this._yamlMode = !this._yamlMode;
+                          break;
+                        case 1:
+                          this._openSelectDashboard();
+                      }
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_openSelectDashboard",
+                    value: function () {
+                      (0, w.e)(this, {
+                        lovelaceConfig: this._lovelace.config,
+                        dashboardSelectedCallback: this._moveViewToDashboard,
+                        urlPath: this._lovelace.urlPath,
+                      });
+                    },
+                  },
+                  {
+                    kind: "field",
+                    key: "_moveViewToDashboard",
+                    value() {
+                      return async (e) => {
+                        let i, t, a;
+                        try {
+                          t = await (0, $.Q2)(this.hass.connection, e, !1);
+                        } catch (n) {
+                          (i = this.hass.localize(
+                            "ui.panel.lovelace.editor.select_dashboard.get_config_failed",
+                          )),
+                            console.error(n);
+                        }
+                        if (
+                          (t &&
+                            (0, $.Tx)(t) &&
+                            (i = this.hass.localize(
+                              "ui.panel.lovelace.editor.select_dashboard.cannot_move_to_strategy",
+                            )),
+                          !i)
+                        ) {
+                          const [o, l] = (0, b.K_)(
+                              this.hass,
+                              this._lovelace.config,
+                              t,
+                              this._params.viewIndex,
+                            ),
+                            d = this._lovelace.config,
+                            r = t;
+                          a = async () => {
+                            await (0, $.Oh)(this.hass, e, r),
+                              await this._lovelace.saveConfig(d);
+                          };
+                          try {
+                            await this._lovelace.saveConfig(o),
+                              await (0, $.Oh)(this.hass, e, l);
+                          } catch (n) {
+                            console.error(n);
+                            try {
+                              await a(),
+                                (i = this.hass.localize(
+                                  "ui.panel.lovelace.editor.select_dashboard.move_failed",
+                                ));
+                            } catch (s) {
+                              console.error(s),
+                                (i = this.hass.localize(
+                                  "ui.panel.lovelace.editor.select_dashboard.revert_failed",
+                                ));
+                            }
+                          }
+                        }
+                        i
+                          ? (0, p.showAlertDialog)(this, { text: i })
+                          : (this._lovelace.showToast({
+                              message: this.hass.localize(
+                                "ui.panel.lovelace.editor.select_dashboard.success",
+                              ),
+                              duration: 4e3,
+                              action: {
+                                action: a,
+                                text: this.hass.localize("ui.common.undo"),
+                              },
+                            }),
+                            this.closeDialog(),
+                            (0, h.c)(
+                              `/${window.location.pathname.split("/")[1]}`,
+                            ));
+                      };
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_convertToSection",
+                    value: async function () {
+                      if (!this._params || !this._config) return;
+                      if (
+                        !(await (0, p.showConfirmationDialog)(this, {
+                          title: this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.convert_view_title",
+                          ),
+                          text: this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.convert_view_text",
+                          ),
+                          confirmText: this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.convert_view_action",
+                          ),
+                          dismissText: this.hass.localize("ui.common.cancel"),
+                        }))
+                      )
+                        return;
+                      const e = Object.assign({}, this._config);
+                      (e.type = _.zh),
+                        (e.sections = [(0, y.d)(this.hass.localize)]),
+                        (e.path = void 0);
+                      const i = this._params.lovelace;
+                      try {
+                        await i.saveConfig((0, b.Uo)(this.hass, i.config, e)),
+                          this._params.saveCallback &&
+                            this._params.saveCallback(i.config.views.length, e),
+                          this.closeDialog();
+                      } catch (t) {
+                        (0, p.showAlertDialog)(this, {
+                          text: `${this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.saving_failed",
+                          )}: ${t.message}`,
+                        });
+                      } finally {
+                        this._saving = !1;
+                      }
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_delete",
+                    value: async function () {
+                      if (this._params)
+                        try {
+                          await this._params.lovelace.saveConfig(
+                            (0, b.PT)(
+                              this._params.lovelace.config,
+                              this._params.viewIndex,
+                            ),
+                          ),
+                            this.closeDialog(),
+                            (0, h.c)(
+                              `/${window.location.pathname.split("/")[1]}`,
+                            );
+                        } catch (e) {
+                          (0, p.showAlertDialog)(this, {
+                            text: `Deleting failed: ${e.message}`,
+                          });
+                        }
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_deleteConfirm",
+                    value: async function () {
+                      var e, i, t, a;
+                      const n =
+                          null !== (e = this._config) &&
+                          void 0 !== e &&
+                          null !== (e = e.sections) &&
+                          void 0 !== e &&
+                          e.length
+                            ? "sections"
+                            : null !== (i = this._config) &&
+                              void 0 !== i &&
+                              null !== (i = i.cards) &&
+                              void 0 !== i &&
+                              i.length
+                            ? "cards"
+                            : "only",
+                        s =
+                          null !== (t = this._config) && void 0 !== t && t.title
+                            ? "named"
+                            : "unnamed";
+                      (await (0, p.showConfirmationDialog)(this, {
+                        title: this.hass.localize(
+                          "ui.panel.lovelace.views.delete_title",
+                        ),
+                        text: this.hass.localize(
+                          `ui.panel.lovelace.views.delete_${s}_view_${n}`,
+                          {
+                            name:
+                              null === (a = this._config) || void 0 === a
+                                ? void 0
+                                : a.title,
+                          },
+                        ),
+                        confirmText: this.hass.localize("ui.common.delete"),
+                        destructive: !0,
+                      })) && this._delete();
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_handleTabChanged",
+                    value: function (e) {
+                      const i = U[e.detail.index];
+                      i !== this._currTab && (this._currTab = i);
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_save",
+                    value: async function () {
+                      var e, i;
+                      if (!this._params || !this._config) return;
+                      if (!this._isConfigChanged())
+                        return void this.closeDialog();
+                      this._saving = !0;
+                      const t = Object.assign({}, this._config);
+                      t.type !== _.zh ||
+                      (null !== (e = t.sections) && void 0 !== e && e.length)
+                        ? (null !== (i = t.cards) &&
+                            void 0 !== i &&
+                            i.length) ||
+                          (t.cards = [])
+                        : (t.sections = [(0, y.d)(this.hass.localize)]);
+                      const a = this._params.lovelace;
+                      try {
+                        await a.saveConfig(
+                          this._creatingView
+                            ? (0, b.Uo)(this.hass, a.config, t)
+                            : (0, b.YI)(
+                                this.hass,
+                                a.config,
+                                this._params.viewIndex,
+                                t,
+                              ),
+                        ),
+                          this._params.saveCallback &&
+                            this._creatingView &&
+                            this._params.saveCallback(
+                              this._params.viewIndex || a.config.views.length,
+                              t,
+                            ),
+                          this.closeDialog();
+                      } catch (n) {
+                        (0, p.showAlertDialog)(this, {
+                          text: `${this.hass.localize(
+                            "ui.panel.lovelace.editor.edit_view.saving_failed",
+                          )}: ${n.message}`,
+                        });
+                      } finally {
+                        this._saving = !1;
+                      }
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_viewConfigChanged",
+                    value: function (e) {
+                      e.detail &&
+                        e.detail.config &&
+                        !(0, u.v)(this._config, e.detail.config) &&
+                        ((this._config = e.detail.config), (this._dirty = !0));
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_viewVisibilityChanged",
+                    value: function (e) {
+                      e.detail.visible &&
+                        this._config &&
+                        (this._config = Object.assign(
+                          Object.assign({}, this._config),
+                          {},
+                          { visible: e.detail.visible },
+                        )),
+                        (this._dirty = !0);
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_viewYamlChanged",
+                    value: function (e) {
+                      e.stopPropagation(),
+                        e.detail.isValid &&
+                          ((this._config = e.detail.value), (this._dirty = !0));
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_isConfigChanged",
+                    value: function () {
+                      return (
+                        this._creatingView ||
+                        JSON.stringify(this._config) !==
+                          JSON.stringify(
+                            this._params.lovelace.config.views[
+                              this._params.viewIndex
+                            ],
+                          )
+                      );
+                    },
+                  },
+                  {
+                    kind: "get",
+                    key: "_creatingView",
+                    value: function () {
+                      return void 0 === this._params.viewIndex;
+                    },
+                  },
+                  {
+                    kind: "get",
+                    static: !0,
+                    key: "styles",
+                    value: function () {
+                      return [
+                        f.yu,
+                        (0, o.iv)(
+                          O ||
+                            (O = Z`ha-dialog{--vertical-align-dialog:flex-start;--dialog-surface-margin-top:40px}@media all and (max-width:450px),all and (max-height:500px){ha-dialog{--dialog-surface-margin-top:0px}}ha-dialog.yaml-mode{--dialog-content-padding:0}h2{margin:0;font-size:inherit;font-weight:inherit}mwc-tab-bar{color:var(--primary-text-color);text-transform:uppercase;padding:0 20px}ha-button.warning{margin-right:auto;margin-inline-end:auto;margin-inline-start:initial}.hidden{display:none}.error{color:var(--error-color);border-bottom:1px solid var(--error-color)}ha-alert,ha-alert ha-button{display:block}@media all and (min-width:600px){ha-dialog{--mdc-dialog-min-width:600px}}`),
+                        ),
+                      ];
+                    },
+                  },
+                ],
+              };
+            },
+            o.oi,
+          );
+          a();
+        } catch (z) {
+          a(z);
+        }
+      });
+    },
+    68658: function (e, i, t) {
+      t.a(e, async function (e, i) {
+        try {
+          var a = t(61701),
+            n =
+              (t(71695),
+              t(19423),
+              t(19134),
+              t(44495),
+              t(47021),
+              t(87319),
+              t(27486)),
+            s = t(57243),
+            o = t(50778),
+            l = t(36522),
+            d = (t(29073), t(24730)),
+            r = e([d]);
+          d = (r.then ? (await r)() : r)[0];
+          let c,
+            h,
+            u = (e) => e;
+          (0, a.Z)(
+            [(0, o.Mo)("hui-view-background-editor")],
+            function (e, i) {
+              return {
+                F: class extends i {
+                  constructor(...i) {
+                    super(...i), e(this);
+                  }
+                },
+                d: [
+                  {
+                    kind: "field",
+                    decorators: [(0, o.Cb)({ attribute: !1 })],
+                    key: "hass",
+                    value: void 0,
+                  },
+                  {
+                    kind: "field",
+                    decorators: [(0, o.SB)()],
+                    key: "_config",
+                    value: void 0,
+                  },
+                  {
+                    kind: "set",
+                    key: "config",
+                    value: function (e) {
+                      this._config = e;
+                    },
+                  },
+                  {
+                    kind: "field",
+                    key: "_localizeValueCallback",
+                    value() {
+                      return (e) => this.hass.localize(e);
+                    },
+                  },
+                  {
+                    kind: "field",
+                    key: "_schema",
+                    value() {
+                      return (0, n.Z)((e) => [
+                        {
+                          name: "image",
+                          selector: { background: { original: !0 } },
+                        },
+                        ...(e
+                          ? [
+                              {
+                                name: "settings",
+                                flatten: !0,
+                                expanded: !0,
+                                type: "expandable",
+                                schema: [
+                                  {
+                                    name: "opacity",
+                                    selector: {
+                                      number: {
+                                        min: 0,
+                                        max: 100,
+                                        mode: "slider",
+                                      },
+                                    },
+                                  },
+                                  {
+                                    name: "attachment",
+                                    selector: {
+                                      button_toggle: {
+                                        translation_key:
+                                          "ui.panel.lovelace.editor.edit_view.background.attachment",
+                                        options: ["scroll", "fixed"],
+                                      },
+                                    },
+                                  },
+                                  {
+                                    name: "size",
+                                    required: !0,
+                                    selector: {
+                                      select: {
+                                        translation_key:
+                                          "ui.panel.lovelace.editor.edit_view.background.size",
+                                        options: ["auto", "cover", "contain"],
+                                        mode: "dropdown",
+                                      },
+                                    },
+                                  },
+                                  {
+                                    name: "alignment",
+                                    required: !0,
+                                    selector: {
+                                      select: {
+                                        translation_key:
+                                          "ui.panel.lovelace.editor.edit_view.background.alignment",
+                                        options: [
+                                          "top left",
+                                          "top center",
+                                          "top right",
+                                          "center left",
+                                          "center",
+                                          "center right",
+                                          "bottom left",
+                                          "bottom center",
+                                          "bottom right",
+                                        ],
+                                        mode: "dropdown",
+                                      },
+                                    },
+                                  },
+                                  {
+                                    name: "repeat",
+                                    required: !0,
+                                    selector: {
+                                      select: {
+                                        translation_key:
+                                          "ui.panel.lovelace.editor.edit_view.background.repeat",
+                                        options: ["repeat", "no-repeat"],
+                                        mode: "dropdown",
+                                      },
+                                    },
+                                  },
+                                ],
+                              },
+                            ]
+                          : []),
+                      ]);
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "render",
+                    value: function () {
+                      var e, i;
+                      if (!this.hass) return s.Ld;
+                      let t =
+                        null === (e = this._config) || void 0 === e
+                          ? void 0
+                          : e.background;
+                      if ("string" == typeof t) {
+                        var a;
+                        const e =
+                          null === (a = t.match(/url\(['"]?([^'"]+)['"]?\)/)) ||
+                          void 0 === a
+                            ? void 0
+                            : a[1];
+                        t = { image: e };
+                      }
+                      return (
+                        (t = t
+                          ? Object.assign(
+                              {
+                                opacity: 100,
+                                alignment: "center",
+                                size: "cover",
+                                repeat: "no-repeat",
+                                attachment: "scroll",
+                              },
+                              t,
+                            )
+                          : {
+                              opacity: 33,
+                              alignment: "center",
+                              size: "cover",
+                              repeat: "repeat",
+                              attachment: "fixed",
+                            }),
+                        (0, s.dy)(
+                          c ||
+                            (c = u`
       <ha-form .hass=${0} .data=${0} .schema=${0} .computeLabel=${0} @value-changed=${0} .localizeValue=${0} style=${0}></ha-form>
-    `),this.hass,t,this._schema(!0),this._computeLabelCallback,this._valueChanged,this._localizeValueCallback,`--picture-opacity: ${(null!==(i=t.opacity)&&void 0!==i?i:100)/100};`)}},{kind:"method",key:"_valueChanged",value:function(e){const i=Object.assign(Object.assign({},this._config),{},{background:e.detail.value});(0,l.B)(this,"view-config-changed",{config:i})}},{kind:"field",key:"_computeLabelCallback",value(){return e=>{switch(e.name){case"image":return this.hass.localize("ui.panel.lovelace.editor.edit_view.background.image");case"opacity":return this.hass.localize("ui.panel.lovelace.editor.edit_view.background.opacity");case"alignment":return this.hass.localize("ui.panel.lovelace.editor.edit_view.background.alignment.name");case"size":return this.hass.localize("ui.panel.lovelace.editor.edit_view.background.size.name");case"repeat":return this.hass.localize("ui.panel.lovelace.editor.edit_view.background.repeat.name");case"attachment":return this.hass.localize("ui.panel.lovelace.editor.edit_view.background.attachment.name");default:return this.hass.localize(`ui.panel.lovelace.editor.edit_view.background.${e.name}`)}}}},{kind:"field",static:!0,key:"styles",value(){return(0,s.iv)(h||(h=u`:host{display:block;--file-upload-image-border-radius:4px}`))}}]}}),s.oi);i()}catch(c){i(c)}}))},83849:function(e,i,t){var a=t(61701),n=(t(71695),t(9359),t(70104),t(19423),t(47021),t(57243)),s=t(50778),o=t(27486),l=t(36522),d=t(34798),r=(t(29073),t(82747)),c=t(18461);let h,u=e=>e;(0,a.Z)([(0,s.Mo)("hui-view-editor")],(function(e,i){return{F:class extends i{constructor(...i){super(...i),e(this)}},d:[{kind:"field",decorators:[(0,s.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,s.Cb)({attribute:!1})],key:"isNew",value(){return!1}},{kind:"field",decorators:[(0,s.SB)()],key:"_config",value:void 0},{kind:"field",key:"_suggestedPath",value(){return!1}},{kind:"field",key:"_schema",value(){return(0,o.Z)(((e,i)=>[{name:"type",selector:{select:{options:[r.zh,r.e4,r.rQ,r.Jh].map((i=>({value:i,label:e(`ui.panel.lovelace.editor.edit_view.types.${i}`)})))}}},{name:"title",selector:{text:{}}},{name:"icon",selector:{icon:{}}},{name:"path",selector:{text:{}}},{name:"theme",selector:{theme:{}}},{name:"subview",selector:{boolean:{}}},...i===r.zh?[{name:"section_specifics",type:"expandable",flatten:!0,expanded:!0,schema:[{name:"max_columns",selector:{number:{min:1,max:10,mode:"slider",slider_ticks:!0}}},{name:"dense_section_placement",selector:{boolean:{}}},{name:"top_margin",selector:{boolean:{}}}]}]:[]]))}},{kind:"set",key:"config",value:function(e){this._config=e}},{kind:"get",key:"_type",value:function(){return(0,c.W)(this._config)}},{kind:"method",key:"render",value:function(){if(!this.hass)return n.Ld;const e=this._schema(this.hass.localize,this._type),i=Object.assign(Object.assign({},this._config),{},{type:this._type});return void 0===i.max_columns&&this._type===r.zh&&(i.max_columns=4),(0,n.dy)(h||(h=u`
+    `),
+                          this.hass,
+                          t,
+                          this._schema(!0),
+                          this._computeLabelCallback,
+                          this._valueChanged,
+                          this._localizeValueCallback,
+                          `--picture-opacity: ${
+                            (null !== (i = t.opacity) && void 0 !== i
+                              ? i
+                              : 100) / 100
+                          };`,
+                        )
+                      );
+                    },
+                  },
+                  {
+                    kind: "method",
+                    key: "_valueChanged",
+                    value: function (e) {
+                      const i = Object.assign(
+                        Object.assign({}, this._config),
+                        {},
+                        { background: e.detail.value },
+                      );
+                      (0, l.B)(this, "view-config-changed", { config: i });
+                    },
+                  },
+                  {
+                    kind: "field",
+                    key: "_computeLabelCallback",
+                    value() {
+                      return (e) => {
+                        switch (e.name) {
+                          case "image":
+                            return this.hass.localize(
+                              "ui.panel.lovelace.editor.edit_view.background.image",
+                            );
+                          case "opacity":
+                            return this.hass.localize(
+                              "ui.panel.lovelace.editor.edit_view.background.opacity",
+                            );
+                          case "alignment":
+                            return this.hass.localize(
+                              "ui.panel.lovelace.editor.edit_view.background.alignment.name",
+                            );
+                          case "size":
+                            return this.hass.localize(
+                              "ui.panel.lovelace.editor.edit_view.background.size.name",
+                            );
+                          case "repeat":
+                            return this.hass.localize(
+                              "ui.panel.lovelace.editor.edit_view.background.repeat.name",
+                            );
+                          case "attachment":
+                            return this.hass.localize(
+                              "ui.panel.lovelace.editor.edit_view.background.attachment.name",
+                            );
+                          default:
+                            return this.hass.localize(
+                              `ui.panel.lovelace.editor.edit_view.background.${e.name}`,
+                            );
+                        }
+                      };
+                    },
+                  },
+                  {
+                    kind: "field",
+                    static: !0,
+                    key: "styles",
+                    value() {
+                      return (0, s.iv)(
+                        h ||
+                          (h = u`:host{display:block;--file-upload-image-border-radius:4px}`),
+                      );
+                    },
+                  },
+                ],
+              };
+            },
+            s.oi,
+          );
+          i();
+        } catch (c) {
+          i(c);
+        }
+      });
+    },
+    83849: function (e, i, t) {
+      var a = t(61701),
+        n = (t(71695), t(9359), t(70104), t(19423), t(47021), t(57243)),
+        s = t(50778),
+        o = t(27486),
+        l = t(36522),
+        d = t(34798),
+        r = (t(29073), t(82747)),
+        c = t(18461);
+      let h,
+        u = (e) => e;
+      (0, a.Z)(
+        [(0, s.Mo)("hui-view-editor")],
+        function (e, i) {
+          return {
+            F: class extends i {
+              constructor(...i) {
+                super(...i), e(this);
+              }
+            },
+            d: [
+              {
+                kind: "field",
+                decorators: [(0, s.Cb)({ attribute: !1 })],
+                key: "hass",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, s.Cb)({ attribute: !1 })],
+                key: "isNew",
+                value() {
+                  return !1;
+                },
+              },
+              {
+                kind: "field",
+                decorators: [(0, s.SB)()],
+                key: "_config",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                key: "_suggestedPath",
+                value() {
+                  return !1;
+                },
+              },
+              {
+                kind: "field",
+                key: "_schema",
+                value() {
+                  return (0, o.Z)((e, i) => [
+                    {
+                      name: "type",
+                      selector: {
+                        select: {
+                          options: [r.zh, r.e4, r.rQ, r.Jh].map((i) => ({
+                            value: i,
+                            label: e(
+                              `ui.panel.lovelace.editor.edit_view.types.${i}`,
+                            ),
+                          })),
+                        },
+                      },
+                    },
+                    { name: "title", selector: { text: {} } },
+                    { name: "icon", selector: { icon: {} } },
+                    { name: "path", selector: { text: {} } },
+                    { name: "theme", selector: { theme: {} } },
+                    { name: "subview", selector: { boolean: {} } },
+                    ...(i === r.zh
+                      ? [
+                          {
+                            name: "section_specifics",
+                            type: "expandable",
+                            flatten: !0,
+                            expanded: !0,
+                            schema: [
+                              {
+                                name: "max_columns",
+                                selector: {
+                                  number: {
+                                    min: 1,
+                                    max: 10,
+                                    mode: "slider",
+                                    slider_ticks: !0,
+                                  },
+                                },
+                              },
+                              {
+                                name: "dense_section_placement",
+                                selector: { boolean: {} },
+                              },
+                              { name: "top_margin", selector: { boolean: {} } },
+                            ],
+                          },
+                        ]
+                      : []),
+                  ]);
+                },
+              },
+              {
+                kind: "set",
+                key: "config",
+                value: function (e) {
+                  this._config = e;
+                },
+              },
+              {
+                kind: "get",
+                key: "_type",
+                value: function () {
+                  return (0, c.W)(this._config);
+                },
+              },
+              {
+                kind: "method",
+                key: "render",
+                value: function () {
+                  if (!this.hass) return n.Ld;
+                  const e = this._schema(this.hass.localize, this._type),
+                    i = Object.assign(
+                      Object.assign({}, this._config),
+                      {},
+                      { type: this._type },
+                    );
+                  return (
+                    void 0 === i.max_columns &&
+                      this._type === r.zh &&
+                      (i.max_columns = 4),
+                    (0, n.dy)(
+                      h ||
+                        (h = u`
       <ha-form .hass=${0} .data=${0} .schema=${0} .computeLabel=${0} .computeHelper=${0} @value-changed=${0}></ha-form>
-    `),this.hass,i,e,this._computeLabel,this._computeHelper,this._valueChanged)}},{kind:"method",key:"_valueChanged",value:function(e){const i=e.detail.value;i.type!==r.zh&&(delete i.max_columns,delete i.dense_section_placement,delete i.top_margin),!this.isNew||this._suggestedPath||this._config.path!==i.path||this._config.path&&i.path!==(0,d.l)(this._config.title||"","-")||(i.path=(0,d.l)(i.title||"","-")),(0,l.B)(this,"view-config-changed",{config:i})}},{kind:"field",key:"_computeLabel",value(){return e=>{switch(e.name){case"path":return this.hass.localize("ui.panel.lovelace.editor.card.generic.url");case"type":case"subview":case"max_columns":case"dense_section_placement":case"top_margin":case"section_specifics":return this.hass.localize(`ui.panel.lovelace.editor.edit_view.${e.name}`);default:return this.hass.localize(`ui.panel.lovelace.editor.card.generic.${e.name}`)}}}},{kind:"field",key:"_computeHelper",value(){return e=>{switch(e.name){case"subview":case"dense_section_placement":case"top_margin":return this.hass.localize(`ui.panel.lovelace.editor.edit_view.${e.name}_helper`);default:return}}}}]}}),n.oi)},91551:function(e,i,t){var a=t(61701),n=t(72621),s=(t(71695),t(92745),t(61893),t(9359),t(56475),t(70104),t(52924),t(47021),t(87319),t(57243)),o=t(50778),l=t(27486),d=t(36522),r=t(1416),c=(t(45801),t(7285),t(1888),t(4242));let h,u,v,g=e=>e;(0,a.Z)([(0,o.Mo)("hui-view-visibility-editor")],(function(e,i){class t extends i{constructor(...i){super(...i),e(this)}}return{F:t,d:[{kind:"set",key:"config",value:function(e){this._config=e,this._visible=void 0===this._config.visible||this._config.visible}},{kind:"field",decorators:[(0,o.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,o.SB)()],key:"_config",value:void 0},{kind:"field",decorators:[(0,o.SB)()],key:"_users",value:void 0},{kind:"field",decorators:[(0,o.SB)()],key:"_visible",value:void 0},{kind:"field",key:"_sortedUsers",value(){return(0,l.Z)((e=>e.sort(((e,i)=>(0,r.$K)(e.name,i.name,this.hass.locale.language)))))}},{kind:"method",key:"firstUpdated",value:function(e){(0,n.Z)(t,"firstUpdated",this,3)([e]),(0,c.uh)(this.hass).then((e=>{this._users=e.filter((e=>!e.system_generated))}))}},{kind:"method",key:"render",value:function(){return this.hass&&this._users?(0,s.dy)(h||(h=g`
+    `),
+                      this.hass,
+                      i,
+                      e,
+                      this._computeLabel,
+                      this._computeHelper,
+                      this._valueChanged,
+                    )
+                  );
+                },
+              },
+              {
+                kind: "method",
+                key: "_valueChanged",
+                value: function (e) {
+                  const i = e.detail.value;
+                  i.type !== r.zh &&
+                    (delete i.max_columns,
+                    delete i.dense_section_placement,
+                    delete i.top_margin),
+                    !this.isNew ||
+                      this._suggestedPath ||
+                      this._config.path !== i.path ||
+                      (this._config.path &&
+                        i.path !== (0, d.l)(this._config.title || "", "-")) ||
+                      (i.path = (0, d.l)(i.title || "", "-")),
+                    (0, l.B)(this, "view-config-changed", { config: i });
+                },
+              },
+              {
+                kind: "field",
+                key: "_computeLabel",
+                value() {
+                  return (e) => {
+                    switch (e.name) {
+                      case "path":
+                        return this.hass.localize(
+                          "ui.panel.lovelace.editor.card.generic.url",
+                        );
+                      case "type":
+                      case "subview":
+                      case "max_columns":
+                      case "dense_section_placement":
+                      case "top_margin":
+                      case "section_specifics":
+                        return this.hass.localize(
+                          `ui.panel.lovelace.editor.edit_view.${e.name}`,
+                        );
+                      default:
+                        return this.hass.localize(
+                          `ui.panel.lovelace.editor.card.generic.${e.name}`,
+                        );
+                    }
+                  };
+                },
+              },
+              {
+                kind: "field",
+                key: "_computeHelper",
+                value() {
+                  return (e) => {
+                    switch (e.name) {
+                      case "subview":
+                      case "dense_section_placement":
+                      case "top_margin":
+                        return this.hass.localize(
+                          `ui.panel.lovelace.editor.edit_view.${e.name}_helper`,
+                        );
+                      default:
+                        return;
+                    }
+                  };
+                },
+              },
+            ],
+          };
+        },
+        n.oi,
+      );
+    },
+    91551: function (e, i, t) {
+      var a = t(61701),
+        n = t(72621),
+        s =
+          (t(71695),
+          t(92745),
+          t(61893),
+          t(9359),
+          t(56475),
+          t(70104),
+          t(52924),
+          t(47021),
+          t(87319),
+          t(57243)),
+        o = t(50778),
+        l = t(27486),
+        d = t(36522),
+        r = t(1416),
+        c = (t(45801), t(7285), t(1888), t(4242));
+      let h,
+        u,
+        v,
+        g = (e) => e;
+      (0, a.Z)(
+        [(0, o.Mo)("hui-view-visibility-editor")],
+        function (e, i) {
+          class t extends i {
+            constructor(...i) {
+              super(...i), e(this);
+            }
+          }
+          return {
+            F: t,
+            d: [
+              {
+                kind: "set",
+                key: "config",
+                value: function (e) {
+                  (this._config = e),
+                    (this._visible =
+                      void 0 === this._config.visible || this._config.visible);
+                },
+              },
+              {
+                kind: "field",
+                decorators: [(0, o.Cb)({ attribute: !1 })],
+                key: "hass",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, o.SB)()],
+                key: "_config",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, o.SB)()],
+                key: "_users",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                decorators: [(0, o.SB)()],
+                key: "_visible",
+                value: void 0,
+              },
+              {
+                kind: "field",
+                key: "_sortedUsers",
+                value() {
+                  return (0, l.Z)((e) =>
+                    e.sort((e, i) =>
+                      (0, r.$K)(e.name, i.name, this.hass.locale.language),
+                    ),
+                  );
+                },
+              },
+              {
+                kind: "method",
+                key: "firstUpdated",
+                value: function (e) {
+                  (0, n.Z)(t, "firstUpdated", this, 3)([e]),
+                    (0, c.uh)(this.hass).then((e) => {
+                      this._users = e.filter((e) => !e.system_generated);
+                    });
+                },
+              },
+              {
+                kind: "method",
+                key: "render",
+                value: function () {
+                  return this.hass && this._users
+                    ? (0, s.dy)(
+                        h ||
+                          (h = g`
       <p>
         ${0}
       </p>
       ${0}
-    `),this.hass.localize("ui.panel.lovelace.editor.edit_view.visibility.select_users"),this._sortedUsers(this._users).map((e=>(0,s.dy)(u||(u=g`
+    `),
+                        this.hass.localize(
+                          "ui.panel.lovelace.editor.edit_view.visibility.select_users",
+                        ),
+                        this._sortedUsers(this._users).map((e) =>
+                          (0, s.dy)(
+                            u ||
+                              (u = g`
           <ha-list-item graphic="avatar" hasMeta>
             <ha-user-badge slot="graphic" .hass=${0} .user=${0}></ha-user-badge>
             <span>${0}</span>
             <ha-switch slot="meta" .userId=${0} @change=${0} .checked=${0}></ha-switch>
           </ha-list-item>
-        `),this.hass,e,e.name,e.id,this._valChange,this.checkUser(e.id))))):s.Ld}},{kind:"method",key:"checkUser",value:function(e){return void 0===this._visible||("boolean"==typeof this._visible?this._visible:this._visible.some((i=>i.user===e)))}},{kind:"method",key:"_valChange",value:function(e){const i=e.currentTarget.userId,t=e.currentTarget.checked;let a=[];if("boolean"==typeof this._visible){this._visible&&(a=this._users.map((e=>({user:e.id}))))}else a=[...this._visible];if(!0===t){const e={user:i};a.push(e)}else a=a.filter((e=>e.user!==i));this._visible=a.filter((e=>this._users.some((i=>i.id===e.user)))),(0,d.B)(this,"view-visibility-changed",{visible:this._visible})}},{kind:"field",static:!0,key:"styles",value(){return(0,s.iv)(v||(v=g`:host{display:block}`))}}]}}),s.oi)},80714:function(e,i,t){t.d(i,{d:()=>a});const a=e=>({type:"grid",cards:[{type:"heading",heading:e("ui.panel.lovelace.editor.section.default_section_title")}]})}}]);
+        `),
+                            this.hass,
+                            e,
+                            e.name,
+                            e.id,
+                            this._valChange,
+                            this.checkUser(e.id),
+                          ),
+                        ),
+                      )
+                    : s.Ld;
+                },
+              },
+              {
+                kind: "method",
+                key: "checkUser",
+                value: function (e) {
+                  return (
+                    void 0 === this._visible ||
+                    ("boolean" == typeof this._visible
+                      ? this._visible
+                      : this._visible.some((i) => i.user === e))
+                  );
+                },
+              },
+              {
+                kind: "method",
+                key: "_valChange",
+                value: function (e) {
+                  const i = e.currentTarget.userId,
+                    t = e.currentTarget.checked;
+                  let a = [];
+                  if ("boolean" == typeof this._visible) {
+                    this._visible &&
+                      (a = this._users.map((e) => ({ user: e.id })));
+                  } else a = [...this._visible];
+                  if (!0 === t) {
+                    const e = { user: i };
+                    a.push(e);
+                  } else a = a.filter((e) => e.user !== i);
+                  (this._visible = a.filter((e) =>
+                    this._users.some((i) => i.id === e.user),
+                  )),
+                    (0, d.B)(this, "view-visibility-changed", {
+                      visible: this._visible,
+                    });
+                },
+              },
+              {
+                kind: "field",
+                static: !0,
+                key: "styles",
+                value() {
+                  return (0, s.iv)(v || (v = g`:host{display:block}`));
+                },
+              },
+            ],
+          };
+        },
+        s.oi,
+      );
+    },
+    80714: function (e, i, t) {
+      t.d(i, { d: () => a });
+      const a = (e) => ({
+        type: "grid",
+        cards: [
+          {
+            type: "heading",
+            heading: e(
+              "ui.panel.lovelace.editor.section.default_section_title",
+            ),
+          },
+        ],
+      });
+    },
+  },
+]);
 //# sourceMappingURL=20123.41c9c207ff596836.js.map

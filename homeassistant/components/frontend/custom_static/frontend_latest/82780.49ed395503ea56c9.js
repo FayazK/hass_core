@@ -1,19 +1,902 @@
-export const __webpack_ids__=["82780"];export const __webpack_modules__={85746:function(e,t,r){r.d(t,{V:()=>n});var o=r(87733);const n=(e,t)=>(e=>{switch(e){case"de":case"lb":return!0;default:return!1}})(t)?(0,o.f)(e):e.toLocaleLowerCase(t)},29095:function(e,t,r){r.a(e,(async function(e,t){try{var o=r(44249),n=(r(31622),r(57243)),i=r(15093),s=r(17170),a=(r(37583),e([s]));s=(a.then?(await a)():a)[0];const c="M2.2,16.06L3.88,12L2.2,7.94L6.26,6.26L7.94,2.2L12,3.88L16.06,2.2L17.74,6.26L21.8,7.94L20.12,12L21.8,16.06L17.74,17.74L16.06,21.8L12,20.12L7.94,21.8L6.26,17.74L2.2,16.06M13,17V15H11V17H13M13,13V7H11V13H13Z",l="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z";(0,o.Z)([(0,i.Mo)("ha-progress-button")],(function(e,t){return{F:class extends t{constructor(...t){super(...t),e(this)}},d:[{kind:"field",decorators:[(0,i.Cb)({type:Boolean})],key:"disabled",value:()=>!1},{kind:"field",decorators:[(0,i.Cb)({type:Boolean})],key:"progress",value:()=>!1},{kind:"field",decorators:[(0,i.Cb)({type:Boolean})],key:"raised",value:()=>!1},{kind:"field",decorators:[(0,i.Cb)({type:Boolean})],key:"unelevated",value:()=>!1},{kind:"field",decorators:[(0,i.SB)()],key:"_result",value:void 0},{kind:"method",key:"render",value:function(){const e=this._result||this.progress;return n.dy`
-      <mwc-button ?raised=${this.raised} .unelevated=${this.unelevated} .disabled=${this.disabled||this.progress} class=${this._result||""}>
+export const __webpack_ids__ = ["82780"];
+export const __webpack_modules__ = {
+  85746: function (e, t, r) {
+    r.d(t, { V: () => n });
+    var o = r(87733);
+    const n = (e, t) =>
+      ((e) => {
+        switch (e) {
+          case "de":
+          case "lb":
+            return !0;
+          default:
+            return !1;
+        }
+      })(t)
+        ? (0, o.f)(e)
+        : e.toLocaleLowerCase(t);
+  },
+  29095: function (e, t, r) {
+    r.a(e, async function (e, t) {
+      try {
+        var o = r(44249),
+          n = (r(31622), r(57243)),
+          i = r(15093),
+          s = r(17170),
+          a = (r(37583), e([s]));
+        s = (a.then ? (await a)() : a)[0];
+        const c =
+            "M2.2,16.06L3.88,12L2.2,7.94L6.26,6.26L7.94,2.2L12,3.88L16.06,2.2L17.74,6.26L21.8,7.94L20.12,12L21.8,16.06L17.74,17.74L16.06,21.8L12,20.12L7.94,21.8L6.26,17.74L2.2,16.06M13,17V15H11V17H13M13,13V7H11V13H13Z",
+          l =
+            "M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z";
+        (0, o.Z)(
+          [(0, i.Mo)("ha-progress-button")],
+          function (e, t) {
+            return {
+              F: class extends t {
+                constructor(...t) {
+                  super(...t), e(this);
+                }
+              },
+              d: [
+                {
+                  kind: "field",
+                  decorators: [(0, i.Cb)({ type: Boolean })],
+                  key: "disabled",
+                  value: () => !1,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, i.Cb)({ type: Boolean })],
+                  key: "progress",
+                  value: () => !1,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, i.Cb)({ type: Boolean })],
+                  key: "raised",
+                  value: () => !1,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, i.Cb)({ type: Boolean })],
+                  key: "unelevated",
+                  value: () => !1,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, i.SB)()],
+                  key: "_result",
+                  value: void 0,
+                },
+                {
+                  kind: "method",
+                  key: "render",
+                  value: function () {
+                    const e = this._result || this.progress;
+                    return n.dy`
+      <mwc-button ?raised=${this.raised} .unelevated=${
+        this.unelevated
+      } .disabled=${this.disabled || this.progress} class=${this._result || ""}>
         <slot></slot>
       </mwc-button>
-      ${e?n.dy`
+      ${
+        e
+          ? n.dy`
             <div class="progress">
-              ${"success"===this._result?n.dy`<ha-svg-icon .path=${l}></ha-svg-icon>`:"error"===this._result?n.dy`<ha-svg-icon .path=${c}></ha-svg-icon>`:this.progress?n.dy`<ha-spinner size="small"></ha-spinner>`:n.Ld}
+              ${
+                "success" === this._result
+                  ? n.dy`<ha-svg-icon .path=${l}></ha-svg-icon>`
+                  : "error" === this._result
+                  ? n.dy`<ha-svg-icon .path=${c}></ha-svg-icon>`
+                  : this.progress
+                  ? n.dy`<ha-spinner size="small"></ha-spinner>`
+                  : n.Ld
+              }
             </div>
-          `:n.Ld}
-    `}},{kind:"method",key:"actionSuccess",value:function(){this._setResult("success")}},{kind:"method",key:"actionError",value:function(){this._setResult("error")}},{kind:"method",key:"_setResult",value:function(e){this._result=e,setTimeout((()=>{this._result=void 0}),2e3)}},{kind:"field",static:!0,key:"styles",value:()=>n.iv`mwc-button.error,mwc-button.success{--mdc-theme-primary:white;transition:none;border-radius:4px;pointer-events:none}:host{outline:0;display:inline-block;position:relative;pointer-events:none}mwc-button{transition:1s;pointer-events:initial}mwc-button.success{background-color:var(--success-color)}mwc-button[raised].success,mwc-button[unelevated].success{--mdc-theme-primary:var(--success-color);--mdc-theme-on-primary:white}mwc-button.error{background-color:var(--error-color)}mwc-button[raised].error,mwc-button[unelevated].error{--mdc-theme-primary:var(--error-color);--mdc-theme-on-primary:white}.progress{bottom:4px;position:absolute;text-align:center;top:4px;width:100%}ha-svg-icon{color:#fff}mwc-button.error slot,mwc-button.success slot{visibility:hidden}:host([destructive]){--mdc-theme-primary:var(--error-color)}`}]}}),n.oi);t()}catch(e){t(e)}}))},59826:function(e,t,r){var o=r(44249),n=r(31622),i=r(57243),s=r(15093),a=r(22344);(0,o.Z)([(0,s.Mo)("ha-button")],(function(e,t){return{F:class extends t{constructor(...t){super(...t),e(this)}},d:[{kind:"field",static:!0,key:"styles",value:()=>[a.W,i.iv`::slotted([slot=icon]){margin-inline-start:0px;margin-inline-end:8px;direction:var(--direction);display:block}.mdc-button{height:var(--button-height,36px)}.trailing-icon{display:flex}.slot-container{overflow:var(--button-slot-container-overflow,visible)}:host([destructive]){--mdc-theme-primary:var(--error-color)}`]}]}}),n.Button)},17170:function(e,t,r){r.a(e,(async function(e,o){try{r.r(t),r.d(t,{HaSpinner:()=>u});var n=r(44249),i=r(72621),s=r(97677),a=r(43580),c=r(57243),l=r(15093),d=e([s]);s=(d.then?(await d)():d)[0];let u=(0,n.Z)([(0,l.Mo)("ha-spinner")],(function(e,t){class r extends t{constructor(...t){super(...t),e(this)}}return{F:r,d:[{kind:"field",decorators:[(0,l.Cb)()],key:"size",value:void 0},{kind:"method",key:"updated",value:function(e){if((0,i.Z)(r,"updated",this,3)([e]),e.has("size"))switch(this.size){case"tiny":this.style.setProperty("--ha-spinner-size","16px");break;case"small":this.style.setProperty("--ha-spinner-size","28px");break;case"medium":this.style.setProperty("--ha-spinner-size","48px");break;case"large":this.style.setProperty("--ha-spinner-size","68px");break;case void 0:this.style.removeProperty("--ha-progress-ring-size")}}},{kind:"field",static:!0,key:"styles",value:()=>[a.Z,c.iv`:host{--indicator-color:var(
+          `
+          : n.Ld
+      }
+    `;
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "actionSuccess",
+                  value: function () {
+                    this._setResult("success");
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "actionError",
+                  value: function () {
+                    this._setResult("error");
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "_setResult",
+                  value: function (e) {
+                    (this._result = e),
+                      setTimeout(() => {
+                        this._result = void 0;
+                      }, 2e3);
+                  },
+                },
+                {
+                  kind: "field",
+                  static: !0,
+                  key: "styles",
+                  value: () =>
+                    n.iv`mwc-button.error,mwc-button.success{--mdc-theme-primary:white;transition:none;border-radius:4px;pointer-events:none}:host{outline:0;display:inline-block;position:relative;pointer-events:none}mwc-button{transition:1s;pointer-events:initial}mwc-button.success{background-color:var(--success-color)}mwc-button[raised].success,mwc-button[unelevated].success{--mdc-theme-primary:var(--success-color);--mdc-theme-on-primary:white}mwc-button.error{background-color:var(--error-color)}mwc-button[raised].error,mwc-button[unelevated].error{--mdc-theme-primary:var(--error-color);--mdc-theme-on-primary:white}.progress{bottom:4px;position:absolute;text-align:center;top:4px;width:100%}ha-svg-icon{color:#fff}mwc-button.error slot,mwc-button.success slot{visibility:hidden}:host([destructive]){--mdc-theme-primary:var(--error-color)}`,
+                },
+              ],
+            };
+          },
+          n.oi,
+        );
+        t();
+      } catch (e) {
+        t(e);
+      }
+    });
+  },
+  59826: function (e, t, r) {
+    var o = r(44249),
+      n = r(31622),
+      i = r(57243),
+      s = r(15093),
+      a = r(22344);
+    (0, o.Z)(
+      [(0, s.Mo)("ha-button")],
+      function (e, t) {
+        return {
+          F: class extends t {
+            constructor(...t) {
+              super(...t), e(this);
+            }
+          },
+          d: [
+            {
+              kind: "field",
+              static: !0,
+              key: "styles",
+              value: () => [
+                a.W,
+                i.iv`::slotted([slot=icon]){margin-inline-start:0px;margin-inline-end:8px;direction:var(--direction);display:block}.mdc-button{height:var(--button-height,36px)}.trailing-icon{display:flex}.slot-container{overflow:var(--button-slot-container-overflow,visible)}:host([destructive]){--mdc-theme-primary:var(--error-color)}`,
+              ],
+            },
+          ],
+        };
+      },
+      n.Button,
+    );
+  },
+  17170: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        r.r(t), r.d(t, { HaSpinner: () => u });
+        var n = r(44249),
+          i = r(72621),
+          s = r(97677),
+          a = r(43580),
+          c = r(57243),
+          l = r(15093),
+          d = e([s]);
+        s = (d.then ? (await d)() : d)[0];
+        let u = (0, n.Z)(
+          [(0, l.Mo)("ha-spinner")],
+          function (e, t) {
+            class r extends t {
+              constructor(...t) {
+                super(...t), e(this);
+              }
+            }
+            return {
+              F: r,
+              d: [
+                {
+                  kind: "field",
+                  decorators: [(0, l.Cb)()],
+                  key: "size",
+                  value: void 0,
+                },
+                {
+                  kind: "method",
+                  key: "updated",
+                  value: function (e) {
+                    if (((0, i.Z)(r, "updated", this, 3)([e]), e.has("size")))
+                      switch (this.size) {
+                        case "tiny":
+                          this.style.setProperty("--ha-spinner-size", "16px");
+                          break;
+                        case "small":
+                          this.style.setProperty("--ha-spinner-size", "28px");
+                          break;
+                        case "medium":
+                          this.style.setProperty("--ha-spinner-size", "48px");
+                          break;
+                        case "large":
+                          this.style.setProperty("--ha-spinner-size", "68px");
+                          break;
+                        case void 0:
+                          this.style.removeProperty("--ha-progress-ring-size");
+                      }
+                  },
+                },
+                {
+                  kind: "field",
+                  static: !0,
+                  key: "styles",
+                  value: () => [
+                    a.Z,
+                    c.iv`:host{--indicator-color:var(
           --ha-spinner-indicator-color,
           var(--primary-color)
-        );--track-color:var(--ha-spinner-divider-color, var(--divider-color));--track-width:4px;--speed:3.5s;font-size:var(--ha-spinner-size, 48px)}`]}]}}),s.Z);o()}catch(e){o(e)}}))},25433:function(e,t,r){r.d(t,{MY:()=>y,Yc:()=>p,hb:()=>g,jV:()=>l,o1:()=>m,ri:()=>v,sS:()=>u});var o=r(73358),n=r(73850),i=r(59847),s=r(85746),a=r(96194);const c="ui.components.logbook.messages",l=["counter","proximity","sensor","zone"],d={triggered_by_numeric_state_of:"numeric state of",triggered_by_state_of:"state of",triggered_by_event:"event",triggered_by_time_pattern:"time pattern",triggered_by_time:"time",triggered_by_homeassistant_stopping:"ASCIA stopping",triggered_by_homeassistant_starting:"ASCIA starting"},u=async(e,t,r)=>h(e,t,void 0,void 0,r),h=(e,t,r,o,n,i)=>{if((o||i)&&(!o||0===o.length)&&(!i||0===i.length))return Promise.resolve([]);const s={type:"logbook/get_events",start_time:t};return r&&(s.end_time=r),o?.length&&(s.entity_ids=o),i?.length&&(s.device_ids=i),n&&(s.context_id=n),e.callWS(s)},p=(e,t,r,o,n,i)=>{if((n||i)&&(!n||0===n.length)&&(!i||0===i.length))return Promise.reject("No entities or devices");const s={type:"logbook/event_stream",start_time:r,end_time:o};return n?.length&&(s.entity_ids=n),i?.length&&(s.device_ids=i),e.connection.subscribeMessage((e=>t(e)),s)},m=(e,t)=>({entity_id:e.entity_id,state:t,attributes:{device_class:e?.attributes.device_class,source_type:e?.attributes.source_type,has_date:e?.attributes.has_date,has_time:e?.attributes.has_time,entity_picture_local:o.iY.has((0,n.M)(e.entity_id))?void 0:e?.attributes.entity_picture_local,entity_picture:o.iY.has((0,n.M)(e.entity_id))?void 0:e?.attributes.entity_picture}}),g=(e,t)=>{for(const r of Object.keys(d)){const o=d[r];if(t.startsWith(o))return t.replace(o,`${e(`ui.components.logbook.${r}`)}`)}return t},v=(e,t,r,n,i)=>{switch(i){case"device_tracker":case"person":return"not_home"===r?t(`${c}.was_away`):"home"===r?t(`${c}.was_at_home`):t(`${c}.was_at_state`,{state:r});case"sun":return t("above_horizon"===r?`${c}.rose`:`${c}.set`);case"binary_sensor":{const i=r===o.uo,a=r===o.lC,l=n.attributes.device_class;if(l&&(i||a))return t(`${c}.${i?"detected_device_classes":"cleared_device_classes"}.${l}`,{device_class:(0,s.V)(t(`component.binary_sensor.entity_component.${l}.name`)||l,e.language)})||t(`${c}.${i?"detected_device_class":"cleared_device_class"}`,{device_class:(0,s.V)(t(`component.binary_sensor.entity_component.${l}.name`)||l,e.language)});break}case"cover":switch(r){case"open":return t(`${c}.was_opened`);case"opening":return t(`${c}.is_opening`);case"closing":return t(`${c}.is_closing`);case"closed":return t(`${c}.was_closed`)}break;case"event":return t(`${c}.detected_event_no_type`);case"lock":switch(r){case"unlocked":return t(`${c}.was_unlocked`);case"locking":return t(`${c}.is_locking`);case"unlocking":return t(`${c}.is_unlocking`);case"opening":return t(`${c}.is_opening`);case"open":return t(`${c}.is_opened`);case"locked":return t(`${c}.was_locked`);case"jammed":return t(`${c}.is_jammed`)}}return r===o.uo?t(`${c}.turned_on`):r===o.lC?t(`${c}.turned_off`):r===a.lz?t(`${c}.became_unknown`):r===a.nZ?t(`${c}.became_unavailable`):e.localize(`${c}.changed_to_state`,{state:n?e.formatEntityState(n,r):r})},y=e=>"sensor"!==(0,i.N)(e)||void 0===e.attributes.unit_of_measurement&&void 0===e.attributes.state_class},72814:function(e,t,r){r.a(e,(async function(e,o){try{r.r(t),r.d(t,{HuiErrorBadge:()=>p,createErrorBadgeConfig:()=>h,createErrorBadgeElement:()=>u});var n=r(44249),i=r(76848),s=r(57243),a=r(15093),c=(r(29775),r(37583),r(12660)),l=e([c]);c=(l.then?(await l)():l)[0];const d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",u=e=>{const t=document.createElement("hui-error-badge");return t.setConfig(e),t},h=e=>({type:"error",error:e});let p=(0,n.Z)([(0,a.Mo)("hui-error-badge")],(function(e,t){return{F:class extends t{constructor(...t){super(...t),e(this)}},d:[{kind:"field",key:"hass",value:void 0},{kind:"field",decorators:[(0,a.SB)()],key:"_config",value:void 0},{kind:"method",key:"setConfig",value:function(e){this._config=e}},{kind:"method",key:"_viewDetail",value:function(){let e;if(this._config.origConfig)try{e=(0,i.dump)(this._config.origConfig)}catch(t){e=`[Error dumping ${this._config.origConfig}]`}(0,c.showAlertDialog)(this,{title:this._config?.error,warning:!0,text:e?s.dy`<pre>${e}</pre>`:""})}},{kind:"method",key:"render",value:function(){return this._config?s.dy`
+        );--track-color:var(--ha-spinner-divider-color, var(--divider-color));--track-width:4px;--speed:3.5s;font-size:var(--ha-spinner-size, 48px)}`,
+                  ],
+                },
+              ],
+            };
+          },
+          s.Z,
+        );
+        o();
+      } catch (e) {
+        o(e);
+      }
+    });
+  },
+  25433: function (e, t, r) {
+    r.d(t, {
+      MY: () => y,
+      Yc: () => p,
+      hb: () => g,
+      jV: () => l,
+      o1: () => m,
+      ri: () => v,
+      sS: () => u,
+    });
+    var o = r(73358),
+      n = r(73850),
+      i = r(59847),
+      s = r(85746),
+      a = r(96194);
+    const c = "ui.components.logbook.messages",
+      l = ["counter", "proximity", "sensor", "zone"],
+      d = {
+        triggered_by_numeric_state_of: "numeric state of",
+        triggered_by_state_of: "state of",
+        triggered_by_event: "event",
+        triggered_by_time_pattern: "time pattern",
+        triggered_by_time: "time",
+        triggered_by_homeassistant_stopping: "ASCIA stopping",
+        triggered_by_homeassistant_starting: "ASCIA starting",
+      },
+      u = async (e, t, r) => h(e, t, void 0, void 0, r),
+      h = (e, t, r, o, n, i) => {
+        if ((o || i) && (!o || 0 === o.length) && (!i || 0 === i.length))
+          return Promise.resolve([]);
+        const s = { type: "logbook/get_events", start_time: t };
+        return (
+          r && (s.end_time = r),
+          o?.length && (s.entity_ids = o),
+          i?.length && (s.device_ids = i),
+          n && (s.context_id = n),
+          e.callWS(s)
+        );
+      },
+      p = (e, t, r, o, n, i) => {
+        if ((n || i) && (!n || 0 === n.length) && (!i || 0 === i.length))
+          return Promise.reject("No entities or devices");
+        const s = { type: "logbook/event_stream", start_time: r, end_time: o };
+        return (
+          n?.length && (s.entity_ids = n),
+          i?.length && (s.device_ids = i),
+          e.connection.subscribeMessage((e) => t(e), s)
+        );
+      },
+      m = (e, t) => ({
+        entity_id: e.entity_id,
+        state: t,
+        attributes: {
+          device_class: e?.attributes.device_class,
+          source_type: e?.attributes.source_type,
+          has_date: e?.attributes.has_date,
+          has_time: e?.attributes.has_time,
+          entity_picture_local: o.iY.has((0, n.M)(e.entity_id))
+            ? void 0
+            : e?.attributes.entity_picture_local,
+          entity_picture: o.iY.has((0, n.M)(e.entity_id))
+            ? void 0
+            : e?.attributes.entity_picture,
+        },
+      }),
+      g = (e, t) => {
+        for (const r of Object.keys(d)) {
+          const o = d[r];
+          if (t.startsWith(o))
+            return t.replace(o, `${e(`ui.components.logbook.${r}`)}`);
+        }
+        return t;
+      },
+      v = (e, t, r, n, i) => {
+        switch (i) {
+          case "device_tracker":
+          case "person":
+            return "not_home" === r
+              ? t(`${c}.was_away`)
+              : "home" === r
+              ? t(`${c}.was_at_home`)
+              : t(`${c}.was_at_state`, { state: r });
+          case "sun":
+            return t("above_horizon" === r ? `${c}.rose` : `${c}.set`);
+          case "binary_sensor": {
+            const i = r === o.uo,
+              a = r === o.lC,
+              l = n.attributes.device_class;
+            if (l && (i || a))
+              return (
+                t(
+                  `${c}.${
+                    i ? "detected_device_classes" : "cleared_device_classes"
+                  }.${l}`,
+                  {
+                    device_class: (0, s.V)(
+                      t(`component.binary_sensor.entity_component.${l}.name`) ||
+                        l,
+                      e.language,
+                    ),
+                  },
+                ) ||
+                t(
+                  `${c}.${
+                    i ? "detected_device_class" : "cleared_device_class"
+                  }`,
+                  {
+                    device_class: (0, s.V)(
+                      t(`component.binary_sensor.entity_component.${l}.name`) ||
+                        l,
+                      e.language,
+                    ),
+                  },
+                )
+              );
+            break;
+          }
+          case "cover":
+            switch (r) {
+              case "open":
+                return t(`${c}.was_opened`);
+              case "opening":
+                return t(`${c}.is_opening`);
+              case "closing":
+                return t(`${c}.is_closing`);
+              case "closed":
+                return t(`${c}.was_closed`);
+            }
+            break;
+          case "event":
+            return t(`${c}.detected_event_no_type`);
+          case "lock":
+            switch (r) {
+              case "unlocked":
+                return t(`${c}.was_unlocked`);
+              case "locking":
+                return t(`${c}.is_locking`);
+              case "unlocking":
+                return t(`${c}.is_unlocking`);
+              case "opening":
+                return t(`${c}.is_opening`);
+              case "open":
+                return t(`${c}.is_opened`);
+              case "locked":
+                return t(`${c}.was_locked`);
+              case "jammed":
+                return t(`${c}.is_jammed`);
+            }
+        }
+        return r === o.uo
+          ? t(`${c}.turned_on`)
+          : r === o.lC
+          ? t(`${c}.turned_off`)
+          : r === a.lz
+          ? t(`${c}.became_unknown`)
+          : r === a.nZ
+          ? t(`${c}.became_unavailable`)
+          : e.localize(`${c}.changed_to_state`, {
+              state: n ? e.formatEntityState(n, r) : r,
+            });
+      },
+      y = (e) =>
+        "sensor" !== (0, i.N)(e) ||
+        (void 0 === e.attributes.unit_of_measurement &&
+          void 0 === e.attributes.state_class);
+  },
+  72814: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        r.r(t),
+          r.d(t, {
+            HuiErrorBadge: () => p,
+            createErrorBadgeConfig: () => h,
+            createErrorBadgeElement: () => u,
+          });
+        var n = r(44249),
+          i = r(76848),
+          s = r(57243),
+          a = r(15093),
+          c = (r(29775), r(37583), r(12660)),
+          l = e([c]);
+        c = (l.then ? (await l)() : l)[0];
+        const d =
+            "M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+          u = (e) => {
+            const t = document.createElement("hui-error-badge");
+            return t.setConfig(e), t;
+          },
+          h = (e) => ({ type: "error", error: e });
+        let p = (0, n.Z)(
+          [(0, a.Mo)("hui-error-badge")],
+          function (e, t) {
+            return {
+              F: class extends t {
+                constructor(...t) {
+                  super(...t), e(this);
+                }
+              },
+              d: [
+                { kind: "field", key: "hass", value: void 0 },
+                {
+                  kind: "field",
+                  decorators: [(0, a.SB)()],
+                  key: "_config",
+                  value: void 0,
+                },
+                {
+                  kind: "method",
+                  key: "setConfig",
+                  value: function (e) {
+                    this._config = e;
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "_viewDetail",
+                  value: function () {
+                    let e;
+                    if (this._config.origConfig)
+                      try {
+                        e = (0, i.dump)(this._config.origConfig);
+                      } catch (t) {
+                        e = `[Error dumping ${this._config.origConfig}]`;
+                      }
+                    (0, c.showAlertDialog)(this, {
+                      title: this._config?.error,
+                      warning: !0,
+                      text: e ? s.dy`<pre>${e}</pre>` : "",
+                    });
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "render",
+                  value: function () {
+                    return this._config
+                      ? s.dy`
       <ha-badge class="error" @click=${this._viewDetail} type="button" label="Error">
         <ha-svg-icon slot="icon" .path=${d}></ha-svg-icon>
         <div class="content">${this._config.error}</div>
       </ha-badge>
-    `:s.Ld}},{kind:"field",static:!0,key:"styles",value:()=>s.iv`ha-badge{--badge-color:var(--error-color);--ha-card-border-color:var(--error-color)}.content{max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}pre{font-family:var(--code-font-family, monospace);white-space:break-spaces;user-select:text}`}]}}),s.oi);o()}catch(e){o(e)}}))},27934:function(e,t,r){r.a(e,(async function(e,o){try{r.d(t,{JE:()=>d,Sm:()=>u,t5:()=>l});r(92519),r(42179),r(89256),r(24931),r(88463),r(57449),r(19814);var n=r(88693),i=r(40249),s=e([n]);n=(s.then?(await s)():s)[0];const a=new Set(["error","entity"]),c={"entity-filter":()=>r.e("36240").then(r.bind(r,26199)),"state-label":()=>r.e("23759").then(r.bind(r,34270))},l=e=>(0,i.Xm)("badge",e,a,c,void 0,"entity"),d=e=>(0,i.Tw)("badge",e,a,c,void 0,"entity"),u=e=>(0,i.ED)(e,"badge",a,c);o()}catch(e){o(e)}}))},12660:function(e,t,r){r.a(e,(async function(e,o){try{if(r.r(t),r.d(t,{createBadgeElement:()=>a.JE,createCardElement:()=>c.Z6,createHeaderFooterElement:()=>l.t,createHuiElement:()=>d.w,createRowElement:()=>u.m,importMoreInfoControl:()=>s.ST,showAlertDialog:()=>i.showAlertDialog,showConfirmationDialog:()=>i.showConfirmationDialog,showEnterCodeDialog:()=>n.t,showPromptDialog:()=>i.showPromptDialog}),99387==r.j)var n=r(17808);var i=r(76131),s=r(88991),a=r(27934),c=r(62037),l=r(64830),d=r(52032),u=r(46542),h=e([s,a,c,d,u]);[s,a,c,d,u]=h.then?(await h)():h,o()}catch(e){o(e)}}))},48734:function(e,t,r){r.a(e,(async function(e,o){try{r.d(t,{P5:()=>h,Ve:()=>m});var n=r(16485),i=(r(9359),r(70104),r(92519),r(42179),r(89256),r(24931),r(88463),r(57449),r(19814),e([n]));n=(i.then?(await i)():i)[0];const s=new Set,a=new Map;let c,l="ltr",d="en";const u="undefined"!=typeof MutationObserver&&"undefined"!=typeof document&&void 0!==document.documentElement;if(u){const g=new MutationObserver(p);l=document.documentElement.dir||"ltr",d=document.documentElement.lang||navigator.language,g.observe(document.documentElement,{attributes:!0,attributeFilter:["dir","lang"]})}function h(...e){e.map((e=>{const t=e.$code.toLowerCase();a.has(t)?a.set(t,Object.assign(Object.assign({},a.get(t)),e)):a.set(t,e),c||(c=e)})),p()}function p(){u&&(l=document.documentElement.dir||"ltr",d=document.documentElement.lang||navigator.language),[...s.keys()].map((e=>{"function"==typeof e.requestUpdate&&e.requestUpdate()}))}class m{constructor(e){this.host=e,this.host.addController(this)}hostConnected(){s.add(this.host)}hostDisconnected(){s.delete(this.host)}dir(){return`${this.host.dir||l}`.toLowerCase()}lang(){return`${this.host.lang||d}`.toLowerCase()}getTranslationData(e){var t,r;const o=new Intl.Locale(e.replace(/_/g,"-")),n=null==o?void 0:o.language.toLowerCase(),i=null!==(r=null===(t=null==o?void 0:o.region)||void 0===t?void 0:t.toLowerCase())&&void 0!==r?r:"";return{locale:o,language:n,region:i,primary:a.get(`${n}-${i}`),secondary:a.get(n)}}exists(e,t){var r;const{primary:o,secondary:n}=this.getTranslationData(null!==(r=t.lang)&&void 0!==r?r:this.lang());return t=Object.assign({includeFallback:!1},t),!!(o&&o[e]||n&&n[e]||t.includeFallback&&c&&c[e])}term(e,...t){const{primary:r,secondary:o}=this.getTranslationData(this.lang());let n;if(r&&r[e])n=r[e];else if(o&&o[e])n=o[e];else{if(!c||!c[e])return console.error(`No translation found for: ${String(e)}`),String(e);n=c[e]}return"function"==typeof n?n(...t):n}date(e,t){return e=new Date(e),new Intl.DateTimeFormat(this.lang(),t).format(e)}number(e,t){return e=Number(e),isNaN(e)?"":new Intl.NumberFormat(this.lang(),t).format(e)}relativeTime(e,t,r){return new Intl.RelativeTimeFormat(this.lang(),r).format(e,t)}}o()}catch(v){o(v)}}))},31027:function(e,t,r){r.d(t,{P:()=>a});r(9359),r(31526);var o,n=r(52812),i=r(57243),s=r(15093),a=class extends i.oi{constructor(){super(),(0,n.Ko)(this,o,!1),this.initialReflectedProperties=new Map,Object.entries(this.constructor.dependencies).forEach((([e,t])=>{this.constructor.define(e,t)}))}emit(e,t){const r=new CustomEvent(e,(0,n.ih)({bubbles:!0,cancelable:!1,composed:!0,detail:{}},t));return this.dispatchEvent(r),r}static define(e,t=this,r={}){const o=customElements.get(e);if(!o){try{customElements.define(e,t,r)}catch(o){customElements.define(e,class extends t{},r)}return}let n=" (unknown version)",i=n;"version"in t&&t.version&&(n=" v"+t.version),"version"in o&&o.version&&(i=" v"+o.version),n&&i&&n===i||console.warn(`Attempted to register <${e}>${n}, but <${e}>${i} has already been registered.`)}attributeChangedCallback(e,t,r){(0,n.ac)(this,o)||(this.constructor.elementProperties.forEach(((e,t)=>{e.reflect&&null!=this[t]&&this.initialReflectedProperties.set(t,this[t])})),(0,n.qx)(this,o,!0)),super.attributeChangedCallback(e,t,r)}willUpdate(e){super.willUpdate(e),this.initialReflectedProperties.forEach(((t,r)=>{e.has(r)&&null==this[r]&&(this[r]=t)}))}};o=new WeakMap,a.version="2.20.1",a.dependencies={},(0,n.u2)([(0,s.Cb)()],a.prototype,"dir",2),(0,n.u2)([(0,s.Cb)()],a.prototype,"lang",2)},15073:function(e,t,r){r.a(e,(async function(e,o){try{r.d(t,{V:()=>a});var n=r(21262),i=r(48734),s=e([i,n]);[i,n]=s.then?(await s)():s;var a=class extends i.Ve{};(0,i.P5)(n.K),o()}catch(e){o(e)}}))},21262:function(e,t,r){r.a(e,(async function(e,o){try{r.d(t,{K:()=>a});var n=r(48734),i=e([n]);n=(i.then?(await i)():i)[0];var s={$code:"en",$name:"English",$dir:"ltr",carousel:"Carousel",clearEntry:"Clear entry",close:"Close",copied:"Copied",copy:"Copy",currentValue:"Current value",error:"Error",goToSlide:(e,t)=>`Go to slide ${e} of ${t}`,hidePassword:"Hide password",loading:"Loading",nextSlide:"Next slide",numOptionsSelected:e=>0===e?"No options selected":1===e?"1 option selected":`${e} options selected`,previousSlide:"Previous slide",progress:"Progress",remove:"Remove",resize:"Resize",scrollToEnd:"Scroll to end",scrollToStart:"Scroll to start",selectAColorFromTheScreen:"Select a color from the screen",showPassword:"Show password",slideNum:e=>`Slide ${e}`,toggleColorFormat:"Toggle color format"};(0,n.P5)(s);var a=s;o()}catch(e){o(e)}}))},52812:function(e,t,r){r.d(t,{EZ:()=>p,Ko:()=>y,ac:()=>v,ih:()=>h,qx:()=>f,u2:()=>m});var o=Object.defineProperty,n=Object.defineProperties,i=Object.getOwnPropertyDescriptor,s=Object.getOwnPropertyDescriptors,a=Object.getOwnPropertySymbols,c=Object.prototype.hasOwnProperty,l=Object.prototype.propertyIsEnumerable,d=e=>{throw TypeError(e)},u=(e,t,r)=>t in e?o(e,t,{enumerable:!0,configurable:!0,writable:!0,value:r}):e[t]=r,h=(e,t)=>{for(var r in t||(t={}))c.call(t,r)&&u(e,r,t[r]);if(a)for(var r of a(t))l.call(t,r)&&u(e,r,t[r]);return e},p=(e,t)=>n(e,s(t)),m=(e,t,r,n)=>{for(var s,a=n>1?void 0:n?i(t,r):t,c=e.length-1;c>=0;c--)(s=e[c])&&(a=(n?s(t,r,a):s(a))||a);return n&&a&&o(t,r,a),a},g=(e,t,r)=>t.has(e)||d("Cannot "+r),v=(e,t,r)=>(g(e,t,"read from private field"),r?r.call(e):t.get(e)),y=(e,t,r)=>t.has(e)?d("Cannot add the same private member more than once"):t instanceof WeakSet?t.add(e):t.set(e,r),f=(e,t,r,o)=>(g(e,t,"write to private field"),o?o.call(e,r):t.set(e,r),r)},81048:function(e,t,r){r.d(t,{N:()=>o});var o=r(57243).iv`:host{box-sizing:border-box}:host *,:host ::after,:host ::before{box-sizing:inherit}[hidden]{display:none!important}`}};
+    `
+                      : s.Ld;
+                  },
+                },
+                {
+                  kind: "field",
+                  static: !0,
+                  key: "styles",
+                  value: () =>
+                    s.iv`ha-badge{--badge-color:var(--error-color);--ha-card-border-color:var(--error-color)}.content{max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}pre{font-family:var(--code-font-family, monospace);white-space:break-spaces;user-select:text}`,
+                },
+              ],
+            };
+          },
+          s.oi,
+        );
+        o();
+      } catch (e) {
+        o(e);
+      }
+    });
+  },
+  27934: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        r.d(t, { JE: () => d, Sm: () => u, t5: () => l });
+        r(92519), r(42179), r(89256), r(24931), r(88463), r(57449), r(19814);
+        var n = r(88693),
+          i = r(40249),
+          s = e([n]);
+        n = (s.then ? (await s)() : s)[0];
+        const a = new Set(["error", "entity"]),
+          c = {
+            "entity-filter": () => r.e("36240").then(r.bind(r, 26199)),
+            "state-label": () => r.e("23759").then(r.bind(r, 34270)),
+          },
+          l = (e) => (0, i.Xm)("badge", e, a, c, void 0, "entity"),
+          d = (e) => (0, i.Tw)("badge", e, a, c, void 0, "entity"),
+          u = (e) => (0, i.ED)(e, "badge", a, c);
+        o();
+      } catch (e) {
+        o(e);
+      }
+    });
+  },
+  12660: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        if (
+          (r.r(t),
+          r.d(t, {
+            createBadgeElement: () => a.JE,
+            createCardElement: () => c.Z6,
+            createHeaderFooterElement: () => l.t,
+            createHuiElement: () => d.w,
+            createRowElement: () => u.m,
+            importMoreInfoControl: () => s.ST,
+            showAlertDialog: () => i.showAlertDialog,
+            showConfirmationDialog: () => i.showConfirmationDialog,
+            showEnterCodeDialog: () => n.t,
+            showPromptDialog: () => i.showPromptDialog,
+          }),
+          99387 == r.j)
+        )
+          var n = r(17808);
+        var i = r(76131),
+          s = r(88991),
+          a = r(27934),
+          c = r(62037),
+          l = r(64830),
+          d = r(52032),
+          u = r(46542),
+          h = e([s, a, c, d, u]);
+        ([s, a, c, d, u] = h.then ? (await h)() : h), o();
+      } catch (e) {
+        o(e);
+      }
+    });
+  },
+  48734: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        r.d(t, { P5: () => h, Ve: () => m });
+        var n = r(16485),
+          i =
+            (r(9359),
+            r(70104),
+            r(92519),
+            r(42179),
+            r(89256),
+            r(24931),
+            r(88463),
+            r(57449),
+            r(19814),
+            e([n]));
+        n = (i.then ? (await i)() : i)[0];
+        const s = new Set(),
+          a = new Map();
+        let c,
+          l = "ltr",
+          d = "en";
+        const u =
+          "undefined" != typeof MutationObserver &&
+          "undefined" != typeof document &&
+          void 0 !== document.documentElement;
+        if (u) {
+          const g = new MutationObserver(p);
+          (l = document.documentElement.dir || "ltr"),
+            (d = document.documentElement.lang || navigator.language),
+            g.observe(document.documentElement, {
+              attributes: !0,
+              attributeFilter: ["dir", "lang"],
+            });
+        }
+        function h(...e) {
+          e.map((e) => {
+            const t = e.$code.toLowerCase();
+            a.has(t)
+              ? a.set(t, Object.assign(Object.assign({}, a.get(t)), e))
+              : a.set(t, e),
+              c || (c = e);
+          }),
+            p();
+        }
+        function p() {
+          u &&
+            ((l = document.documentElement.dir || "ltr"),
+            (d = document.documentElement.lang || navigator.language)),
+            [...s.keys()].map((e) => {
+              "function" == typeof e.requestUpdate && e.requestUpdate();
+            });
+        }
+        class m {
+          constructor(e) {
+            (this.host = e), this.host.addController(this);
+          }
+          hostConnected() {
+            s.add(this.host);
+          }
+          hostDisconnected() {
+            s.delete(this.host);
+          }
+          dir() {
+            return `${this.host.dir || l}`.toLowerCase();
+          }
+          lang() {
+            return `${this.host.lang || d}`.toLowerCase();
+          }
+          getTranslationData(e) {
+            var t, r;
+            const o = new Intl.Locale(e.replace(/_/g, "-")),
+              n = null == o ? void 0 : o.language.toLowerCase(),
+              i =
+                null !==
+                  (r =
+                    null === (t = null == o ? void 0 : o.region) || void 0 === t
+                      ? void 0
+                      : t.toLowerCase()) && void 0 !== r
+                  ? r
+                  : "";
+            return {
+              locale: o,
+              language: n,
+              region: i,
+              primary: a.get(`${n}-${i}`),
+              secondary: a.get(n),
+            };
+          }
+          exists(e, t) {
+            var r;
+            const { primary: o, secondary: n } = this.getTranslationData(
+              null !== (r = t.lang) && void 0 !== r ? r : this.lang(),
+            );
+            return (
+              (t = Object.assign({ includeFallback: !1 }, t)),
+              !!((o && o[e]) || (n && n[e]) || (t.includeFallback && c && c[e]))
+            );
+          }
+          term(e, ...t) {
+            const { primary: r, secondary: o } = this.getTranslationData(
+              this.lang(),
+            );
+            let n;
+            if (r && r[e]) n = r[e];
+            else if (o && o[e]) n = o[e];
+            else {
+              if (!c || !c[e])
+                return (
+                  console.error(`No translation found for: ${String(e)}`),
+                  String(e)
+                );
+              n = c[e];
+            }
+            return "function" == typeof n ? n(...t) : n;
+          }
+          date(e, t) {
+            return (
+              (e = new Date(e)),
+              new Intl.DateTimeFormat(this.lang(), t).format(e)
+            );
+          }
+          number(e, t) {
+            return (
+              (e = Number(e)),
+              isNaN(e) ? "" : new Intl.NumberFormat(this.lang(), t).format(e)
+            );
+          }
+          relativeTime(e, t, r) {
+            return new Intl.RelativeTimeFormat(this.lang(), r).format(e, t);
+          }
+        }
+        o();
+      } catch (v) {
+        o(v);
+      }
+    });
+  },
+  31027: function (e, t, r) {
+    r.d(t, { P: () => a });
+    r(9359), r(31526);
+    var o,
+      n = r(52812),
+      i = r(57243),
+      s = r(15093),
+      a = class extends i.oi {
+        constructor() {
+          super(),
+            (0, n.Ko)(this, o, !1),
+            (this.initialReflectedProperties = new Map()),
+            Object.entries(this.constructor.dependencies).forEach(([e, t]) => {
+              this.constructor.define(e, t);
+            });
+        }
+        emit(e, t) {
+          const r = new CustomEvent(
+            e,
+            (0, n.ih)(
+              { bubbles: !0, cancelable: !1, composed: !0, detail: {} },
+              t,
+            ),
+          );
+          return this.dispatchEvent(r), r;
+        }
+        static define(e, t = this, r = {}) {
+          const o = customElements.get(e);
+          if (!o) {
+            try {
+              customElements.define(e, t, r);
+            } catch (o) {
+              customElements.define(e, class extends t {}, r);
+            }
+            return;
+          }
+          let n = " (unknown version)",
+            i = n;
+          "version" in t && t.version && (n = " v" + t.version),
+            "version" in o && o.version && (i = " v" + o.version),
+            (n && i && n === i) ||
+              console.warn(
+                `Attempted to register <${e}>${n}, but <${e}>${i} has already been registered.`,
+              );
+        }
+        attributeChangedCallback(e, t, r) {
+          (0, n.ac)(this, o) ||
+            (this.constructor.elementProperties.forEach((e, t) => {
+              e.reflect &&
+                null != this[t] &&
+                this.initialReflectedProperties.set(t, this[t]);
+            }),
+            (0, n.qx)(this, o, !0)),
+            super.attributeChangedCallback(e, t, r);
+        }
+        willUpdate(e) {
+          super.willUpdate(e),
+            this.initialReflectedProperties.forEach((t, r) => {
+              e.has(r) && null == this[r] && (this[r] = t);
+            });
+        }
+      };
+    (o = new WeakMap()),
+      (a.version = "2.20.1"),
+      (a.dependencies = {}),
+      (0, n.u2)([(0, s.Cb)()], a.prototype, "dir", 2),
+      (0, n.u2)([(0, s.Cb)()], a.prototype, "lang", 2);
+  },
+  15073: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        r.d(t, { V: () => a });
+        var n = r(21262),
+          i = r(48734),
+          s = e([i, n]);
+        [i, n] = s.then ? (await s)() : s;
+        var a = class extends i.Ve {};
+        (0, i.P5)(n.K), o();
+      } catch (e) {
+        o(e);
+      }
+    });
+  },
+  21262: function (e, t, r) {
+    r.a(e, async function (e, o) {
+      try {
+        r.d(t, { K: () => a });
+        var n = r(48734),
+          i = e([n]);
+        n = (i.then ? (await i)() : i)[0];
+        var s = {
+          $code: "en",
+          $name: "English",
+          $dir: "ltr",
+          carousel: "Carousel",
+          clearEntry: "Clear entry",
+          close: "Close",
+          copied: "Copied",
+          copy: "Copy",
+          currentValue: "Current value",
+          error: "Error",
+          goToSlide: (e, t) => `Go to slide ${e} of ${t}`,
+          hidePassword: "Hide password",
+          loading: "Loading",
+          nextSlide: "Next slide",
+          numOptionsSelected: (e) =>
+            0 === e
+              ? "No options selected"
+              : 1 === e
+              ? "1 option selected"
+              : `${e} options selected`,
+          previousSlide: "Previous slide",
+          progress: "Progress",
+          remove: "Remove",
+          resize: "Resize",
+          scrollToEnd: "Scroll to end",
+          scrollToStart: "Scroll to start",
+          selectAColorFromTheScreen: "Select a color from the screen",
+          showPassword: "Show password",
+          slideNum: (e) => `Slide ${e}`,
+          toggleColorFormat: "Toggle color format",
+        };
+        (0, n.P5)(s);
+        var a = s;
+        o();
+      } catch (e) {
+        o(e);
+      }
+    });
+  },
+  52812: function (e, t, r) {
+    r.d(t, {
+      EZ: () => p,
+      Ko: () => y,
+      ac: () => v,
+      ih: () => h,
+      qx: () => f,
+      u2: () => m,
+    });
+    var o = Object.defineProperty,
+      n = Object.defineProperties,
+      i = Object.getOwnPropertyDescriptor,
+      s = Object.getOwnPropertyDescriptors,
+      a = Object.getOwnPropertySymbols,
+      c = Object.prototype.hasOwnProperty,
+      l = Object.prototype.propertyIsEnumerable,
+      d = (e) => {
+        throw TypeError(e);
+      },
+      u = (e, t, r) =>
+        t in e
+          ? o(e, t, {
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+              value: r,
+            })
+          : (e[t] = r),
+      h = (e, t) => {
+        for (var r in t || (t = {})) c.call(t, r) && u(e, r, t[r]);
+        if (a) for (var r of a(t)) l.call(t, r) && u(e, r, t[r]);
+        return e;
+      },
+      p = (e, t) => n(e, s(t)),
+      m = (e, t, r, n) => {
+        for (
+          var s, a = n > 1 ? void 0 : n ? i(t, r) : t, c = e.length - 1;
+          c >= 0;
+          c--
+        )
+          (s = e[c]) && (a = (n ? s(t, r, a) : s(a)) || a);
+        return n && a && o(t, r, a), a;
+      },
+      g = (e, t, r) => t.has(e) || d("Cannot " + r),
+      v = (e, t, r) => (
+        g(e, t, "read from private field"), r ? r.call(e) : t.get(e)
+      ),
+      y = (e, t, r) =>
+        t.has(e)
+          ? d("Cannot add the same private member more than once")
+          : t instanceof WeakSet
+          ? t.add(e)
+          : t.set(e, r),
+      f = (e, t, r, o) => (
+        g(e, t, "write to private field"), o ? o.call(e, r) : t.set(e, r), r
+      );
+  },
+  81048: function (e, t, r) {
+    r.d(t, { N: () => o });
+    var o = r(57243)
+      .iv`:host{box-sizing:border-box}:host *,:host ::after,:host ::before{box-sizing:inherit}[hidden]{display:none!important}`;
+  },
+};
 //# sourceMappingURL=82780.49ed395503ea56c9.js.map

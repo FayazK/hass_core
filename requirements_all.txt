@@ -1156,8 +1156,6 @@ hole==0.8.0
 # homeassistant.components.workday
 holidays==0.69
 
-# homeassistant.components.frontend
-
 # homeassistant.components.conversation
 home-assistant-intents==2025.3.28
 

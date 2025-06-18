@@ -1,21 +1,386 @@
-export const __webpack_ids__=["58513"];export const __webpack_modules__={20130:function(e,t,i){var a=i(44249),s=i(72621),n=i(39785),o=i(52876),d=i(15093),c=i(57243),l=i(5111);(0,a.Z)([(0,d.Mo)("ha-fab")],(function(e,t){class i extends t{constructor(...t){super(...t),e(this)}}return{F:i,d:[{kind:"method",key:"firstUpdated",value:function(e){(0,s.Z)(i,"firstUpdated",this,3)([e]),this.style.setProperty("--mdc-theme-secondary","var(--primary-color)")}},{kind:"field",static:!0,key:"styles",value:()=>[o.W,c.iv`:host .mdc-fab--extended .mdc-fab__icon{margin-inline-start:-8px;margin-inline-end:12px;direction:var(--direction)}:disabled{--mdc-theme-secondary:var(--disabled-text-color);pointer-events:none}`,"rtl"===l.E.document.dir?c.iv`:host .mdc-fab--extended .mdc-fab__icon{direction:rtl}`:c.iv``]}]}}),n._)},279:function(e,t,i){i.d(t,{Qc:()=>l,Xr:()=>c,zJ:()=>d});i(9359),i(31526),i(92519),i(42179),i(89256),i(24931),i(88463),i(57449),i(19814);const a=["zone","persistent_notification"],s=(e,t)=>{if("call-service"!==t.action||!t.target?.entity_id&&!t.service_data?.entity_id&&!t.data?.entity_id)return;let i=t.service_data?.entity_id??t.data?.entity_id??t.target?.entity_id;Array.isArray(i)||(i=[i]);for(const t of i)e.add(t)},n=(e,t)=>{t&&("string"!=typeof t?(t.entity&&e.add(t.entity),t.camera_image&&e.add(t.camera_image),t.tap_action&&s(e,t.tap_action),t.hold_action&&s(e,t.hold_action)):e.add(t))},o=(e,t)=>{t.entity&&n(e,t.entity),t.entities&&Array.isArray(t.entities)&&t.entities.forEach((t=>n(e,t))),t.card&&o(e,t.card),t.cards&&Array.isArray(t.cards)&&t.cards.forEach((t=>o(e,t))),t.elements&&Array.isArray(t.elements)&&t.elements.forEach((t=>o(e,t))),t.badges&&Array.isArray(t.badges)&&t.badges.forEach((t=>n(e,t))),t.sections&&Array.isArray(t.sections)&&t.sections.forEach((t=>o(e,t)))},d=e=>{const t=new Set;return e.views.forEach((e=>{o(t,e)})),t},c=(e,t)=>{const i=new Set;for(const s of Object.keys(e.states))t.has(s)||a.includes(s.split(".",1)[0])||i.add(s);return i},l=(e,t)=>{const i=d(t);return c(e,i)}},53380:function(e,t,i){i.d(t,{f:()=>n});var a=i(36522);const s=()=>Promise.all([i.e("97983"),i.e("35671"),i.e("83895"),i.e("29570"),i.e("65505"),i.e("8795"),i.e("71588"),i.e("92139"),i.e("32146"),i.e("9296"),i.e("47399"),i.e("74407"),i.e("63055"),i.e("44251"),i.e("52358"),i.e("95752"),i.e("60487"),i.e("92691"),i.e("38326"),i.e("16912"),i.e("70639"),i.e("92368"),i.e("37316"),i.e("42595"),i.e("89743")]).then(i.bind(i,22958)),n=(e,t)=>{(0,a.B)(e,"show-dialog",{dialogTag:"hui-dialog-suggest-card",dialogImport:s,dialogParams:t})}},74941:function(e,t,i){i.d(t,{i:()=>s});var a=i(36522);const s=(e,t)=>{(0,a.B)(e,"show-dialog",{dialogTag:"hui-dialog-select-view",dialogImport:()=>Promise.all([i.e("41258"),i.e("97983"),i.e("35671"),i.e("7010"),i.e("5851")]).then(i.bind(i,67271)),dialogParams:t})}},39507:function(e,t,i){i.a(e,(async function(e,a){try{i.r(t),i.d(t,{HuiUnusedEntities:()=>b});var s=i(44249),n=i(72621),o=(i(9359),i(70104),i(57243)),d=i(15093),c=i(35359),l=i(73850),r=i(47194),h=(i(20130),i(37583),i(279)),f=i(71971),u=i(53380),v=i(74941),g=i(20526),_=e([f]);f=(_.then?(await _)():_)[0];const y="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";let b=(0,s.Z)([(0,d.Mo)("hui-unused-entities")],(function(e,t){class i extends t{constructor(...t){super(...t),e(this)}}return{F:i,d:[{kind:"field",decorators:[(0,d.Cb)({attribute:!1})],key:"lovelace",value:void 0},{kind:"field",decorators:[(0,d.Cb)({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[(0,d.Cb)({type:Boolean})],key:"narrow",value:()=>!1},{kind:"field",decorators:[(0,d.SB)()],key:"_unusedEntities",value:()=>[]},{kind:"field",decorators:[(0,d.SB)()],key:"_selectedEntities",value:()=>[]},{kind:"get",key:"_config",value:function(){return this.lovelace.config}},{kind:"method",key:"updated",value:function(e){(0,n.Z)(i,"updated",this,3)([e]),e.has("lovelace")&&this._getUnusedEntities()}},{kind:"method",key:"render",value:function(){return this.hass&&this.lovelace?"storage"===this.lovelace.mode&&!1===this.lovelace.editMode?o.Ld:o.dy`
+export const __webpack_ids__ = ["58513"];
+export const __webpack_modules__ = {
+  20130: function (e, t, i) {
+    var a = i(44249),
+      s = i(72621),
+      n = i(39785),
+      o = i(52876),
+      d = i(15093),
+      c = i(57243),
+      l = i(5111);
+    (0, a.Z)(
+      [(0, d.Mo)("ha-fab")],
+      function (e, t) {
+        class i extends t {
+          constructor(...t) {
+            super(...t), e(this);
+          }
+        }
+        return {
+          F: i,
+          d: [
+            {
+              kind: "method",
+              key: "firstUpdated",
+              value: function (e) {
+                (0, s.Z)(i, "firstUpdated", this, 3)([e]),
+                  this.style.setProperty(
+                    "--mdc-theme-secondary",
+                    "var(--primary-color)",
+                  );
+              },
+            },
+            {
+              kind: "field",
+              static: !0,
+              key: "styles",
+              value: () => [
+                o.W,
+                c.iv`:host .mdc-fab--extended .mdc-fab__icon{margin-inline-start:-8px;margin-inline-end:12px;direction:var(--direction)}:disabled{--mdc-theme-secondary:var(--disabled-text-color);pointer-events:none}`,
+                "rtl" === l.E.document.dir
+                  ? c.iv`:host .mdc-fab--extended .mdc-fab__icon{direction:rtl}`
+                  : c.iv``,
+              ],
+            },
+          ],
+        };
+      },
+      n._,
+    );
+  },
+  279: function (e, t, i) {
+    i.d(t, { Qc: () => l, Xr: () => c, zJ: () => d });
+    i(9359),
+      i(31526),
+      i(92519),
+      i(42179),
+      i(89256),
+      i(24931),
+      i(88463),
+      i(57449),
+      i(19814);
+    const a = ["zone", "persistent_notification"],
+      s = (e, t) => {
+        if (
+          "call-service" !== t.action ||
+          (!t.target?.entity_id &&
+            !t.service_data?.entity_id &&
+            !t.data?.entity_id)
+        )
+          return;
+        let i =
+          t.service_data?.entity_id ?? t.data?.entity_id ?? t.target?.entity_id;
+        Array.isArray(i) || (i = [i]);
+        for (const t of i) e.add(t);
+      },
+      n = (e, t) => {
+        t &&
+          ("string" != typeof t
+            ? (t.entity && e.add(t.entity),
+              t.camera_image && e.add(t.camera_image),
+              t.tap_action && s(e, t.tap_action),
+              t.hold_action && s(e, t.hold_action))
+            : e.add(t));
+      },
+      o = (e, t) => {
+        t.entity && n(e, t.entity),
+          t.entities &&
+            Array.isArray(t.entities) &&
+            t.entities.forEach((t) => n(e, t)),
+          t.card && o(e, t.card),
+          t.cards && Array.isArray(t.cards) && t.cards.forEach((t) => o(e, t)),
+          t.elements &&
+            Array.isArray(t.elements) &&
+            t.elements.forEach((t) => o(e, t)),
+          t.badges &&
+            Array.isArray(t.badges) &&
+            t.badges.forEach((t) => n(e, t)),
+          t.sections &&
+            Array.isArray(t.sections) &&
+            t.sections.forEach((t) => o(e, t));
+      },
+      d = (e) => {
+        const t = new Set();
+        return (
+          e.views.forEach((e) => {
+            o(t, e);
+          }),
+          t
+        );
+      },
+      c = (e, t) => {
+        const i = new Set();
+        for (const s of Object.keys(e.states))
+          t.has(s) || a.includes(s.split(".", 1)[0]) || i.add(s);
+        return i;
+      },
+      l = (e, t) => {
+        const i = d(t);
+        return c(e, i);
+      };
+  },
+  53380: function (e, t, i) {
+    i.d(t, { f: () => n });
+    var a = i(36522);
+    const s = () =>
+        Promise.all([
+          i.e("97983"),
+          i.e("35671"),
+          i.e("83895"),
+          i.e("29570"),
+          i.e("65505"),
+          i.e("8795"),
+          i.e("71588"),
+          i.e("92139"),
+          i.e("32146"),
+          i.e("9296"),
+          i.e("47399"),
+          i.e("74407"),
+          i.e("63055"),
+          i.e("44251"),
+          i.e("52358"),
+          i.e("95752"),
+          i.e("60487"),
+          i.e("92691"),
+          i.e("38326"),
+          i.e("16912"),
+          i.e("70639"),
+          i.e("92368"),
+          i.e("37316"),
+          i.e("42595"),
+          i.e("89743"),
+        ]).then(i.bind(i, 22958)),
+      n = (e, t) => {
+        (0, a.B)(e, "show-dialog", {
+          dialogTag: "hui-dialog-suggest-card",
+          dialogImport: s,
+          dialogParams: t,
+        });
+      };
+  },
+  74941: function (e, t, i) {
+    i.d(t, { i: () => s });
+    var a = i(36522);
+    const s = (e, t) => {
+      (0, a.B)(e, "show-dialog", {
+        dialogTag: "hui-dialog-select-view",
+        dialogImport: () =>
+          Promise.all([
+            i.e("41258"),
+            i.e("97983"),
+            i.e("35671"),
+            i.e("7010"),
+            i.e("5851"),
+          ]).then(i.bind(i, 67271)),
+        dialogParams: t,
+      });
+    };
+  },
+  39507: function (e, t, i) {
+    i.a(e, async function (e, a) {
+      try {
+        i.r(t), i.d(t, { HuiUnusedEntities: () => b });
+        var s = i(44249),
+          n = i(72621),
+          o = (i(9359), i(70104), i(57243)),
+          d = i(15093),
+          c = i(35359),
+          l = i(73850),
+          r = i(47194),
+          h = (i(20130), i(37583), i(279)),
+          f = i(71971),
+          u = i(53380),
+          v = i(74941),
+          g = i(20526),
+          _ = e([f]);
+        f = (_.then ? (await _)() : _)[0];
+        const y = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
+        let b = (0, s.Z)(
+          [(0, d.Mo)("hui-unused-entities")],
+          function (e, t) {
+            class i extends t {
+              constructor(...t) {
+                super(...t), e(this);
+              }
+            }
+            return {
+              F: i,
+              d: [
+                {
+                  kind: "field",
+                  decorators: [(0, d.Cb)({ attribute: !1 })],
+                  key: "lovelace",
+                  value: void 0,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, d.Cb)({ attribute: !1 })],
+                  key: "hass",
+                  value: void 0,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, d.Cb)({ type: Boolean })],
+                  key: "narrow",
+                  value: () => !1,
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, d.SB)()],
+                  key: "_unusedEntities",
+                  value: () => [],
+                },
+                {
+                  kind: "field",
+                  decorators: [(0, d.SB)()],
+                  key: "_selectedEntities",
+                  value: () => [],
+                },
+                {
+                  kind: "get",
+                  key: "_config",
+                  value: function () {
+                    return this.lovelace.config;
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "updated",
+                  value: function (e) {
+                    (0, n.Z)(i, "updated", this, 3)([e]),
+                      e.has("lovelace") && this._getUnusedEntities();
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "render",
+                  value: function () {
+                    return this.hass && this.lovelace
+                      ? "storage" === this.lovelace.mode &&
+                        !1 === this.lovelace.editMode
+                        ? o.Ld
+                        : o.dy`
       <div class="container">
-        ${this.narrow?"":o.dy`
-              <ha-card header=${this.hass.localize("ui.panel.lovelace.unused_entities.title")}>
+        ${
+          this.narrow
+            ? ""
+            : o.dy`
+              <ha-card header=${this.hass.localize(
+                "ui.panel.lovelace.unused_entities.title",
+              )}>
                 <div class="card-content">
-                  ${this.hass.localize("ui.panel.lovelace.unused_entities.available_entities")}
-                  ${"storage"===this.lovelace.mode?o.dy`
-                        <br/>${this.hass.localize("ui.panel.lovelace.unused_entities.select_to_add")}
-                      `:""}
+                  ${this.hass.localize(
+                    "ui.panel.lovelace.unused_entities.available_entities",
+                  )}
+                  ${
+                    "storage" === this.lovelace.mode
+                      ? o.dy`
+                        <br/>${this.hass.localize(
+                          "ui.panel.lovelace.unused_entities.select_to_add",
+                        )}
+                      `
+                      : ""
+                  }
                 </div>
               </ha-card>
-            `}
-        <hui-entity-picker-table .hass=${this.hass} .narrow=${this.narrow} .entities=${this._unusedEntities.map((e=>{const t=this.hass.states[e];return{icon:"",entity_id:e,stateObj:t,name:t?(0,r.C)(t):"Unavailable",domain:(0,l.M)(e),last_changed:t?.last_changed}}))} @selected-changed=${this._handleSelectedChanged}></hui-entity-picker-table>
+            `
+        }
+        <hui-entity-picker-table .hass=${this.hass} .narrow=${
+          this.narrow
+        } .entities=${this._unusedEntities.map((e) => {
+          const t = this.hass.states[e];
+          return {
+            icon: "",
+            entity_id: e,
+            stateObj: t,
+            name: t ? (0, r.C)(t) : "Unavailable",
+            domain: (0, l.M)(e),
+            last_changed: t?.last_changed,
+          };
+        })} @selected-changed=${
+          this._handleSelectedChanged
+        }></hui-entity-picker-table>
       </div>
-      <div class="fab ${(0,c.$)({selected:this._selectedEntities.length})}">
-        <ha-fab .label=${this.hass.localize("ui.panel.lovelace.editor.edit_card.add")} extended @click=${this._addToLovelaceView}>
+      <div class="fab ${(0, c.$)({ selected: this._selectedEntities.length })}">
+        <ha-fab .label=${this.hass.localize(
+          "ui.panel.lovelace.editor.edit_card.add",
+        )} extended @click=${this._addToLovelaceView}>
           <ha-svg-icon slot="icon" .path=${y}></ha-svg-icon>
         </ha-fab>
       </div>
-    `:o.Ld}},{kind:"method",key:"_getUnusedEntities",value:function(){if(!this.hass||!this.lovelace)return;this._selectedEntities=[];const e=(0,h.Qc)(this.hass,this._config);this._unusedEntities=[...e].sort()}},{kind:"method",key:"_handleSelectedChanged",value:function(e){this._selectedEntities=e.detail.selectedEntities}},{kind:"method",key:"_addToLovelaceView",value:function(){const e=(0,g.VG)(this.hass.states,this._selectedEntities,{}),t=(0,g.lY)(this._selectedEntities,{});1!==this.lovelace.config.views.length?(0,v.i)(this,{lovelaceConfig:this.lovelace.config,allowDashboardChange:!1,viewSelectedCallback:(i,a,s)=>{(0,u.f)(this,{lovelaceConfig:this.lovelace.config,saveConfig:this.lovelace.saveConfig,path:[s],entities:this._selectedEntities,cardConfig:e,sectionConfig:t})}}):(0,u.f)(this,{lovelaceConfig:this.lovelace.config,saveConfig:this.lovelace.saveConfig,path:[0],entities:this._selectedEntities,cardConfig:e,sectionConfig:t})}},{kind:"field",static:!0,key:"styles",value:()=>o.iv`:host{overflow:hidden}.container{display:flex;flex-direction:column;height:100%}ha-card{--ha-card-box-shadow:none;--ha-card-border-radius:0}hui-entity-picker-table{flex-grow:1}.fab{position:sticky;float:var(--float-end);right:calc(16px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));inset-inline-end:calc(16px + env(safe-area-inset-right));inset-inline-start:initial;z-index:1}ha-fab{position:relative;bottom:calc(-80px - env(safe-area-inset-bottom));transition:bottom .3s}.fab.selected ha-fab{bottom:0}`}]}}),o.oi);a()}catch(e){a(e)}}))}};
+    `
+                      : o.Ld;
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "_getUnusedEntities",
+                  value: function () {
+                    if (!this.hass || !this.lovelace) return;
+                    this._selectedEntities = [];
+                    const e = (0, h.Qc)(this.hass, this._config);
+                    this._unusedEntities = [...e].sort();
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "_handleSelectedChanged",
+                  value: function (e) {
+                    this._selectedEntities = e.detail.selectedEntities;
+                  },
+                },
+                {
+                  kind: "method",
+                  key: "_addToLovelaceView",
+                  value: function () {
+                    const e = (0, g.VG)(
+                        this.hass.states,
+                        this._selectedEntities,
+                        {},
+                      ),
+                      t = (0, g.lY)(this._selectedEntities, {});
+                    1 !== this.lovelace.config.views.length
+                      ? (0, v.i)(this, {
+                          lovelaceConfig: this.lovelace.config,
+                          allowDashboardChange: !1,
+                          viewSelectedCallback: (i, a, s) => {
+                            (0, u.f)(this, {
+                              lovelaceConfig: this.lovelace.config,
+                              saveConfig: this.lovelace.saveConfig,
+                              path: [s],
+                              entities: this._selectedEntities,
+                              cardConfig: e,
+                              sectionConfig: t,
+                            });
+                          },
+                        })
+                      : (0, u.f)(this, {
+                          lovelaceConfig: this.lovelace.config,
+                          saveConfig: this.lovelace.saveConfig,
+                          path: [0],
+                          entities: this._selectedEntities,
+                          cardConfig: e,
+                          sectionConfig: t,
+                        });
+                  },
+                },
+                {
+                  kind: "field",
+                  static: !0,
+                  key: "styles",
+                  value: () =>
+                    o.iv`:host{overflow:hidden}.container{display:flex;flex-direction:column;height:100%}ha-card{--ha-card-box-shadow:none;--ha-card-border-radius:0}hui-entity-picker-table{flex-grow:1}.fab{position:sticky;float:var(--float-end);right:calc(16px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));inset-inline-end:calc(16px + env(safe-area-inset-right));inset-inline-start:initial;z-index:1}ha-fab{position:relative;bottom:calc(-80px - env(safe-area-inset-bottom));transition:bottom .3s}.fab.selected ha-fab{bottom:0}`,
+                },
+              ],
+            };
+          },
+          o.oi,
+        );
+        a();
+      } catch (e) {
+        a(e);
+      }
+    });
+  },
+};
 //# sourceMappingURL=58513.e554dcb4cd1ae305.js.map
