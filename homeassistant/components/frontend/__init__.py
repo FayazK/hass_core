@@ -39,11 +39,7 @@ from .storage import async_setup_frontend_storage
 
 # Custom frontend configuration
 CUSTOM_FRONTEND_ENABLED = True
-CUSTOM_FRONTEND_PATH = "custom_static"
-
-# Add custom frontend path
-CUSTOM_FRONTEND_STATIC_PATH = os.path.join(os.path.dirname(__file__), "custom_static")
-
+CUSTOM_FRONTEND_PATH = os.path.join(os.path.dirname(__file__), "custom_static")
 
 DOMAIN = "frontend"
 CONF_THEMES = "themes"
@@ -58,7 +54,6 @@ CONF_FRONTEND_REPO = "development_repo"
 CONF_JS_VERSION = "javascript_version"
 
 DEFAULT_THEME_COLOR = "#03A9F4"
-
 
 DATA_PANELS: HassKey[dict[str, Panel]] = HassKey("frontend_panels")
 DATA_EXTRA_MODULE_URL: HassKey[UrlManager] = HassKey("frontend_extra_module_url")
@@ -133,38 +128,6 @@ CONFIG_SCHEMA = vol.Schema(
 
 SERVICE_SET_THEME = "set_theme"
 SERVICE_RELOAD_THEMES = "reload_themes"
-
-# Add custom frontend configuration after existing imports
-CUSTOM_FRONTEND_STATIC_PATH = os.path.join(os.path.dirname(__file__), "custom_static")
-
-def setup_custom_frontend_static(app):
-    """Setup serving of custom frontend static files."""
-    from aiohttp import web
-
-    # Serve custom static files with high priority
-    app.router.add_static(
-        "/static",
-        CUSTOM_FRONTEND_STATIC_PATH + "/static",
-        name="custom_static",
-    )
-
-    # Serve custom frontend files
-    app.router.add_static(
-        "/frontend_latest",
-        CUSTOM_FRONTEND_STATIC_PATH + "/frontend_latest",
-        name="custom_frontend_latest",
-    )
-
-    app.router.add_static(
-        "/frontend_es5",
-        CUSTOM_FRONTEND_STATIC_PATH + "/frontend_es5",
-        name="custom_frontend_es5",
-    )
-
-# Find the async_setup function and add custom setup call
-# Look for: async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
-# Add after the existing app setup:
-# setup_custom_frontend_static(hass.http.app)
 
 
 class Manifest:
@@ -401,14 +364,9 @@ def add_manifest_json_key(key: str, val: Any) -> None:
 
 def _frontend_root(dev_repo_path: str | None) -> pathlib.Path:
     """Return root path to the frontend files."""
-    #if dev_repo_path is not None:
-    #    return pathlib.Path(dev_repo_path) / "hass_frontend"
-    # Keep import here so that we can import frontend without installing reqs
-    # pylint: disable-next=import-outside-toplevel
-    #import hass_frontend
-
-    #return hass_frontend.where()
-    return pathlib.Path(__file__).parent / "custom_static"
+    # Always use our custom frontend regardless of dev_repo_path
+    _LOGGER.info("Using custom frontend from: %s", CUSTOM_FRONTEND_PATH)
+    return pathlib.Path(CUSTOM_FRONTEND_PATH)
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
@@ -431,12 +389,17 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 key,
             )
 
-    repo_path = conf.get(CONF_FRONTEND_REPO)
-    is_dev = repo_path is not None
+    # Force dev repo path to None to ensure we use custom frontend
+    repo_path = None
+    is_dev = False
     root_path = _frontend_root(repo_path)
+
+    _LOGGER.info("Custom frontend root path: %s", root_path)
+    _LOGGER.info("Custom frontend exists: %s", root_path.exists())
 
     static_paths_configs: list[StaticPathConfig] = []
 
+    # Register all standard frontend paths from our custom frontend
     for path, should_cache in (
         ("service_worker.js", False),
         ("sw-modern.js", False),
@@ -449,13 +412,23 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         ("frontend_latest", not is_dev),
         ("frontend_es5", not is_dev),
     ):
-        static_paths_configs.append(
-            StaticPathConfig(f"/{path}", str(root_path / path), should_cache)
-        )
+        file_path = root_path / path
+        if file_path.exists():
+            static_paths_configs.append(
+                StaticPathConfig(f"/{path}", str(file_path), should_cache)
+            )
+            _LOGGER.info("Registered custom frontend path: /%s -> %s", path, file_path)
+        else:
+            _LOGGER.warning("Custom frontend path not found: %s", file_path)
 
-    static_paths_configs.append(
-        StaticPathConfig("/auth/authorize", str(root_path / "authorize.html"), False)
-    )
+    # Register authorize page
+    auth_path = root_path / "authorize.html"
+    if auth_path.exists():
+        static_paths_configs.append(
+            StaticPathConfig("/auth/authorize", str(auth_path), False)
+        )
+        _LOGGER.info("Registered custom authorize page: %s", auth_path)
+
     # https://wicg.github.io/change-password-url/
     hass.http.register_redirect(
         "/.well-known/change-password", "/profile", redirect_exc=web.HTTPFound
@@ -466,6 +439,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         static_paths_configs.append(StaticPathConfig("/local", local, not is_dev))
 
     await hass.http.async_register_static_paths(static_paths_configs)
+    
     # Shopping list panel was replaced by todo panel in 2023.11
     hass.http.register_redirect("/shopping-list", "/todo")
 
@@ -505,7 +479,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     await _async_setup_themes(hass, conf.get(CONF_THEMES))
 
-    setup_custom_frontend_static(hass.http.app)
+    _LOGGER.info("Custom frontend setup completed successfully")
 
     return True
 
@@ -683,10 +657,35 @@ class IndexView(web_urldispatcher.AbstractResource):
     def get_template(self) -> jinja2.Template:
         """Get template."""
         if (tpl := self._template_cache) is None:
-            with (_frontend_root(self.repo_path) / "index.html").open(
-                encoding="utf8"
-            ) as file:
-                tpl = jinja2.Template(file.read())
+            index_path = _frontend_root(self.repo_path) / "index.html"
+            _LOGGER.info("Loading custom frontend template from: %s", index_path)
+            
+            if not index_path.exists():
+                _LOGGER.error("Custom frontend index.html not found at: %s", index_path)
+                # Create a basic fallback template
+                template_content = """<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Home Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #0f1419; color: white; text-align: center; }
+        .error { background: #dc2626; padding: 20px; border-radius: 10px; margin: 20px auto; max-width: 600px; }
+    </style>
+</head>
+<body>
+    <div class="error">
+        <h1>🚨 Custom Frontend Error</h1>
+        <p>Custom frontend index.html not found</p>
+        <p>Expected: {{ index_path }}</p>
+        <p>Please check your custom frontend build</p>
+    </div>
+</body>
+</html>"""
+                tpl = jinja2.Template(template_content)
+            else:
+                with index_path.open(encoding="utf8") as file:
+                    tpl = jinja2.Template(file.read())
+                _LOGGER.info("Custom frontend template loaded successfully")
 
             # Cache template if not running from repository
             if self.repo_path is None:
@@ -720,6 +719,7 @@ class IndexView(web_urldispatcher.AbstractResource):
                 theme_color=MANIFEST_JSON["theme_color"],
                 extra_modules=extra_modules,
                 extra_js_es5=extra_js_es5,
+                index_path=_frontend_root(self.repo_path) / "index.html",  # For error template
             ),
             content_type="text/html",
         )
@@ -852,18 +852,8 @@ async def websocket_get_version(
     hass: HomeAssistant, connection: ActiveConnection, msg: dict[str, Any]
 ) -> None:
     """Handle get version command."""
-    integration = await async_get_integration(hass, "frontend")
-
-    frontend = None
-
-    for req in integration.requirements:
-        if req.startswith("home-assistant-frontend=="):
-            frontend = req.removeprefix("home-assistant-frontend==")
-
-    if frontend is None:
-        connection.send_error(msg["id"], "unknown_version", "Version not found")
-    else:
-        connection.send_result(msg["id"], {"version": frontend})
+    # Return custom frontend version
+    connection.send_result(msg["id"], {"version": "2025.2.26-custom"})
 
 
 @callback
