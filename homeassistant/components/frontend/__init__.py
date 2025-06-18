@@ -439,7 +439,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         static_paths_configs.append(StaticPathConfig("/local", local, not is_dev))
 
     await hass.http.async_register_static_paths(static_paths_configs)
-    
+
     # Shopping list panel was replaced by todo panel in 2023.11
     hass.http.register_redirect("/shopping-list", "/todo")
 
@@ -659,7 +659,7 @@ class IndexView(web_urldispatcher.AbstractResource):
         if (tpl := self._template_cache) is None:
             index_path = _frontend_root(self.repo_path) / "index.html"
             _LOGGER.info("Loading custom frontend template from: %s", index_path)
-            
+
             if not index_path.exists():
                 _LOGGER.error("Custom frontend index.html not found at: %s", index_path)
                 # Create a basic fallback template
@@ -719,7 +719,8 @@ class IndexView(web_urldispatcher.AbstractResource):
                 theme_color=MANIFEST_JSON["theme_color"],
                 extra_modules=extra_modules,
                 extra_js_es5=extra_js_es5,
-                index_path=_frontend_root(self.repo_path) / "index.html",  # For error template
+                index_path=_frontend_root(self.repo_path)
+                / "index.html",  # For error template
             ),
             content_type="text/html",
         )
